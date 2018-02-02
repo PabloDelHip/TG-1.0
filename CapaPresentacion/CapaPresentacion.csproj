@@ -75,12 +75,6 @@
       <DependentUpon>CREntradas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="fgfg.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fgfg.Designer.cs">
-      <DependentUpon>fgfg.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmBusquedaEntradas.cs">
       <SubType>Form</SubType>
     </Compile>
