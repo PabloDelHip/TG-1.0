@@ -14,6 +14,7 @@ namespace CapaLogicaNegocios
         public char m_Tipo { get; set; }
         public double m_Monto { get; set; }
         public string m_User_modif { get; set; }
+        public int m_claveTipoMembresia { get; set; }
         ClsManejador M = new ClsManejador();
 
         public void guardarMovimientoVenta()
@@ -28,7 +29,8 @@ namespace CapaLogicaNegocios
                 lst.Add(new ClsParametros("@Tipo", m_Tipo));
                 lst.Add(new ClsParametros("@Monto", m_Monto));
                 lst.Add(new ClsParametros("@User_modif", m_User_modif));
-
+                lst.Add(new ClsParametros("@claveTipoMembresia", m_claveTipoMembresia));
+                
                 M.Ejecutar_sp("guardar_movimiento_venta", lst);
                 //Retornamos el mensaje  de salida del SP
 

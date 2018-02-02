@@ -108,7 +108,7 @@
             this.TabUsuario.Location = new System.Drawing.Point(0, 34);
             this.TabUsuario.Name = "TabUsuario";
             this.TabUsuario.SelectedIndex = 0;
-            this.TabUsuario.Size = new System.Drawing.Size(766, 712);
+            this.TabUsuario.Size = new System.Drawing.Size(764, 703);
             this.TabUsuario.TabIndex = 2;
             // 
             // TabGral
@@ -123,7 +123,7 @@
             this.TabGral.Location = new System.Drawing.Point(4, 22);
             this.TabGral.Name = "TabGral";
             this.TabGral.Padding = new System.Windows.Forms.Padding(3);
-            this.TabGral.Size = new System.Drawing.Size(758, 686);
+            this.TabGral.Size = new System.Drawing.Size(756, 677);
             this.TabGral.TabIndex = 0;
             this.TabGral.Text = "Generales";
             this.TabGral.UseVisualStyleBackColor = true;
@@ -141,13 +141,15 @@
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToOrderColumns = true;
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Concepto,
             this.Monto});
             this.dataGridView2.Location = new System.Drawing.Point(6, 551);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(617, 128);
+            this.dataGridView2.Size = new System.Drawing.Size(617, 120);
             this.dataGridView2.TabIndex = 25;
             // 
             // Concepto
@@ -576,7 +578,7 @@
             this.TabHistorial.Location = new System.Drawing.Point(4, 22);
             this.TabHistorial.Name = "TabHistorial";
             this.TabHistorial.Padding = new System.Windows.Forms.Padding(3);
-            this.TabHistorial.Size = new System.Drawing.Size(758, 686);
+            this.TabHistorial.Size = new System.Drawing.Size(756, 663);
             this.TabHistorial.TabIndex = 1;
             this.TabHistorial.Text = "Historial";
             this.TabHistorial.UseVisualStyleBackColor = true;
@@ -632,7 +634,7 @@
             // 
             this.TabFoto.Location = new System.Drawing.Point(4, 22);
             this.TabFoto.Name = "TabFoto";
-            this.TabFoto.Size = new System.Drawing.Size(758, 686);
+            this.TabFoto.Size = new System.Drawing.Size(756, 663);
             this.TabFoto.TabIndex = 2;
             this.TabFoto.Text = "Foto";
             this.TabFoto.UseVisualStyleBackColor = true;
@@ -648,7 +650,7 @@
             this.TsLimpiaForm});
             this.TStOpciones.Location = new System.Drawing.Point(0, 0);
             this.TStOpciones.Name = "TStOpciones";
-            this.TStOpciones.Size = new System.Drawing.Size(778, 31);
+            this.TStOpciones.Size = new System.Drawing.Size(779, 31);
             this.TStOpciones.TabIndex = 3;
             this.TStOpciones.Text = "toolStrip1";
             // 
@@ -681,6 +683,7 @@
             this.TtsGuardaSocio.Name = "TtsGuardaSocio";
             this.TtsGuardaSocio.Size = new System.Drawing.Size(77, 28);
             this.TtsGuardaSocio.Text = "Guardar";
+            this.TtsGuardaSocio.Click += new System.EventHandler(this.TtsGuardaSocio_Click);
             // 
             // TsLimpiaForm
             // 
@@ -697,13 +700,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(795, 558);
+            this.ClientSize = new System.Drawing.Size(779, 741);
             this.Controls.Add(this.TStOpciones);
             this.Controls.Add(this.TabUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FrmOperacion";
             this.Text = "FrmOperacion";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmOperacion_Load);
             this.TabUsuario.ResumeLayout(false);
             this.TabGral.ResumeLayout(false);

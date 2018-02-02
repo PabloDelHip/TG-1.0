@@ -28,6 +28,7 @@ namespace CapaPresentacion
         ClsMovVentasHist cls_mov_ventas_hist = new ClsMovVentasHist();
         List<datosVenta> lista_datos_venta = new List<datosVenta>();
         double SubtotalAPagar=0;
+        int idSocio;
         int FolioVenta;
         public FrmOperacion()
         {
@@ -217,7 +218,8 @@ namespace CapaPresentacion
 
                 //Parametros de salida
                 TxtIdSocio.Text = Socio.InsSocio();
-                if(!cbbLockers.Text.Equals(""))
+                idSocio = Convert.ToInt32(TxtIdSocio.Text);
+                if (!cbbLockers.Text.Equals(""))
                 {
                     cargar_locker(Convert.ToInt32(TxtIdSocio.Text));
                 }
@@ -479,6 +481,7 @@ namespace CapaPresentacion
                     DatosVenta.Item = "Membresia "+ filas["Descripcion"].ToString();
                     DatosVenta.Monto = Convert.ToInt32(filas["Costo"]);
                     DatosVenta.Tipo = 'M';
+                    DatosVenta.ClaveMembresia = Convert.ToInt32(filas["idMembresia"]);
                     lista_datos_venta.Add(DatosVenta);
                 }
 
@@ -490,11 +493,12 @@ namespace CapaPresentacion
         {
             double total_a_pagar_Iva = (SubtotalAPagar * 0.16);
             double total_a_pagar = SubtotalAPagar + total_a_pagar_Iva;
-            cls_hdr_venta_hist.m_IdSocio = 1;
+            cls_hdr_venta_hist.m_IdSocio = Convert.ToInt32(TxtIdSocio.Text);
             cls_hdr_venta_hist.m_Subtotal = SubtotalAPagar;
             cls_hdr_venta_hist.m_IVA = total_a_pagar_Iva;
             cls_hdr_venta_hist.m_Total = total_a_pagar;
             cls_hdr_venta_hist.m_User_modif = Login.nombre;
+            
 
             FolioVenta = Convert.ToInt32(cls_hdr_venta_hist.guardarVenta());
             MessageBox.Show("El folio es: "+ FolioVenta.ToString());
@@ -508,6 +512,7 @@ namespace CapaPresentacion
                 cls_mov_ventas_hist.m_Monto = lista_datos_venta[i].Monto;
                 cls_mov_ventas_hist.m_Tipo = lista_datos_venta[i].Tipo;
                 cls_mov_ventas_hist.m_User_modif = Login.nombre;
+                cls_mov_ventas_hist.m_claveTipoMembresia = lista_datos_venta[i].ClaveMembresia;
                 cls_mov_ventas_hist.guardarMovimientoVenta();
             }
 
@@ -531,6 +536,11 @@ namespace CapaPresentacion
                 MessageBox.Show(lista_datos_venta[i].Item);
             }
         }
+
+        private void TtsGuardaSocio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     class datosVenta
@@ -538,9 +548,10 @@ namespace CapaPresentacion
         string item;
         char tipo;
         double monto;
-
+        int claveMembresia;
         public string Item { get => item; set => item = value; }
         public char Tipo { get => tipo; set => tipo = value; }
         public double Monto { get => monto; set => monto = value; }
+        public int ClaveMembresia { get => claveMembresia; set => claveMembresia = value; }
     }
 }
