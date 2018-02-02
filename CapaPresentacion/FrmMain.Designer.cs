@@ -47,6 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pPrincipal = new System.Windows.Forms.Panel();
             this.ptbImagenSocio = new System.Windows.Forms.PictureBox();
+            this.observacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagenSocio)).BeginInit();
@@ -71,7 +72,8 @@
             // inicioToolStripMenuItem
             // 
             this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.corteToolStripMenuItem});
+            this.corteToolStripMenuItem,
+            this.observacionToolStripMenuItem});
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.inicioToolStripMenuItem.Text = "Inicio";
@@ -227,6 +229,13 @@
             this.ptbImagenSocio.TabStop = false;
             this.ptbImagenSocio.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // observacionToolStripMenuItem
+            // 
+            this.observacionToolStripMenuItem.Name = "observacionToolStripMenuItem";
+            this.observacionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.observacionToolStripMenuItem.Text = "Observacion";
+            this.observacionToolStripMenuItem.Click += new System.EventHandler(this.observacionToolStripMenuItem_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,5 +280,6 @@
         private System.Windows.Forms.ToolStripMenuItem corteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historialCortesCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cortesDeCajaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem observacionToolStripMenuItem;
     }
 }

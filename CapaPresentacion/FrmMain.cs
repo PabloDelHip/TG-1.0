@@ -195,5 +195,10 @@ namespace CapaPresentacion
             FrmCortesCaja abrir = new FrmCortesCaja();
             AbrirVentanas(abrir);
         }
+
+        private void observacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
