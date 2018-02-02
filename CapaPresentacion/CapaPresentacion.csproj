@@ -204,6 +204,9 @@
     <EmbeddedResource Include="FrmReporteEntradas.resx">
       <DependentUpon>FrmReporteEntradas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteMovCaja.resx">
+      <DependentUpon>FrmReporteMovCaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTextoEmails.resx">
       <DependentUpon>FrmTextoEmails.cs</DependentUpon>
     </EmbeddedResource>

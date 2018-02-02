@@ -50,6 +50,7 @@
             this.Controls.Add(this.crvMovCaja);
             this.Name = "FrmReporteMovCaja";
             this.Text = "FrmReporteMovCaja";
+            this.Load += new System.EventHandler(this.FrmReporteMovCaja_Load);
             this.ResumeLayout(false);
 
         }

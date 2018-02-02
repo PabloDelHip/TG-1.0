@@ -12,9 +12,17 @@ namespace CapaPresentacion
 {
     public partial class FrmReporteMovCaja : Form
     {
+        public int opc;
         public FrmReporteMovCaja()
         {
             InitializeComponent();
+        }
+
+        private void FrmReporteMovCaja_Load(object sender, EventArgs e)
+        {
+            FrmCortesCaja cortesCaja = new FrmCortesCaja();
+            opc = cortesCaja.opcion;
+            MessageBox.Show(opc.ToString());
         }
     }
 }
