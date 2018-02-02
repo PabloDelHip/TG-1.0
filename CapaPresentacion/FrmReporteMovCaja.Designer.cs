@@ -59,4 +59,3 @@
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crvMovCaja;
     }
 }
-}
