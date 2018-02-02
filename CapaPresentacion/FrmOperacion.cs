@@ -477,7 +477,7 @@ namespace CapaPresentacion
                     SubtotalAPagar += Convert.ToDouble(filas["Costo"]);
                     DatosVenta = new datosVenta();
                     DatosVenta.Item = "Membresia "+ filas["Descripcion"].ToString();
-                    DatosVenta.Monto = 0;
+                    DatosVenta.Monto = Convert.ToInt32(filas["Costo"]);
                     DatosVenta.Tipo = 'M';
                     lista_datos_venta.Add(DatosVenta);
                 }

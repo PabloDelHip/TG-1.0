@@ -52,7 +52,6 @@
             this.txtClaveSocio.Name = "txtClaveSocio";
             this.txtClaveSocio.Size = new System.Drawing.Size(389, 79);
             this.txtClaveSocio.TabIndex = 1;
-            this.txtClaveSocio.Text = "89898998";
             this.txtClaveSocio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             this.txtClaveSocio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             this.txtClaveSocio.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
@@ -143,7 +142,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(476, 31);
+            this.button1.Location = new System.Drawing.Point(261, 31);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
