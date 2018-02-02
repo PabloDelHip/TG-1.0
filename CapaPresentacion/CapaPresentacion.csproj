@@ -75,6 +75,18 @@
       <DependentUpon>CREntradas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRMovCaja.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMovCaja.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRMovCajaFecha.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMovCajaFecha.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmBusquedaEntradas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +188,14 @@
     <EmbeddedResource Include="CREntradas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CREntradas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMovCaja.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRMovCaja.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMovCajaFecha.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRMovCajaFecha.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBusquedaEntradas.resx">
       <DependentUpon>FrmBusquedaEntradas.cs</DependentUpon>
