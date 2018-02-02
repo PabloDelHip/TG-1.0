@@ -93,6 +93,12 @@
     <Compile Include="FrmCorteSalida.Designer.cs">
       <DependentUpon>FrmCorteSalida.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCortesCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCortesCaja.Designer.cs">
+      <DependentUpon>FrmCortesCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmInstructores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,12 @@
     </Compile>
     <Compile Include="FrmReporteEntradas.Designer.cs">
       <DependentUpon>FrmReporteEntradas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReporteMovCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteMovCaja.Designer.cs">
+      <DependentUpon>FrmReporteMovCaja.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmTextoEmails.cs">
       <SubType>Form</SubType>
