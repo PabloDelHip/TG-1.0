@@ -15,7 +15,7 @@ namespace CapaPresentacion
     {
         //string idUsuario;
         //DateTime fecha;
-        public int opcion { get; set; }
+        int opcion;
 
         ClsMovCortesCaja cls_MovCortesCaja = new ClsMovCortesCaja();
         FrmReporteMovCaja frmReporteCaja = new FrmReporteMovCaja();
@@ -66,6 +66,7 @@ namespace CapaPresentacion
                 dgvMovimientos.DataSource = dt;
                 btnGenerarReporte.Enabled = true;
                 opcion = 1;
+                frmReporteCaja.fecha = dtpFecha.Value;
             }
             catch (Exception ex)
             {
@@ -82,6 +83,7 @@ namespace CapaPresentacion
                 dgvMovimientos.DataSource = dt;
                 btnGenerarReporte.Enabled = true;
                 opcion = 2;
+                frmReporteCaja.idUsuario = Convert.ToInt32(txtUsuario.Text);
             }
             catch (Exception ex)
             {
@@ -91,9 +93,7 @@ namespace CapaPresentacion
 
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
-            //reporteEntradas.idSocio = Convert.ToInt32(txtSocio.Text);
-            //reporteEntradas.fechaInicioBusqueda = dtpInicioBusqueda.Value;
-            //reporteEntradas.fechaFinBusqueda = dtpFinBusqueda.Value;
+            frmReporteCaja.opc = opcion;
             frmReporteCaja.ShowDialog();
         }
     }
