@@ -198,7 +198,8 @@ namespace CapaPresentacion
 
         private void observacionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmObservacion abrir = new FrmObservacion();
+            AbrirVentanas(abrir);
         }
     }
 }
