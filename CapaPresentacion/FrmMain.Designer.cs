@@ -45,8 +45,8 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ptbImagenSocio = new System.Windows.Forms.PictureBox();
             this.pPrincipal = new System.Windows.Forms.Panel();
+            this.ptbImagenSocio = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagenSocio)).BeginInit();
@@ -79,7 +79,7 @@
             // corteToolStripMenuItem
             // 
             this.corteToolStripMenuItem.Name = "corteToolStripMenuItem";
-            this.corteToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.corteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.corteToolStripMenuItem.Text = "Corte";
             this.corteToolStripMenuItem.Click += new System.EventHandler(this.corteToolStripMenuItem_Click);
             // 
@@ -166,7 +166,7 @@
             this.panel1.Controls.Add(this.ptbImagenSocio);
             this.panel1.Location = new System.Drawing.Point(829, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(457, 859);
+            this.panel1.Size = new System.Drawing.Size(457, 1121);
             this.panel1.TabIndex = 9;
             // 
             // txtFechaVencimiento
@@ -205,17 +205,6 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "NOMBRE";
             // 
-            // ptbImagenSocio
-            // 
-            this.ptbImagenSocio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ptbImagenSocio.Location = new System.Drawing.Point(20, 10);
-            this.ptbImagenSocio.Name = "ptbImagenSocio";
-            this.ptbImagenSocio.Size = new System.Drawing.Size(315, 264);
-            this.ptbImagenSocio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.ptbImagenSocio.TabIndex = 8;
-            this.ptbImagenSocio.TabStop = false;
-            this.ptbImagenSocio.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // pPrincipal
             // 
             this.pPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -227,11 +216,22 @@
             this.pPrincipal.Size = new System.Drawing.Size(811, 710);
             this.pPrincipal.TabIndex = 10;
             // 
+            // ptbImagenSocio
+            // 
+            this.ptbImagenSocio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ptbImagenSocio.Location = new System.Drawing.Point(20, 10);
+            this.ptbImagenSocio.Name = "ptbImagenSocio";
+            this.ptbImagenSocio.Size = new System.Drawing.Size(315, 264);
+            this.ptbImagenSocio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbImagenSocio.TabIndex = 8;
+            this.ptbImagenSocio.TabStop = false;
+            this.ptbImagenSocio.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 487);
+            this.ClientSize = new System.Drawing.Size(913, 749);
             this.Controls.Add(this.pPrincipal);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
