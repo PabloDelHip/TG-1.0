@@ -38,6 +38,8 @@
             this.instructoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textoDeEmailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historialCortesCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cortesDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtFechaVencimiento = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -45,8 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ptbImagenSocio = new System.Windows.Forms.PictureBox();
             this.pPrincipal = new System.Windows.Forms.Panel();
-            this.historialCortesCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cortesDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.observacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagenSocio)).BeginInit();
@@ -72,7 +73,8 @@
             // inicioToolStripMenuItem
             // 
             this.inicioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.corteToolStripMenuItem});
+            this.corteToolStripMenuItem,
+            this.observacionToolStripMenuItem});
             this.inicioToolStripMenuItem.Name = "inicioToolStripMenuItem";
             this.inicioToolStripMenuItem.Size = new System.Drawing.Size(66, 29);
             this.inicioToolStripMenuItem.Text = "Inicio";
@@ -80,7 +82,7 @@
             // corteToolStripMenuItem
             // 
             this.corteToolStripMenuItem.Name = "corteToolStripMenuItem";
-            this.corteToolStripMenuItem.Size = new System.Drawing.Size(139, 30);
+            this.corteToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
             this.corteToolStripMenuItem.Text = "Corte";
             this.corteToolStripMenuItem.Click += new System.EventHandler(this.corteToolStripMenuItem_Click);
             // 
@@ -137,6 +139,21 @@
             this.textoDeEmailsToolStripMenuItem.Size = new System.Drawing.Size(217, 30);
             this.textoDeEmailsToolStripMenuItem.Text = "Texto de Emails";
             this.textoDeEmailsToolStripMenuItem.Click += new System.EventHandler(this.textoDeEmailsToolStripMenuItem_Click);
+            // 
+            // historialCortesCajaToolStripMenuItem
+            // 
+            this.historialCortesCajaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cortesDeCajaToolStripMenuItem});
+            this.historialCortesCajaToolStripMenuItem.Name = "historialCortesCajaToolStripMenuItem";
+            this.historialCortesCajaToolStripMenuItem.Size = new System.Drawing.Size(183, 29);
+            this.historialCortesCajaToolStripMenuItem.Text = "Historial Cortes Caja";
+            // 
+            // cortesDeCajaToolStripMenuItem
+            // 
+            this.cortesDeCajaToolStripMenuItem.Name = "cortesDeCajaToolStripMenuItem";
+            this.cortesDeCajaToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.cortesDeCajaToolStripMenuItem.Text = "Cortes de Caja";
+            this.cortesDeCajaToolStripMenuItem.Click += new System.EventHandler(this.cortesDeCajaToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -220,20 +237,12 @@
             this.pPrincipal.Size = new System.Drawing.Size(1216, 1091);
             this.pPrincipal.TabIndex = 10;
             // 
-            // historialCortesCajaToolStripMenuItem
+            // observacionToolStripMenuItem
             // 
-            this.historialCortesCajaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cortesDeCajaToolStripMenuItem});
-            this.historialCortesCajaToolStripMenuItem.Name = "historialCortesCajaToolStripMenuItem";
-            this.historialCortesCajaToolStripMenuItem.Size = new System.Drawing.Size(183, 29);
-            this.historialCortesCajaToolStripMenuItem.Text = "Historial Cortes Caja";
-            // 
-            // cortesDeCajaToolStripMenuItem
-            // 
-            this.cortesDeCajaToolStripMenuItem.Name = "cortesDeCajaToolStripMenuItem";
-            this.cortesDeCajaToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
-            this.cortesDeCajaToolStripMenuItem.Text = "Cortes de Caja";
-            this.cortesDeCajaToolStripMenuItem.Click += new System.EventHandler(this.cortesDeCajaToolStripMenuItem_Click);
+            this.observacionToolStripMenuItem.Name = "observacionToolStripMenuItem";
+            this.observacionToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.observacionToolStripMenuItem.Text = "Observacion";
+            this.observacionToolStripMenuItem.Click += new System.EventHandler(this.observacionToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -280,5 +289,6 @@
         private System.Windows.Forms.ToolStripMenuItem corteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historialCortesCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cortesDeCajaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem observacionToolStripMenuItem;
     }
 }
