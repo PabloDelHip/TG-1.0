@@ -189,5 +189,11 @@ namespace CapaPresentacion
             FrmCorteSalida abrir = new FrmCorteSalida();
             abrir.ShowDialog();
         }
+
+        private void cortesDeCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCortesCaja abrir = new FrmCortesCaja();
+            AbrirVentanas(abrir);
+        }
     }
 }

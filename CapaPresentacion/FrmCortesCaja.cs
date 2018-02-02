@@ -13,9 +13,9 @@ namespace CapaPresentacion
 {
     public partial class FrmCortesCaja : Form
     {
-        string idUsuario;
-        DateTime fecha;
-        public int opcion = 0;
+        //string idUsuario;
+        //DateTime fecha;
+        public int opcion { get; set; }
 
         ClsMovCortesCaja cls_MovCortesCaja = new ClsMovCortesCaja();
         FrmReporteMovCaja frmReporteCaja = new FrmReporteMovCaja();
@@ -94,7 +94,7 @@ namespace CapaPresentacion
             //reporteEntradas.idSocio = Convert.ToInt32(txtSocio.Text);
             //reporteEntradas.fechaInicioBusqueda = dtpInicioBusqueda.Value;
             //reporteEntradas.fechaFinBusqueda = dtpFinBusqueda.Value;
-            //frmReporteCaja.ShowDialog();
+            frmReporteCaja.ShowDialog();
         }
     }
 }
