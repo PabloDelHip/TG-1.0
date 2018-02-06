@@ -37,7 +37,6 @@ namespace CapaPresentacion
                 this.Hide();
                 FrmMain abrir = new FrmMain();
                 abrir.Show();
-                
             }
             
         }
