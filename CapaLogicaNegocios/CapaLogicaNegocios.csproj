@@ -50,6 +50,7 @@
     <Compile Include="ClsCrearTicket.cs" />
     <Compile Include="ClsGeneral.cs" />
     <Compile Include="ClsHdrVentaHist.cs" />
+    <Compile Include="ClsHistorialObservaciones.cs" />
     <Compile Include="ClsInstructores.cs" />
     <Compile Include="ClsLockers.cs" />
     <Compile Include="ClsMembresias.cs" />

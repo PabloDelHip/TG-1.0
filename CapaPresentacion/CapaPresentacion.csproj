@@ -111,6 +111,12 @@
     <Compile Include="FrmCortesCaja.Designer.cs">
       <DependentUpon>FrmCortesCaja.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmHistorialObservaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHistorialObservaciones.Designer.cs">
+      <DependentUpon>FrmHistorialObservaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmInstructores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCortesCaja.resx">
       <DependentUpon>FrmCortesCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHistorialObservaciones.resx">
+      <DependentUpon>FrmHistorialObservaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInstructores.resx">
       <DependentUpon>FrmInstructores.cs</DependentUpon>
