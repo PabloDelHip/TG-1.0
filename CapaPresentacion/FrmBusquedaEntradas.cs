@@ -67,6 +67,7 @@ namespace CapaPresentacion
 
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
+            Login.opcionReporte = 1;
             FrmReporteEntradas reporteEntradas = new FrmReporteEntradas();
             reporteEntradas.idSocio = Convert.ToInt32(txtSocio.Text);
             reporteEntradas.fechaInicioBusqueda = dtpInicioBusqueda.Value;

@@ -41,6 +41,7 @@
             this.dgvObGenerales = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvObCaja = new System.Windows.Forms.DataGridView();
+            this.btnGenerarReporte2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObGenerales)).BeginInit();
@@ -51,7 +52,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnBuscarH);
-            this.groupBox1.Controls.Add(this.btnGenerarReporteH);
             this.groupBox1.Controls.Add(this.dtpFinBusquedaH);
             this.groupBox1.Controls.Add(this.dtpInicioBusquedaH);
             this.groupBox1.Controls.Add(this.txtUsuario);
@@ -61,7 +61,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(8, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1168, 287);
+            this.groupBox1.Size = new System.Drawing.Size(1168, 246);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda";
@@ -70,7 +70,7 @@
             // 
             this.btnBuscarH.Image = global::CapaPresentacion.Properties.Resources.search;
             this.btnBuscarH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarH.Location = new System.Drawing.Point(602, 200);
+            this.btnBuscarH.Location = new System.Drawing.Point(602, 181);
             this.btnBuscarH.Name = "btnBuscarH";
             this.btnBuscarH.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnBuscarH.Size = new System.Drawing.Size(213, 50);
@@ -84,7 +84,7 @@
             this.btnGenerarReporteH.Enabled = false;
             this.btnGenerarReporteH.Image = global::CapaPresentacion.Properties.Resources.add1;
             this.btnGenerarReporteH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarReporteH.Location = new System.Drawing.Point(869, 198);
+            this.btnGenerarReporteH.Location = new System.Drawing.Point(898, 501);
             this.btnGenerarReporteH.Name = "btnGenerarReporteH";
             this.btnGenerarReporteH.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnGenerarReporteH.Size = new System.Drawing.Size(278, 50);
@@ -147,9 +147,9 @@
             // 
             this.groupBox2.Controls.Add(this.dgvObGenerales);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(8, 305);
+            this.groupBox2.Location = new System.Drawing.Point(8, 264);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1168, 258);
+            this.groupBox2.Size = new System.Drawing.Size(1168, 231);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Historial de Observaciones Generales";
@@ -160,16 +160,16 @@
             this.dgvObGenerales.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvObGenerales.Location = new System.Drawing.Point(3, 22);
             this.dgvObGenerales.Name = "dgvObGenerales";
-            this.dgvObGenerales.Size = new System.Drawing.Size(1162, 233);
+            this.dgvObGenerales.Size = new System.Drawing.Size(1162, 206);
             this.dgvObGenerales.TabIndex = 0;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dgvObCaja);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(8, 591);
+            this.groupBox3.Location = new System.Drawing.Point(8, 557);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1168, 258);
+            this.groupBox3.Size = new System.Drawing.Size(1168, 236);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Historial de Observaciones de Caja";
@@ -180,16 +180,32 @@
             this.dgvObCaja.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvObCaja.Location = new System.Drawing.Point(3, 22);
             this.dgvObCaja.Name = "dgvObCaja";
-            this.dgvObCaja.Size = new System.Drawing.Size(1162, 233);
+            this.dgvObCaja.Size = new System.Drawing.Size(1162, 211);
             this.dgvObCaja.TabIndex = 0;
+            // 
+            // btnGenerarReporte2
+            // 
+            this.btnGenerarReporte2.Enabled = false;
+            this.btnGenerarReporte2.Image = global::CapaPresentacion.Properties.Resources.add1;
+            this.btnGenerarReporte2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerarReporte2.Location = new System.Drawing.Point(895, 799);
+            this.btnGenerarReporte2.Name = "btnGenerarReporte2";
+            this.btnGenerarReporte2.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnGenerarReporte2.Size = new System.Drawing.Size(278, 50);
+            this.btnGenerarReporte2.TabIndex = 8;
+            this.btnGenerarReporte2.Text = "Generar Reporte";
+            this.btnGenerarReporte2.UseVisualStyleBackColor = true;
+            this.btnGenerarReporte2.Click += new System.EventHandler(this.btnGenerarReporte2_Click);
             // 
             // FrmHistorialObservaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1188, 861);
+            this.Controls.Add(this.btnGenerarReporte2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnGenerarReporteH);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmHistorialObservaciones";
             this.Text = "FrmHistorialObservaciones";
@@ -219,5 +235,6 @@
         private System.Windows.Forms.DataGridView dgvObGenerales;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvObCaja;
+        private System.Windows.Forms.Button btnGenerarReporte2;
     }
 }

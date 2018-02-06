@@ -28,11 +28,33 @@ namespace CapaPresentacion
 
         private void FrmReporteEntradas_Load_1(object sender, EventArgs e)
         {
-            CREntradas reporteEntradas = new CREntradas();
-            reporteEntradas.SetParameterValue("@idSocio", idSocio);
-            reporteEntradas.SetParameterValue("@FechaInicioBusqueda", fechaInicioBusqueda);
-            reporteEntradas.SetParameterValue("@FechaFinBusqueda", fechaFinBusqueda);
-            CRVreporteEntradas.ReportSource = reporteEntradas;
+            switch (Login.opcionReporte)
+            {
+                case 1:
+                    CREntradas reporteEntradas = new CREntradas();
+                    reporteEntradas.SetParameterValue("@idSocio", idSocio);
+                    reporteEntradas.SetParameterValue("@FechaInicioBusqueda", fechaInicioBusqueda);
+                    reporteEntradas.SetParameterValue("@FechaFinBusqueda", fechaFinBusqueda);
+                    CRVreporteEntradas.ReportSource = reporteEntradas;
+                    break;
+                case 2:
+                    CRHisObGenerales reporteHisObGenerales = new CRHisObGenerales();
+                    reporteHisObGenerales.SetParameterValue("@idSocio", idSocio);
+                    reporteHisObGenerales.SetParameterValue("@FechaInicioBusqueda", fechaInicioBusqueda);
+                    reporteHisObGenerales.SetParameterValue("@FechaFinBusqueda", fechaFinBusqueda);
+                    CRVreporteEntradas.ReportSource = reporteHisObGenerales;
+                    break;
+                case 3:
+                    CRHisObCaja reporteHisObCaja = new CRHisObCaja();
+                    reporteHisObCaja.SetParameterValue("@idSocio", idSocio);
+                    reporteHisObCaja.SetParameterValue("@FechaInicioBusqueda", fechaInicioBusqueda);
+                    reporteHisObCaja.SetParameterValue("@FechaFinBusqueda", fechaFinBusqueda);
+                    CRVreporteEntradas.ReportSource = reporteHisObCaja;
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         private void CRVreporteEntradas_Load(object sender, EventArgs e)
