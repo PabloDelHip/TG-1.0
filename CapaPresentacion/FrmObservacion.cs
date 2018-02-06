@@ -20,7 +20,6 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-        bool cajaAbierta = false;
         private void button1_Click(object sender, EventArgs e)
         {
              
@@ -35,7 +34,7 @@ namespace CapaPresentacion
                 string respuesta = cls_observaciones_caja.agregarObservacion();
                 cls_generales.EnviarCorreo(email, txtTexto.Text, "Observaciones", "");
                 MessageBox.Show(respuesta);
-                if (cajaAbierta==false)
+                if (Login.cajaAbierta==false)
                 {
                     this.Hide();
                     FrmCorteEntrada abrir = new FrmCorteEntrada();
@@ -47,7 +46,6 @@ namespace CapaPresentacion
                     FrmMain abrir = new FrmMain();
                     abrir.Show();
                 }
-                cajaAbierta = true;
             }
         }
 

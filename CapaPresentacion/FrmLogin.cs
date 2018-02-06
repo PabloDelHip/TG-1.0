@@ -59,7 +59,6 @@ namespace CapaPresentacion
                     Login.idUsuario = Convert.ToInt32(filas["idUsuario"]);
                     Login.nombre = Convert.ToString(filas["Nombre"]);
                 }
-
                 this.Hide();
                 //FrmObservacion abrir = new FrmObservacion();
                 //abrir.Show();

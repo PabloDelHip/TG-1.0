@@ -34,6 +34,7 @@ namespace CapaPresentacion
                 string respuesta = cls_corte_caja.movimientoCorteCajaEntrada();
                 MessageBox.Show(respuesta);
                 Login.dineroEntrada = dineroEntrada;
+                Login.cajaAbierta = true;
                 this.Hide();
                 FrmMain abrir = new FrmMain();
                 abrir.Show();

@@ -42,6 +42,9 @@ namespace CapaPresentacion
                 MessageBox.Show("dinero correcto");
                 cls_corte_caja.cerrarCaja();
                 MessageBox.Show("bien");
+                this.Hide();
+                FrmObservacion observacion = new FrmObservacion();
+                observacion.ShowDialog();
             }
         }
     }
