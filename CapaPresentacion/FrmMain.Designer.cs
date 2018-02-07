@@ -41,6 +41,7 @@
             this.textoDeEmailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.historialCortesCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cortesDeCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.historialDeObservacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtFechaVencimiento = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -48,7 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ptbImagenSocio = new System.Windows.Forms.PictureBox();
             this.pPrincipal = new System.Windows.Forms.Panel();
-            this.historialDeObservacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagenSocio)).BeginInit();
@@ -61,6 +62,7 @@
             this.inicioToolStripMenuItem,
             this.sociosToolStripMenuItem,
             this.instructoresToolStripMenuItem,
+            this.usuariosToolStripMenuItem,
             this.configuracionesToolStripMenuItem,
             this.historialCortesCajaToolStripMenuItem,
             this.historialDeObservacionesToolStripMenuItem});
@@ -164,6 +166,13 @@
             this.cortesDeCajaToolStripMenuItem.Text = "Cortes de Caja";
             this.cortesDeCajaToolStripMenuItem.Click += new System.EventHandler(this.cortesDeCajaToolStripMenuItem_Click);
             // 
+            // historialDeObservacionesToolStripMenuItem
+            // 
+            this.historialDeObservacionesToolStripMenuItem.Name = "historialDeObservacionesToolStripMenuItem";
+            this.historialDeObservacionesToolStripMenuItem.Size = new System.Drawing.Size(235, 29);
+            this.historialDeObservacionesToolStripMenuItem.Text = "Historial de Observaciones";
+            this.historialDeObservacionesToolStripMenuItem.Click += new System.EventHandler(this.historialDeObservacionesToolStripMenuItem_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -246,12 +255,12 @@
             this.pPrincipal.Size = new System.Drawing.Size(1216, 1091);
             this.pPrincipal.TabIndex = 10;
             // 
-            // historialDeObservacionesToolStripMenuItem
+            // usuariosToolStripMenuItem
             // 
-            this.historialDeObservacionesToolStripMenuItem.Name = "historialDeObservacionesToolStripMenuItem";
-            this.historialDeObservacionesToolStripMenuItem.Size = new System.Drawing.Size(235, 29);
-            this.historialDeObservacionesToolStripMenuItem.Text = "Historial de Observaciones";
-            this.historialDeObservacionesToolStripMenuItem.Click += new System.EventHandler(this.historialDeObservacionesToolStripMenuItem_Click);
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(92, 29);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -300,5 +309,6 @@
         private System.Windows.Forms.ToolStripMenuItem cortesDeCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem observacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historialDeObservacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
     }
 }

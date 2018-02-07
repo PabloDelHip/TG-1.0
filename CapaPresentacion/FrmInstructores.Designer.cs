@@ -30,9 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.chkActivo = new System.Windows.Forms.CheckBox();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.txtHoraEntrada = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,6 +46,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
+            this.txtHoraEntrada = new System.Windows.Forms.MaskedTextBox();
+            this.chkActivo = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,19 +93,6 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // chkActivo
-            // 
-            this.chkActivo.AutoSize = true;
-            this.chkActivo.Enabled = false;
-            this.chkActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkActivo.Location = new System.Drawing.Point(332, 217);
-            this.chkActivo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.chkActivo.Name = "chkActivo";
-            this.chkActivo.Size = new System.Drawing.Size(92, 29);
-            this.chkActivo.TabIndex = 31;
-            this.chkActivo.Text = "Activo";
-            this.chkActivo.UseVisualStyleBackColor = true;
-            // 
             // btnModificar
             // 
             this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,18 +104,6 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // txtHoraEntrada
-            // 
-            this.txtHoraEntrada.Enabled = false;
-            this.txtHoraEntrada.Location = new System.Drawing.Point(15, 265);
-            this.txtHoraEntrada.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtHoraEntrada.Mask = "00:00";
-            this.txtHoraEntrada.Name = "txtHoraEntrada";
-            this.txtHoraEntrada.Size = new System.Drawing.Size(178, 30);
-            this.txtHoraEntrada.TabIndex = 29;
-            this.txtHoraEntrada.ValidatingType = typeof(System.DateTime);
-            this.txtHoraEntrada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoloNumeros_KeyPress);
             // 
             // label5
             // 
@@ -298,6 +273,31 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // txtHoraEntrada
+            // 
+            this.txtHoraEntrada.Enabled = false;
+            this.txtHoraEntrada.Location = new System.Drawing.Point(15, 265);
+            this.txtHoraEntrada.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtHoraEntrada.Mask = "00:00";
+            this.txtHoraEntrada.Name = "txtHoraEntrada";
+            this.txtHoraEntrada.Size = new System.Drawing.Size(178, 30);
+            this.txtHoraEntrada.TabIndex = 29;
+            this.txtHoraEntrada.ValidatingType = typeof(System.DateTime);
+            this.txtHoraEntrada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoloNumeros_KeyPress);
+            // 
+            // chkActivo
+            // 
+            this.chkActivo.AutoSize = true;
+            this.chkActivo.Enabled = false;
+            this.chkActivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkActivo.Location = new System.Drawing.Point(332, 217);
+            this.chkActivo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkActivo.Name = "chkActivo";
+            this.chkActivo.Size = new System.Drawing.Size(92, 29);
+            this.chkActivo.TabIndex = 31;
+            this.chkActivo.Text = "Activo";
+            this.chkActivo.UseVisualStyleBackColor = true;
+            // 
             // FrmInstructores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -341,9 +341,9 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.MaskedTextBox txtHoraEntrada;
-        private System.Windows.Forms.CheckBox chkActivo;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.CheckBox chkActivo;
+        private System.Windows.Forms.MaskedTextBox txtHoraEntrada;
     }
 }

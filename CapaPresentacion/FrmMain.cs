@@ -207,5 +207,11 @@ namespace CapaPresentacion
             FrmHistorialObservaciones abrir = new FrmHistorialObservaciones();
             AbrirVentanas(abrir);
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUsuarios abrir = new FrmUsuarios();
+            AbrirVentanas(abrir);
+        }
     }
 }
