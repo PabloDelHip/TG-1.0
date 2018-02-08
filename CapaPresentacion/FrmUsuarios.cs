@@ -123,27 +123,36 @@ namespace CapaPresentacion
                 btnAgregar.Enabled = true;
                 llenarDatagrid();
                 btnModificar.Text = "Modificar";
+                btnModificar.Image = Properties.Resources.pencil;
                 validarControles(false, "Agregar");
             }
             else
             {
                 btnModificar.Text = "Guardar";
+                btnModificar.Image = Properties.Resources.add1;
                 btnAgregar.Enabled = false;
                 validarModificar(true);
             }
         }
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
-            cls_usuario.m_IdUsuario = Convert.ToInt32(txtIdUsuario.Text);
-            cls_usuario.m_TipoBusqueda = 1;
-            DataTable dt = cls_usuario.buscarUsuario();
-            if (dt.Rows.Count == 0)
+            if (txtIdUsuario.Text == "" || txtIdUsuario.Text==null)
             {
-                MessageBox.Show("No se encontro Usuario con la clave ingresada", "No se encontro Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese un ID de usuario", "No se encontro Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                dgvUsuarios.DataSource = dt;
+                cls_usuario.m_IdUsuario = Convert.ToInt32(txtIdUsuario.Text);
+                cls_usuario.m_TipoBusqueda = 1;
+                DataTable dt = cls_usuario.buscarUsuario();
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No se encontro Usuario con la clave ingresada", "No se encontro Usuario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    dgvUsuarios.DataSource = dt;
+                }
             }
         }
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -182,6 +191,27 @@ namespace CapaPresentacion
             txtPassword.Enabled = bandera;
             txtNivel.Enabled = bandera;
             btnCancelar.Enabled = bandera;
+        }
+
+        private void btnListaUsuarios_Click(object sender, EventArgs e)
+        {
+            llenarDatagrid();
+        }
+
+        private void cbVerPass_CheckedChanged(object sender, EventArgs e)
+        {
+            string text = txtPassword.Text;
+            if (cbVerPass.Checked)
+            {
+                txtPassword.UseSystemPasswordChar = false;
+                txtPassword.Text = text;
+
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = true;
+                txtPassword.Text = text;
+            }
         }
     }
 }

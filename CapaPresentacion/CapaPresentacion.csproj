@@ -328,6 +328,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="musica.mp3" />
+    <None Include="Resources\people.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\printer.png" />
     <None Include="Resources\pencil.png" />
