@@ -37,23 +37,26 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbxMembresia = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.TxtTipoSocio = new System.Windows.Forms.TextBox();
             this.cbbMembresia = new System.Windows.Forms.ComboBox();
-            this.DTPLockerVence = new System.Windows.Forms.DateTimePicker();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.DTPFechaVencHasta = new System.Windows.Forms.DateTimePicker();
             this.DTPFechaVencimDesde = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.btnIniciar = new System.Windows.Forms.Button();
             this.cbbLockers = new System.Windows.Forms.ComboBox();
+            this.DTPLockerVence = new System.Windows.Forms.DateTimePicker();
             this.cboDispositivos = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pbFotoUser = new System.Windows.Forms.PictureBox();
             this.mktFechaNacimiento = new System.Windows.Forms.MaskedTextBox();
             this.mktCelular = new System.Windows.Forms.MaskedTextBox();
             this.TxtEmail = new System.Windows.Forms.TextBox();
@@ -67,7 +70,7 @@
             this.RDsexoFem = new System.Windows.Forms.RadioButton();
             this.TxtDireccion1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TxtSocio = new System.Windows.Forms.TextBox();
+            this.TxtNombreSocio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtIdSocio = new System.Windows.Forms.TextBox();
             this.LblSocio = new System.Windows.Forms.Label();
@@ -81,23 +84,20 @@
             this.Locker = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TabFoto = new System.Windows.Forms.TabPage();
             this.TStOpciones = new System.Windows.Forms.ToolStrip();
+            this.TstCmdAgrefarUsr = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.TSTxtBuscaSocio = new System.Windows.Forms.ToolStripTextBox();
-            this.TstCmdAgrefarUsr = new System.Windows.Forms.ToolStripButton();
             this.TtsGuardaSocio = new System.Windows.Forms.ToolStripButton();
             this.TsLimpiaForm = new System.Windows.Forms.ToolStripButton();
-            this.button5 = new System.Windows.Forms.Button();
-            this.btnIniciar = new System.Windows.Forms.Button();
-            this.pbFotoUser = new System.Windows.Forms.PictureBox();
             this.TabUsuario.SuspendLayout();
             this.TabGral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.gbxMembresia.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).BeginInit();
             this.TabHistorial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.TStOpciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).BeginInit();
             this.SuspendLayout();
             // 
             // TabUsuario
@@ -118,7 +118,7 @@
             this.TabGral.Controls.Add(this.button3);
             this.TabGral.Controls.Add(this.button2);
             this.TabGral.Controls.Add(this.button1);
-            this.TabGral.Controls.Add(this.groupBox2);
+            this.TabGral.Controls.Add(this.gbxMembresia);
             this.TabGral.Controls.Add(this.groupBox1);
             this.TabGral.Location = new System.Drawing.Point(4, 22);
             this.TabGral.Name = "TabGral";
@@ -130,7 +130,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(550, 522);
+            this.button4.Location = new System.Drawing.Point(550, 427);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 26;
@@ -147,9 +147,9 @@
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Concepto,
             this.Monto});
-            this.dataGridView2.Location = new System.Drawing.Point(6, 551);
+            this.dataGridView2.Location = new System.Drawing.Point(6, 456);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(617, 120);
+            this.dataGridView2.Size = new System.Drawing.Size(617, 215);
             this.dataGridView2.TabIndex = 25;
             // 
             // Concepto
@@ -165,7 +165,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(469, 522);
+            this.button3.Location = new System.Drawing.Point(469, 427);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 24;
@@ -175,16 +175,17 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(388, 522);
+            this.button2.Location = new System.Drawing.Point(388, 427);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 23;
             this.button2.Text = "Locker";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(307, 522);
+            this.button1.Location = new System.Drawing.Point(307, 427);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 22;
@@ -192,29 +193,67 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // groupBox2
+            // gbxMembresia
             // 
-            this.groupBox2.Controls.Add(this.TxtTipoSocio);
-            this.groupBox2.Controls.Add(this.cbbMembresia);
-            this.groupBox2.Controls.Add(this.DTPLockerVence);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.DTPFechaVencHasta);
-            this.groupBox2.Controls.Add(this.DTPFechaVencimDesde);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(6, 307);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(617, 209);
-            this.groupBox2.TabIndex = 20;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Membresia";
+            this.gbxMembresia.Controls.Add(this.label11);
+            this.gbxMembresia.Controls.Add(this.label7);
+            this.gbxMembresia.Controls.Add(this.label12);
+            this.gbxMembresia.Controls.Add(this.dateTimePicker1);
+            this.gbxMembresia.Controls.Add(this.TxtTipoSocio);
+            this.gbxMembresia.Controls.Add(this.cbbMembresia);
+            this.gbxMembresia.Controls.Add(this.label10);
+            this.gbxMembresia.Controls.Add(this.DTPFechaVencimDesde);
+            this.gbxMembresia.Enabled = false;
+            this.gbxMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxMembresia.Location = new System.Drawing.Point(6, 307);
+            this.gbxMembresia.Name = "gbxMembresia";
+            this.gbxMembresia.Size = new System.Drawing.Size(617, 114);
+            this.gbxMembresia.TabIndex = 20;
+            this.gbxMembresia.TabStop = false;
+            this.gbxMembresia.Text = "Membresia";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(243, 64);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 13);
+            this.label11.TabIndex = 47;
+            this.label11.Text = "Vencimiento";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(25, 61);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 13);
+            this.label7.TabIndex = 46;
+            this.label7.Text = "Dias Viajero";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 27);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(82, 13);
+            this.label12.TabIndex = 45;
+            this.label12.Text = "Tipo Membresia";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(314, 61);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(123, 20);
+            this.dateTimePicker1.TabIndex = 44;
             // 
             // TxtTipoSocio
             // 
-            this.TxtTipoSocio.Location = new System.Drawing.Point(61, 19);
+            this.TxtTipoSocio.Location = new System.Drawing.Point(94, 61);
             this.TxtTipoSocio.Name = "TxtTipoSocio";
             this.TxtTipoSocio.Size = new System.Drawing.Size(123, 20);
             this.TxtTipoSocio.TabIndex = 43;
@@ -222,94 +261,40 @@
             // cbbMembresia
             // 
             this.cbbMembresia.FormattingEnabled = true;
-            this.cbbMembresia.Location = new System.Drawing.Point(201, 19);
+            this.cbbMembresia.Location = new System.Drawing.Point(94, 22);
             this.cbbMembresia.Name = "cbbMembresia";
-            this.cbbMembresia.Size = new System.Drawing.Size(160, 21);
+            this.cbbMembresia.Size = new System.Drawing.Size(133, 21);
             this.cbbMembresia.TabIndex = 42;
             this.cbbMembresia.SelectedIndexChanged += new System.EventHandler(this.cbbMembresia_SelectedIndexChanged);
             this.cbbMembresia.SelectionChangeCommitted += new System.EventHandler(this.cbbMembresia_SelectionChangeCommitted);
-            // 
-            // DTPLockerVence
-            // 
-            this.DTPLockerVence.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DTPLockerVence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPLockerVence.Location = new System.Drawing.Point(61, 158);
-            this.DTPLockerVence.Name = "DTPLockerVence";
-            this.DTPLockerVence.Size = new System.Drawing.Size(123, 20);
-            this.DTPLockerVence.TabIndex = 41;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(20, 158);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(38, 13);
-            this.label14.TabIndex = 40;
-            this.label14.Text = "Vence";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(16, 132);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 20);
-            this.textBox1.TabIndex = 39;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(20, 71);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(35, 13);
-            this.label11.TabIndex = 37;
-            this.label11.Text = "Hasta";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(20, 45);
+            this.label10.Location = new System.Drawing.Point(243, 27);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.Size = new System.Drawing.Size(65, 13);
             this.label10.TabIndex = 36;
-            this.label10.Text = "Desde";
+            this.label10.Text = "Vencimiento";
             this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // DTPFechaVencHasta
-            // 
-            this.DTPFechaVencHasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DTPFechaVencHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPFechaVencHasta.Location = new System.Drawing.Point(61, 71);
-            this.DTPFechaVencHasta.Name = "DTPFechaVencHasta";
-            this.DTPFechaVencHasta.Size = new System.Drawing.Size(123, 20);
-            this.DTPFechaVencHasta.TabIndex = 35;
             // 
             // DTPFechaVencimDesde
             // 
             this.DTPFechaVencimDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTPFechaVencimDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPFechaVencimDesde.Location = new System.Drawing.Point(61, 45);
+            this.DTPFechaVencimDesde.Location = new System.Drawing.Point(314, 23);
             this.DTPFechaVencimDesde.Name = "DTPFechaVencimDesde";
             this.DTPFechaVencimDesde.Size = new System.Drawing.Size(123, 20);
             this.DTPFechaVencimDesde.TabIndex = 34;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 116);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Lockers";
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.btnIniciar);
             this.groupBox1.Controls.Add(this.cbbLockers);
+            this.groupBox1.Controls.Add(this.DTPLockerVence);
             this.groupBox1.Controls.Add(this.cboDispositivos);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
@@ -328,7 +313,7 @@
             this.groupBox1.Controls.Add(this.RDsexoFem);
             this.groupBox1.Controls.Add(this.TxtDireccion1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.TxtSocio);
+            this.groupBox1.Controls.Add(this.TxtNombreSocio);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.TxtIdSocio);
             this.groupBox1.Controls.Add(this.LblSocio);
@@ -339,14 +324,60 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del socio";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(181, 201);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(125, 21);
+            this.comboBox1.TabIndex = 49;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Image = global::CapaPresentacion.Properties.Resources.cancelar1;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(594, 244);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(97, 35);
+            this.button5.TabIndex = 48;
+            this.button5.Text = "Cancelar";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // btnIniciar
+            // 
+            this.btnIniciar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciar.Image = global::CapaPresentacion.Properties.Resources.iniciar1;
+            this.btnIniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIniciar.Location = new System.Drawing.Point(480, 244);
+            this.btnIniciar.Name = "btnIniciar";
+            this.btnIniciar.Size = new System.Drawing.Size(81, 35);
+            this.btnIniciar.TabIndex = 5;
+            this.btnIniciar.Text = "Iniciar";
+            this.btnIniciar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
+            // 
             // cbbLockers
             // 
             this.cbbLockers.FormattingEnabled = true;
             this.cbbLockers.Location = new System.Drawing.Point(75, 201);
             this.cbbLockers.Name = "cbbLockers";
-            this.cbbLockers.Size = new System.Drawing.Size(148, 21);
+            this.cbbLockers.Size = new System.Drawing.Size(100, 21);
             this.cbbLockers.TabIndex = 47;
             this.cbbLockers.SelectedIndexChanged += new System.EventHandler(this.cbbLockers_SelectedIndexChanged);
+            // 
+            // DTPLockerVence
+            // 
+            this.DTPLockerVence.Enabled = false;
+            this.DTPLockerVence.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTPLockerVence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTPLockerVence.Location = new System.Drawing.Point(312, 201);
+            this.DTPLockerVence.Name = "DTPLockerVence";
+            this.DTPLockerVence.Size = new System.Drawing.Size(79, 20);
+            this.DTPLockerVence.TabIndex = 41;
             // 
             // cboDispositivos
             // 
@@ -382,6 +413,16 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 44;
             // 
+            // pbFotoUser
+            // 
+            this.pbFotoUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFotoUser.Location = new System.Drawing.Point(397, 11);
+            this.pbFotoUser.Name = "pbFotoUser";
+            this.pbFotoUser.Size = new System.Drawing.Size(341, 224);
+            this.pbFotoUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFotoUser.TabIndex = 4;
+            this.pbFotoUser.TabStop = false;
+            // 
             // mktFechaNacimiento
             // 
             this.mktFechaNacimiento.Location = new System.Drawing.Point(75, 228);
@@ -390,6 +431,7 @@
             this.mktFechaNacimiento.Size = new System.Drawing.Size(100, 20);
             this.mktFechaNacimiento.TabIndex = 43;
             this.mktFechaNacimiento.ValidatingType = typeof(System.DateTime);
+            this.mktFechaNacimiento.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mktFechaNacimiento_MaskInputRejected);
             // 
             // mktCelular
             // 
@@ -400,6 +442,7 @@
             this.mktCelular.TabIndex = 42;
             this.mktCelular.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mktCelular_MaskInputRejected);
             this.mktCelular.Click += new System.EventHandler(this.mktCelular_Click);
+            this.mktCelular.TextChanged += new System.EventHandler(this.mktCelular_TextChanged);
             // 
             // TxtEmail
             // 
@@ -407,6 +450,7 @@
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(244, 20);
             this.TxtEmail.TabIndex = 36;
+            this.TxtEmail.TextChanged += new System.EventHandler(this.TxtEmail_TextChanged);
             // 
             // label13
             // 
@@ -423,6 +467,7 @@
             this.TxtDireccion2.Name = "TxtDireccion2";
             this.TxtDireccion2.Size = new System.Drawing.Size(244, 20);
             this.TxtDireccion2.TabIndex = 34;
+            this.TxtDireccion2.TextChanged += new System.EventHandler(this.TxtDireccion2_TextChanged);
             // 
             // label9
             // 
@@ -490,6 +535,7 @@
             this.TxtDireccion1.Name = "TxtDireccion1";
             this.TxtDireccion1.Size = new System.Drawing.Size(244, 20);
             this.TxtDireccion1.TabIndex = 24;
+            this.TxtDireccion1.TextChanged += new System.EventHandler(this.TxtDireccion1_TextChanged);
             // 
             // label2
             // 
@@ -500,13 +546,14 @@
             this.label2.TabIndex = 23;
             this.label2.Text = "Dirección";
             // 
-            // TxtSocio
+            // TxtNombreSocio
             // 
-            this.TxtSocio.Location = new System.Drawing.Point(75, 48);
-            this.TxtSocio.Name = "TxtSocio";
-            this.TxtSocio.Size = new System.Drawing.Size(244, 20);
-            this.TxtSocio.TabIndex = 22;
-            this.TxtSocio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoloLetras_KeyPress);
+            this.TxtNombreSocio.Location = new System.Drawing.Point(75, 48);
+            this.TxtNombreSocio.Name = "TxtNombreSocio";
+            this.TxtNombreSocio.Size = new System.Drawing.Size(244, 20);
+            this.TxtNombreSocio.TabIndex = 22;
+            this.TxtNombreSocio.TextChanged += new System.EventHandler(this.TxtNombreSocio_TextChanged);
+            this.TxtNombreSocio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoloLetras_KeyPress);
             // 
             // label1
             // 
@@ -616,6 +663,15 @@
             this.TStOpciones.TabIndex = 3;
             this.TStOpciones.Text = "toolStrip1";
             // 
+            // TstCmdAgrefarUsr
+            // 
+            this.TstCmdAgrefarUsr.Image = global::CapaPresentacion.Properties.Resources.user_2;
+            this.TstCmdAgrefarUsr.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TstCmdAgrefarUsr.Name = "TstCmdAgrefarUsr";
+            this.TstCmdAgrefarUsr.Size = new System.Drawing.Size(167, 28);
+            this.TstCmdAgrefarUsr.Text = "Insertar Socio en pantalla";
+            this.TstCmdAgrefarUsr.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
@@ -628,15 +684,6 @@
             this.TSTxtBuscaSocio.Size = new System.Drawing.Size(100, 31);
             this.TSTxtBuscaSocio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TSTxtBuscaSocio_KeyDown);
             this.TSTxtBuscaSocio.Click += new System.EventHandler(this.TSTxtBuscaSocio_Click);
-            // 
-            // TstCmdAgrefarUsr
-            // 
-            this.TstCmdAgrefarUsr.Image = global::CapaPresentacion.Properties.Resources.user_2;
-            this.TstCmdAgrefarUsr.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TstCmdAgrefarUsr.Name = "TstCmdAgrefarUsr";
-            this.TstCmdAgrefarUsr.Size = new System.Drawing.Size(167, 28);
-            this.TstCmdAgrefarUsr.Text = "Insertar Socio en pantalla";
-            this.TstCmdAgrefarUsr.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // TtsGuardaSocio
             // 
@@ -657,44 +704,6 @@
             this.TsLimpiaForm.ToolTipText = "Limpia el formulario actual";
             this.TsLimpiaForm.Click += new System.EventHandler(this.TsLimpiaForm_Click);
             // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Image = global::CapaPresentacion.Properties.Resources.cancelar1;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(594, 244);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(97, 35);
-            this.button5.TabIndex = 48;
-            this.button5.Text = "Cancelar";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // btnIniciar
-            // 
-            this.btnIniciar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIniciar.Image = global::CapaPresentacion.Properties.Resources.iniciar1;
-            this.btnIniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIniciar.Location = new System.Drawing.Point(480, 244);
-            this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(81, 35);
-            this.btnIniciar.TabIndex = 5;
-            this.btnIniciar.Text = "Iniciar";
-            this.btnIniciar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnIniciar.UseVisualStyleBackColor = true;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
-            // 
-            // pbFotoUser
-            // 
-            this.pbFotoUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFotoUser.Location = new System.Drawing.Point(397, 11);
-            this.pbFotoUser.Name = "pbFotoUser";
-            this.pbFotoUser.Size = new System.Drawing.Size(341, 224);
-            this.pbFotoUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFotoUser.TabIndex = 4;
-            this.pbFotoUser.TabStop = false;
-            // 
             // FrmOperacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -711,15 +720,15 @@
             this.TabUsuario.ResumeLayout(false);
             this.TabGral.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbxMembresia.ResumeLayout(false);
+            this.gbxMembresia.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).EndInit();
             this.TabHistorial.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.TStOpciones.ResumeLayout(false);
             this.TStOpciones.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -736,12 +745,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox gbxMembresia;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker DTPFechaVencHasta;
         private System.Windows.Forms.DateTimePicker DTPFechaVencimDesde;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label label13;
@@ -754,7 +760,7 @@
         private System.Windows.Forms.RadioButton RDsexoFem;
         private System.Windows.Forms.TextBox TxtDireccion1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TxtSocio;
+        private System.Windows.Forms.TextBox TxtNombreSocio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtIdSocio;
         private System.Windows.Forms.Label LblSocio;
@@ -777,8 +783,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton TsLimpiaForm;
         private System.Windows.Forms.DateTimePicker DTPLockerVence;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.MaskedTextBox mktCelular;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox2;
@@ -788,5 +792,10 @@
         private System.Windows.Forms.ComboBox cbbMembresia;
         private System.Windows.Forms.TextBox TxtTipoSocio;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label11;
     }
 }

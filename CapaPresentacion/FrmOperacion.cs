@@ -60,6 +60,54 @@ namespace CapaPresentacion
                 return;
             }
         }
+        
+        void validarGBX()
+        {
+            bool bandera = true;
+
+            if(TxtNombreSocio.Text.Equals(""))
+            {
+                bandera = false;
+            }
+
+            if (TxtDireccion1.Text.Equals("") && TxtDireccion2.Text.Equals(""))
+            {
+                bandera = false;
+            }
+
+            if(mktCelular.Text.Equals(""))
+            {
+                bandera = false;
+            }
+
+            if (TxtEmail.Text.Equals(""))
+            {
+                bandera = false;
+            }
+
+            if (RDmasculino.Checked==false && RDsexoFem.Checked == false)
+            {
+                bandera = false;
+            }
+
+            if(pbFotoUser.Image==null)
+            {
+                bandera = false;
+            }
+
+            if(bandera)
+            {
+                gbxMembresia.Enabled = true;
+            }
+
+            else
+            {
+                gbxMembresia.Enabled = false;
+            }
+
+
+        }
+
         //*******************************  agregamos los controles para la camara
 
         private bool ExistenDispositivos = false;
@@ -188,7 +236,7 @@ namespace CapaPresentacion
                 
 
                 // pasamos todos los datos a los parametros de la esctructura para ejecutar el SP AltaSocio
-                Socio.m_Nombre = TxtSocio.Text;
+                Socio.m_Nombre = TxtNombreSocio.Text;
                 //Socio.m_IdSocio =
                 Socio.m_FotoId = "fff";
                 Socio.m_Direccion1 = TxtDireccion1.Text;
@@ -201,7 +249,7 @@ namespace CapaPresentacion
 
                 Socio.m_Fingerprint = "vacio";
                 //Socio.m_FechaIngreso = DtpFechaIngreso.Value;
-                Socio.m_Vencimiento = DTPFechaVencHasta.Value;
+                //Socio.m_Vencimiento = DTPFechaVencHasta.Value;
                 Socio.m_Observacion = "Observaciones";
                 Socio.m_Indicaciones = "Indicaciones";
                 Socio.m_User_modif = "Admin";
@@ -272,7 +320,7 @@ namespace CapaPresentacion
                         //[FotoId] 1
                         //[Fingerprint] 2
                         //[Nombre] 3
-                        TxtSocio.Text= filas["Nombre"].ToString();
+                        TxtNombreSocio.Text= filas["Nombre"].ToString();
                         //[Direccion1] 4
                         TxtDireccion1.Text= filas["Direccion1"].ToString();
                         //[Direccion2] 5
@@ -356,7 +404,7 @@ namespace CapaPresentacion
         {
             DateTime thisDay = DateTime.Today;
             TxtIdSocio.Text = "";
-            TxtSocio.Text = "";
+            TxtNombreSocio.Text = "";
             TxtDireccion1.Text = "";
             TxtDireccion2.Text = "";
             TxtEmail.Text = "";
@@ -399,12 +447,14 @@ namespace CapaPresentacion
         {
             //llama al metodo para llevar el combo de los lockers
             seleccionar_locker(1);
+            validarGBX();
         }
 
         private void RDsexoFem_CheckedChanged(object sender, EventArgs e)
         {
             //llama al metodo para llevar el combo de los lockers
             seleccionar_locker(2);
+            validarGBX();
         }
 
         private void seleccionar_locker(int tipoBusqueda)
@@ -452,7 +502,22 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            string texto = mktFechaNacimiento.Text.Replace("_", "");
+            MessageBox.Show(texto);
+            MessageBox.Show(texto.Length.ToString());
+
+            MessageBox.Show("hola aqui ");
+            DateTime fecha;
+
+            
+            if (DateTime.TryParse(mktFechaNacimiento.Text, out fecha))
+            {
+                MessageBox.Show("campo 1");
+            }
+            else
+            {
+                MessageBox.Show("campo 2");
+            }
         }
 
         private void cbbMembresia_SelectedIndexChanged(object sender, EventArgs e)
@@ -540,6 +605,43 @@ namespace CapaPresentacion
         private void TtsGuardaSocio_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void TxtNombreSocio_TextChanged(object sender, EventArgs e)
+        {
+            validarGBX();
+        }
+
+        private void TxtDireccion1_TextChanged(object sender, EventArgs e)
+        {
+            validarGBX();
+        }
+
+        private void TxtDireccion2_TextChanged(object sender, EventArgs e)
+        {
+            validarGBX();
+        }
+
+        private void mktCelular_TextChanged(object sender, EventArgs e)
+        {
+            validarGBX();
+        }
+
+        private void TxtEmail_TextChanged(object sender, EventArgs e)
+        {
+            validarGBX();
+        }
+
+        private void mktFechaNacimiento_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            mktFechaNacimiento.ValidatingType = typeof(System.DateTime);
+            MessageBox.Show(mktFechaNacimiento.ValidatingType.ToString());
+           
         }
     }
 
