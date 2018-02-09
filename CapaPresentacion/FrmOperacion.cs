@@ -27,7 +27,7 @@ namespace CapaPresentacion
         ClsHdrVentaHist cls_hdr_venta_hist = new ClsHdrVentaHist();
         ClsMovVentasHist cls_mov_ventas_hist = new ClsMovVentasHist();
         List<datosVenta> lista_datos_venta = new List<datosVenta>();
-        double SubtotalAPagar=0;
+        double SubtotalAPagar = 0;
         int idSocio;
         int FolioVenta;
         public FrmOperacion()
@@ -40,7 +40,7 @@ namespace CapaPresentacion
             BuscarDispositivos();
             llenarComboMembresias();
             cboDispositivos.Visible = false;
-            
+
         }
         private void txtSoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -60,12 +60,11 @@ namespace CapaPresentacion
                 return;
             }
         }
-        
+
         void validarGBX()
         {
             bool bandera = true;
             string texto = mktFechaNacimiento.Text.Replace("_", "");
-            MessageBox.Show(texto.Length.ToString());
             if (TxtNombreSocio.Text.Equals(""))
             {
                 bandera = false;
@@ -76,7 +75,7 @@ namespace CapaPresentacion
                 bandera = false;
             }
 
-            if(mktCelular.Text.Equals(""))
+            if (mktCelular.Text.Equals(""))
             {
                 bandera = false;
             }
@@ -86,12 +85,12 @@ namespace CapaPresentacion
                 bandera = false;
             }
 
-            if (RDmasculino.Checked==false && RDsexoFem.Checked == false)
+            if (RDmasculino.Checked == false && RDsexoFem.Checked == false)
             {
                 bandera = false;
             }
 
-            if(pbFotoUser.Image==null)
+            if (pbFotoUser.Image == null)
             {
                 bandera = false;
             }
@@ -101,20 +100,6 @@ namespace CapaPresentacion
                 bandera = false;
             }
 
-            else
-            {
-                DateTime fecha;
-
-
-                if (DateTime.TryParse(mktFechaNacimiento.Text, out fecha))
-                {
-                    
-                }
-                else
-                {
-                    bandera = false;
-                }
-            }
 
             if (bandera)
             {
@@ -131,11 +116,11 @@ namespace CapaPresentacion
         //*******************************  agregamos los controles para la camara
 
         private bool ExistenDispositivos = false;
-    private FilterInfoCollection DispositivosDeVideo;
-    private VideoCaptureDevice FuenteDeVideo = null;
+        private FilterInfoCollection DispositivosDeVideo;
+        private VideoCaptureDevice FuenteDeVideo = null;
 
-    private void btnIniciar_Click(object sender, EventArgs e)
-    {
+        private void btnIniciar_Click(object sender, EventArgs e)
+        {
             if (btnIniciar.Text == "Iniciar")
             {
                 if (ExistenDispositivos)
@@ -161,91 +146,91 @@ namespace CapaPresentacion
             }
         }
 
-    public void CargarDispositivos(FilterInfoCollection Dispositivos)
-    {
-        for (int i = 0; i < Dispositivos.Count; i++)
-            cboDispositivos.Items.Add(Dispositivos[i].Name.ToString()); //cboDispositivos es nuestro combobox
-        cboDispositivos.Text = cboDispositivos.Items[0].ToString();
-    }
-
-    public void BuscarDispositivos()
-    {
-        DispositivosDeVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-        if (DispositivosDeVideo.Count == 0)
-            ExistenDispositivos = false;
-        else
+        public void CargarDispositivos(FilterInfoCollection Dispositivos)
         {
-            ExistenDispositivos = true;
-            CargarDispositivos(DispositivosDeVideo);
+            for (int i = 0; i < Dispositivos.Count; i++)
+                cboDispositivos.Items.Add(Dispositivos[i].Name.ToString()); //cboDispositivos es nuestro combobox
+            cboDispositivos.Text = cboDispositivos.Items[0].ToString();
         }
-    }
 
-    public void TerminarFuenteDeVideo()
-    {
-        if (!(FuenteDeVideo == null))
-            if (FuenteDeVideo.IsRunning)
+        public void BuscarDispositivos()
+        {
+            DispositivosDeVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            if (DispositivosDeVideo.Count == 0)
+                ExistenDispositivos = false;
+            else
             {
-                FuenteDeVideo.SignalToStop();
-                FuenteDeVideo = null;
+                ExistenDispositivos = true;
+                CargarDispositivos(DispositivosDeVideo);
             }
-    }
+        }
 
-    private void video_NuevoFrame(object sender, NewFrameEventArgs eventArgs)
-    {
-        Bitmap Imagen = (Bitmap)eventArgs.Frame.Clone();
-        pbFotoUser.Image = Imagen; //pbFotoUser es nuestro pictureBox
-    }
+        public void TerminarFuenteDeVideo()
+        {
+            if (!(FuenteDeVideo == null))
+                if (FuenteDeVideo.IsRunning)
+                {
+                    FuenteDeVideo.SignalToStop();
+                    FuenteDeVideo = null;
+                }
+        }
 
-    private void btnIniciar_Click_1(object sender, EventArgs e)
-    {
+        private void video_NuevoFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap Imagen = (Bitmap)eventArgs.Frame.Clone();
+            pbFotoUser.Image = Imagen; //pbFotoUser es nuestro pictureBox
+        }
 
-    }
+        private void btnIniciar_Click_1(object sender, EventArgs e)
+        {
 
-    private void cboDispositivos_SelectedIndexChanged(object sender, EventArgs e)
-    {
+        }
 
-    }
+        private void cboDispositivos_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-    private void TstCmdAgregarUsr_Click(object sender, EventArgs e)
-    {
-        
-    }
+        }
 
-    //FUNCION PARA CONVERTIR LA IMAGEN A BYTES
+        private void TstCmdAgregarUsr_Click(object sender, EventArgs e)
+        {
 
-    public Byte[] Imagen_A_Bytes(String ruta)
+        }
 
-    {
+        //FUNCION PARA CONVERTIR LA IMAGEN A BYTES
 
-        FileStream foto = new FileStream(ruta, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        public Byte[] Imagen_A_Bytes(String ruta)
 
-        Byte[] arreglo = new Byte[foto.Length];
+        {
 
-        BinaryReader reader = new BinaryReader(foto);
+            FileStream foto = new FileStream(ruta, FileMode.OpenOrCreate, FileAccess.ReadWrite);
 
-        arreglo = reader.ReadBytes(Convert.ToInt32(foto.Length));
+            Byte[] arreglo = new Byte[foto.Length];
 
-        return arreglo;
+            BinaryReader reader = new BinaryReader(foto);
 
-    }
+            arreglo = reader.ReadBytes(Convert.ToInt32(foto.Length));
 
-    //FUNCION PARA CONVERTIR DE BYTES A IMAGEN
+            return arreglo;
 
-    public Image Bytes_A_Imagen(Byte[] ImgBytes)
+        }
 
-    {
+        //FUNCION PARA CONVERTIR DE BYTES A IMAGEN
 
-        Bitmap imagen = null;
+        public Image Bytes_A_Imagen(Byte[] ImgBytes)
 
-        Byte[] bytes = (Byte[])(ImgBytes);
+        {
 
-        MemoryStream ms = new MemoryStream(bytes);
+            Bitmap imagen = null;
 
-        imagen = new Bitmap(ms);
+            Byte[] bytes = (Byte[])(ImgBytes);
 
-        return imagen;
+            MemoryStream ms = new MemoryStream(bytes);
 
-    }
+            imagen = new Bitmap(ms);
+
+            return imagen;
+
+        }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -253,7 +238,7 @@ namespace CapaPresentacion
             {
                 ClsSocios Socio = new ClsSocios();
                 string mens = "";
-                
+
 
                 // pasamos todos los datos a los parametros de la esctructura para ejecutar el SP AltaSocio
                 Socio.m_Nombre = TxtNombreSocio.Text;
@@ -291,7 +276,7 @@ namespace CapaPresentacion
                 {
                     cargar_locker(Convert.ToInt32(TxtIdSocio.Text));
                 }
-               // mens = TxtIdSocio.Text;
+                // mens = TxtIdSocio.Text;
                 MessageBox.Show("Socio agregado de forma correcta");
             }
 
@@ -321,14 +306,14 @@ namespace CapaPresentacion
             ClsSocios Socio = new ClsSocios();
             DataTable dt = new DataTable();
 
-            if ((int)e.KeyCode  == (int)Keys.Enter)
+            if ((int)e.KeyCode == (int)Keys.Enter)
             {
 
                 long NoSocio;
-                NoSocio = Int64.Parse ( TSTxtBuscaSocio.Text);
+                NoSocio = Int64.Parse(TSTxtBuscaSocio.Text);
                 Socio.m_IdSocio = NoSocio;
                 dt = Socio.RegresaSocio();
-                if (dt.Rows.Count!=0)
+                if (dt.Rows.Count != 0)
                 {
 
                     foreach (DataRow filas in dt.Rows)
@@ -336,20 +321,20 @@ namespace CapaPresentacion
 
                         // indice de columnas 
                         //IdSocio 0
-                         TxtIdSocio.Text = filas["IdSocio"].ToString();
+                        TxtIdSocio.Text = filas["IdSocio"].ToString();
                         //[FotoId] 1
                         //[Fingerprint] 2
                         //[Nombre] 3
-                        TxtNombreSocio.Text= filas["Nombre"].ToString();
+                        TxtNombreSocio.Text = filas["Nombre"].ToString();
                         //[Direccion1] 4
-                        TxtDireccion1.Text= filas["Direccion1"].ToString();
+                        TxtDireccion1.Text = filas["Direccion1"].ToString();
                         //[Direccion2] 5
                         TxtDireccion2.Text = filas["Direccion2"].ToString();
                         //[Email] 6
-                        TxtEmail.Text= filas["Email"].ToString();
+                        TxtEmail.Text = filas["Email"].ToString();
                         //[Edad] 7 
                         //[Telefono] 8 
-                        mktCelular.Text= filas["Telefono"].ToString();
+                        mktCelular.Text = filas["Telefono"].ToString();
                         //,[Sexo] 9
                         string Sexo;
                         Sexo = filas["Sexo"].ToString();
@@ -391,20 +376,20 @@ namespace CapaPresentacion
                 else MessageBox.Show("  Socio no encontrado ");
             }
         }
-            // First method: Convert Image to byte[] array:
-            public byte[] imageToByteArray(System.Drawing.Image imageIn)
-            {
-                MemoryStream ms = new MemoryStream();
-                imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
-                return ms.ToArray();
-            }
-            // Second method: Convert byte[] array to Image:
-            public Image byteArrayToImage(byte[] byteArrayIn)
-            {
-                MemoryStream ms = new MemoryStream(byteArrayIn);
-                Image returnImage = Image.FromStream(ms);
-                return returnImage;
-            }
+        // First method: Convert Image to byte[] array:
+        public byte[] imageToByteArray(System.Drawing.Image imageIn)
+        {
+            MemoryStream ms = new MemoryStream();
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Gif);
+            return ms.ToArray();
+        }
+        // Second method: Convert byte[] array to Image:
+        public Image byteArrayToImage(byte[] byteArrayIn)
+        {
+            MemoryStream ms = new MemoryStream(byteArrayIn);
+            Image returnImage = Image.FromStream(ms);
+            return returnImage;
+        }
 
         private void TsLimpiaForm_Click(object sender, EventArgs e)
         {
@@ -445,16 +430,16 @@ namespace CapaPresentacion
                 bandera = false;
                 MessageBox.Show("     ¡ NO SE HA ASIGNADO UNA FOTO AL SOCIO ! \n  -POR FAVOR TOME LA FOTO ANTES DE CONTINUAR- ");
             }
-            else  bandera = true;  // HA PASADO EL FILTRO DE LA FOTO
+            else bandera = true;  // HA PASADO EL FILTRO DE LA FOTO
 
 
 
-            return  bandera;
+            return bandera;
         }
 
         private void mktCelular_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            
+
         }
 
         private void mktCelular_Click(object sender, EventArgs e)
@@ -479,18 +464,18 @@ namespace CapaPresentacion
 
         private void seleccionar_locker(int tipoBusqueda)
         {
-                //se le asigna un valor a la variable tipo que se encarga de
-                //seleccionar el tipo de busqueda en el SP
-                cls_lockers.Tipo = tipoBusqueda;
-                //se llama al metodo  donde esta la accion de SP
-                DataTable dt = cls_lockers.verLockers();
-                //se llena el datasoucer con lo que regreso el SP
-                cbbLockers.DataSource = dt;
-                //se coloca el indice o option en web
-                cbbLockers.ValueMember = "idLocker";
-                //se coloca el valor del combo
-                cbbLockers.DisplayMember = "Descripcion";
-                cbbLockers.Text = "";
+            //se le asigna un valor a la variable tipo que se encarga de
+            //seleccionar el tipo de busqueda en el SP
+            cls_lockers.Tipo = tipoBusqueda;
+            //se llama al metodo  donde esta la accion de SP
+            DataTable dt = cls_lockers.verLockers();
+            //se llena el datasoucer con lo que regreso el SP
+            cbbLockers.DataSource = dt;
+            //se coloca el indice o option en web
+            cbbLockers.ValueMember = "idLocker";
+            //se coloca el valor del combo
+            cbbLockers.DisplayMember = "Descripcion";
+            cbbLockers.Text = "";
         }
 
         private void llenarComboMembresias()
@@ -510,7 +495,7 @@ namespace CapaPresentacion
 
         private void cbbLockers_SelectedIndexChanged(object sender, EventArgs e)
         {
-           if(!cbbLockers.Text.Equals(""))
+            if (!cbbLockers.Text.Equals(""))
             {
                 //txtnumDias.Enabled = true;
             }
@@ -522,7 +507,7 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void cbbMembresia_SelectedIndexChanged(object sender, EventArgs e)
@@ -548,14 +533,14 @@ namespace CapaPresentacion
                     dataGridView2.Rows[rowEscribir].Cells[1].Value = filas["Costo"].ToString();
                     SubtotalAPagar += Convert.ToDouble(filas["Costo"]);
                     DatosVenta = new datosVenta();
-                    DatosVenta.Item = "Membresia "+ filas["Descripcion"].ToString();
+                    DatosVenta.Item = "Membresia " + filas["Descripcion"].ToString();
                     DatosVenta.Monto = Convert.ToInt32(filas["Costo"]);
                     DatosVenta.Tipo = 'M';
                     DatosVenta.ClaveMembresia = Convert.ToInt32(filas["idMembresia"]);
                     lista_datos_venta.Add(DatosVenta);
                 }
 
-                
+
             }
         }
 
@@ -568,10 +553,10 @@ namespace CapaPresentacion
             cls_hdr_venta_hist.m_IVA = total_a_pagar_Iva;
             cls_hdr_venta_hist.m_Total = total_a_pagar;
             cls_hdr_venta_hist.m_User_modif = Login.nombre;
-            
+
 
             FolioVenta = Convert.ToInt32(cls_hdr_venta_hist.guardarVenta());
-            MessageBox.Show("El folio es: "+ FolioVenta.ToString());
+            MessageBox.Show("El folio es: " + FolioVenta.ToString());
 
             Login.dineroEntrada += total_a_pagar;
 
@@ -583,10 +568,11 @@ namespace CapaPresentacion
                 cls_mov_ventas_hist.m_Tipo = lista_datos_venta[i].Tipo;
                 cls_mov_ventas_hist.m_User_modif = Login.nombre;
                 cls_mov_ventas_hist.m_claveTipoMembresia = lista_datos_venta[i].ClaveMembresia;
+                cls_mov_ventas_hist.m_idSocio = Convert.ToInt32(TxtIdSocio.Text);
                 cls_mov_ventas_hist.guardarMovimientoVenta();
             }
 
-                MessageBox.Show("venta exitosa");
+            MessageBox.Show("venta exitosa");
 
 
         }
@@ -601,7 +587,7 @@ namespace CapaPresentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            for(int i=0; i < lista_datos_venta.Count;i++)
+            for (int i = 0; i < lista_datos_venta.Count; i++)
             {
                 MessageBox.Show(lista_datos_venta[i].Item);
             }
@@ -639,14 +625,36 @@ namespace CapaPresentacion
 
         private void mktFechaNacimiento_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-           
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             mktFechaNacimiento.ValidatingType = typeof(System.DateTime);
             MessageBox.Show(mktFechaNacimiento.ValidatingType.ToString());
-           
+
+        }
+
+        private void mktFechaNacimiento_TextChanged(object sender, EventArgs e)
+        {
+            validarGBX();
+
+           if(mktFechaNacimiento.Text.Length==10)
+           {
+                String value = mktFechaNacimiento.Text;
+                String[] substrings = value.Split('/');
+                int año = Convert.ToInt32(substrings[2]);
+                int mes = Convert.ToInt32(substrings[1]);
+                int dia = Convert.ToInt32(substrings[0]);
+                DateTime nacimiento = new DateTime(año, mes, dia); //Fecha de nacimiento
+                int edad = DateTime.Today.AddTicks(-nacimiento.Ticks).Year - 1;
+
+                txtEdad.Text = edad.ToString();
+            }
+            else
+            {
+                txtEdad.Text = "";
+            }
         }
     }
 

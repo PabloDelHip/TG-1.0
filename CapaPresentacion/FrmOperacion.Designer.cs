@@ -55,7 +55,7 @@
             this.cboDispositivos = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEdad = new System.Windows.Forms.TextBox();
             this.pbFotoUser = new System.Windows.Forms.PictureBox();
             this.mktFechaNacimiento = new System.Windows.Forms.MaskedTextBox();
             this.mktCelular = new System.Windows.Forms.MaskedTextBox();
@@ -298,7 +298,7 @@
             this.groupBox1.Controls.Add(this.cboDispositivos);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtEdad);
             this.groupBox1.Controls.Add(this.pbFotoUser);
             this.groupBox1.Controls.Add(this.mktFechaNacimiento);
             this.groupBox1.Controls.Add(this.mktCelular);
@@ -405,13 +405,13 @@
             this.label6.TabIndex = 45;
             this.label6.Text = "Edad";
             // 
-            // textBox2
+            // txtEdad
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(75, 256);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 44;
+            this.txtEdad.Enabled = false;
+            this.txtEdad.Location = new System.Drawing.Point(75, 256);
+            this.txtEdad.Name = "txtEdad";
+            this.txtEdad.Size = new System.Drawing.Size(100, 20);
+            this.txtEdad.TabIndex = 44;
             // 
             // pbFotoUser
             // 
@@ -432,6 +432,7 @@
             this.mktFechaNacimiento.TabIndex = 43;
             this.mktFechaNacimiento.ValidatingType = typeof(System.DateTime);
             this.mktFechaNacimiento.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mktFechaNacimiento_MaskInputRejected);
+            this.mktFechaNacimiento.TextChanged += new System.EventHandler(this.mktFechaNacimiento_TextChanged);
             // 
             // mktCelular
             // 
@@ -785,7 +786,7 @@
         private System.Windows.Forms.DateTimePicker DTPLockerVence;
         private System.Windows.Forms.MaskedTextBox mktCelular;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtEdad;
         private System.Windows.Forms.MaskedTextBox mktFechaNacimiento;
         private System.Windows.Forms.ComboBox cbbLockers;
         private System.Windows.Forms.Label label8;
