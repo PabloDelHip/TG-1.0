@@ -36,7 +36,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("el dinero es menor");
             }
-
             else if(dineroCaja<=dineroSalida)
             {
                 MessageBox.Show("dinero correcto");
