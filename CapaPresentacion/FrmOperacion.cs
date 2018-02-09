@@ -64,8 +64,9 @@ namespace CapaPresentacion
         void validarGBX()
         {
             bool bandera = true;
-
-            if(TxtNombreSocio.Text.Equals(""))
+            string texto = mktFechaNacimiento.Text.Replace("_", "");
+            MessageBox.Show(texto.Length.ToString());
+            if (TxtNombreSocio.Text.Equals(""))
             {
                 bandera = false;
             }
@@ -95,11 +96,30 @@ namespace CapaPresentacion
                 bandera = false;
             }
 
-            if(bandera)
+            if (texto.Length < 10)
+            {
+                bandera = false;
+            }
+
+            else
+            {
+                DateTime fecha;
+
+
+                if (DateTime.TryParse(mktFechaNacimiento.Text, out fecha))
+                {
+                    
+                }
+                else
+                {
+                    bandera = false;
+                }
+            }
+
+            if (bandera)
             {
                 gbxMembresia.Enabled = true;
             }
-
             else
             {
                 gbxMembresia.Enabled = false;
@@ -502,22 +522,7 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string texto = mktFechaNacimiento.Text.Replace("_", "");
-            MessageBox.Show(texto);
-            MessageBox.Show(texto.Length.ToString());
-
-            MessageBox.Show("hola aqui ");
-            DateTime fecha;
-
             
-            if (DateTime.TryParse(mktFechaNacimiento.Text, out fecha))
-            {
-                MessageBox.Show("campo 1");
-            }
-            else
-            {
-                MessageBox.Show("campo 2");
-            }
         }
 
         private void cbbMembresia_SelectedIndexChanged(object sender, EventArgs e)
