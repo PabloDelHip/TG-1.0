@@ -22,6 +22,7 @@ namespace CapaLogicaNegocios
         public static double dineroEntrada { get; set; }
         public static bool cajaAbierta { get; set; }
         public static int opcionReporte { get; set; }
+        public static int tipoObservacion { get; set; }
         //public string m_Existe { get; set; }
 
         ClsManejador M = new ClsManejador();  // Referenciamos la clase para poder armar la estructura del SP
