@@ -656,6 +656,11 @@ namespace CapaPresentacion
                 txtEdad.Text = "";
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.RemoveAt(1);
+        }
     }
 
     class datosVenta
