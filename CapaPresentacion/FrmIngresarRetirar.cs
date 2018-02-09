@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaLogicaNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace CapaPresentacion
     public partial class FrmIngresarRetirar : Form
     {
         public int tipoMovimiento;
+        ClsIngresarRetirar cls_ingresarRetirar = new ClsIngresarRetirar();
         public FrmIngresarRetirar(int tipoMovimientoCaja)
         {
             this.tipoMovimiento = tipoMovimientoCaja;
@@ -31,6 +33,30 @@ namespace CapaPresentacion
                 btnTipoMovimiento.Image = Properties.Resources.money;
                 btnTipoMovimiento.Text = "Retirar";
             }
+        }
+
+        private void btnTipoMovimiento_Click(object sender, EventArgs e)
+        {
+            string mensaje = "";
+            double cantidad = Convert.ToDouble(txtCantidad.Text);
+            string observacion = txtObservacion.Text;
+            int tipoMov=0;
+            if (tipoMovimiento==1)
+            {
+                Login.dineroEntrada = Login.dineroEntrada + cantidad;
+                tipoMov = 0;
+            }
+            else if (tipoMovimiento==2)
+            {
+                Login.dineroEntrada = Login.dineroEntrada - cantidad;
+                tipoMov = 1;
+            }
+            cls_ingresarRetirar.m_cantidad = Login.dineroEntrada;
+            cls_ingresarRetirar.m_observacion = observacion;
+            cls_ingresarRetirar.m_tipoMovCaja = tipoMov;
+            mensaje = cls_ingresarRetirar.guardarMovimientoCaja();
+            MessageBox.Show(mensaje);
+            this.Close();
         }
     }
 }
