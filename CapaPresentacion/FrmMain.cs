@@ -213,5 +213,17 @@ namespace CapaPresentacion
             FrmUsuarios abrir = new FrmUsuarios();
             AbrirVentanas(abrir);
         }
+
+        private void ingresarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIngresarRetirar abrir = new FrmIngresarRetirar(1);
+            AbrirVentanas(abrir);
+        }
+
+        private void retirarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIngresarRetirar abrir = new FrmIngresarRetirar(2);
+            AbrirVentanas(abrir);
+        }
     }
 }
