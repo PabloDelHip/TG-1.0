@@ -17,6 +17,11 @@ namespace CapaPresentacion
         ClsObservaciones cls_observaciones = new ClsObservaciones();
         ClsObservacionesCaja cls_observaciones_caja = new ClsObservacionesCaja();
         ClsGeneral cls_generales = new ClsGeneral();
+        public bool ObCaja;
+        public FrmObservacion(bool obvCaja)
+        {
+            this.ObCaja = obvCaja;
+        }
         public FrmObservacion()
         {
             InitializeComponent();
@@ -25,7 +30,7 @@ namespace CapaPresentacion
         {
             ArrayList email = new ArrayList();
             email.Add("pablodelhip@gmail.com");
-            if (Login.tipoObservacion==1)
+            if (ObCaja==false)
             {
                 string bandera = "0";
                 int i = 0;
@@ -52,7 +57,7 @@ namespace CapaPresentacion
                     }
                 }
             }
-            else if (Login.tipoObservacion==2)
+            else
             {
                 if (MessageBox.Show("¿Guardar la observacion de caja y continuar?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
