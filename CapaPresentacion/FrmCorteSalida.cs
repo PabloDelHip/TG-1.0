@@ -43,7 +43,9 @@ namespace CapaPresentacion
                 cls_corte_caja.cerrarCaja();
                 MessageBox.Show("bien");
                 this.Hide();
+                Login.tipoObservacion = 2;
                 FrmObservacion observacion = new FrmObservacion();
+                observacion.ObCaja = false;
                 observacion.ShowDialog();
             }
         }

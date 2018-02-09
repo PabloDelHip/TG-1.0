@@ -52,6 +52,7 @@ namespace CapaPresentacion
                 DataTable dt2 = cls_HisObvservaciones.buscarHisObCaja();
                 dgvObCaja.DataSource = dt2;
                 btnGenerarReporteH.Enabled = true;
+                btnGenerarReporte2.Enabled = true;
             }
             catch (Exception ex)
             {
