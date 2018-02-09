@@ -18,14 +18,15 @@ namespace CapaPresentacion
             this.tipoMovimiento = tipoMovimientoCaja;
             InitializeComponent();
         }
+
         private void FrmIngresarRetirar_Load(object sender, EventArgs e)
         {
-            if (tipoMovimiento==1)
+            if (tipoMovimiento == 1)
             {
                 btnTipoMovimiento.Image = Properties.Resources.money_1;
                 btnTipoMovimiento.Text = "Ingresar";
             }
-            else if (tipoMovimiento==2)
+            else if (tipoMovimiento == 2)
             {
                 btnTipoMovimiento.Image = Properties.Resources.money;
                 btnTipoMovimiento.Text = "Retirar";
