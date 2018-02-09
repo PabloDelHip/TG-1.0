@@ -57,7 +57,7 @@ namespace CapaPresentacion
                     }
                 }
             }
-            else
+            else if (ObCaja==true)
             {
                 if (MessageBox.Show("¿Guardar la observacion de caja y continuar?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {

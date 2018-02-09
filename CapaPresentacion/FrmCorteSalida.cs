@@ -44,8 +44,7 @@ namespace CapaPresentacion
                 MessageBox.Show("bien");
                 this.Hide();
                 Login.tipoObservacion = 2;
-                FrmObservacion observacion = new FrmObservacion();
-                observacion.ObCaja = false;
+                FrmObservacion observacion = new FrmObservacion(true);
                 observacion.ShowDialog();
             }
         }
