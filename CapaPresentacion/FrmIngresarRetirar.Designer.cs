@@ -95,6 +95,7 @@
             this.btnTipoMovimiento.TabIndex = 4;
             this.btnTipoMovimiento.Text = "Ingresar";
             this.btnTipoMovimiento.UseVisualStyleBackColor = true;
+            this.btnTipoMovimiento.Click += new System.EventHandler(this.btnTipoMovimiento_Click);
             // 
             // FrmIngresarRetirar
             // 
