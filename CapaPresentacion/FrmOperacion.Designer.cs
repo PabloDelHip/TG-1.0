@@ -30,6 +30,7 @@
         {
             this.TabUsuario = new System.Windows.Forms.TabControl();
             this.TabGral = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.Concepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,7 +88,6 @@
             this.TSTxtBuscaSocio = new System.Windows.Forms.ToolStripTextBox();
             this.TtsGuardaSocio = new System.Windows.Forms.ToolStripButton();
             this.TsLimpiaForm = new System.Windows.Forms.ToolStripButton();
-            this.button1 = new System.Windows.Forms.Button();
             this.TabUsuario.SuspendLayout();
             this.TabGral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -126,6 +126,16 @@
             this.TabGral.Text = "Generales";
             this.TabGral.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(639, 648);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Eliminar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(550, 427);
@@ -149,6 +159,8 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(617, 215);
             this.dataGridView2.TabIndex = 25;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dataGridView2.Click += new System.EventHandler(this.dataGridView2_Click);
             // 
             // Concepto
             // 
@@ -682,16 +694,6 @@
             this.TsLimpiaForm.Text = "Limpiar";
             this.TsLimpiaForm.ToolTipText = "Limpia el formulario actual";
             this.TsLimpiaForm.Click += new System.EventHandler(this.TsLimpiaForm_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(639, 648);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Eliminar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // FrmOperacion
             // 
