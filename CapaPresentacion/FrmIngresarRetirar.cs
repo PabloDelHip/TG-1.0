@@ -37,26 +37,29 @@ namespace CapaPresentacion
 
         private void btnTipoMovimiento_Click(object sender, EventArgs e)
         {
-            string mensaje = "";
-            double cantidad = Convert.ToDouble(txtCantidad.Text);
-            string observacion = txtObservacion.Text;
-            int tipoMov=0;
-            if (tipoMovimiento==1)
+            if (MessageBox.Show("¿Desea "+btnTipoMovimiento.Text+" el dinero y continuar?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Login.dineroEntrada = Login.dineroEntrada + cantidad;
-                tipoMov = 0;
+                string mensaje = "";
+                double cantidad = Convert.ToDouble(txtCantidad.Text);
+                string observacion = txtObservacion.Text;
+                int tipoMov = 0;
+                if (tipoMovimiento == 1)
+                {
+                    Login.dineroEntrada = Login.dineroEntrada + cantidad;
+                    tipoMov = 0;
+                }
+                else if (tipoMovimiento == 2)
+                {
+                    Login.dineroEntrada = Login.dineroEntrada - cantidad;
+                    tipoMov = 1;
+                }
+                cls_ingresarRetirar.m_cantidad = Login.dineroEntrada;
+                cls_ingresarRetirar.m_observacion = observacion;
+                cls_ingresarRetirar.m_tipoMovCaja = tipoMov;
+                mensaje = cls_ingresarRetirar.guardarMovimientoCaja();
+                MessageBox.Show(mensaje);
+                this.Close();
             }
-            else if (tipoMovimiento==2)
-            {
-                Login.dineroEntrada = Login.dineroEntrada - cantidad;
-                tipoMov = 1;
-            }
-            cls_ingresarRetirar.m_cantidad = Login.dineroEntrada;
-            cls_ingresarRetirar.m_observacion = observacion;
-            cls_ingresarRetirar.m_tipoMovCaja = tipoMov;
-            mensaje = cls_ingresarRetirar.guardarMovimientoCaja();
-            MessageBox.Show(mensaje);
-            this.Close();
         }
     }
 }

@@ -93,8 +93,11 @@ namespace CapaPresentacion
 
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
-            frmReporteCaja.opc = opcion;
-            frmReporteCaja.ShowDialog();
+            if (MessageBox.Show("¿Desea generar un reporte?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                frmReporteCaja.opc = opcion;
+                frmReporteCaja.ShowDialog();
+            }
         }
     }
 }

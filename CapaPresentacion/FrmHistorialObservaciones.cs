@@ -62,22 +62,28 @@ namespace CapaPresentacion
 
         private void btnGenerarReporteH_Click(object sender, EventArgs e)
         {
-            Login.opcionReporte = 2;
-            FrmReporteEntradas reporteEntradas = new FrmReporteEntradas();
-            reporteEntradas.idSocio = Convert.ToInt32(txtUsuario.Text);
-            reporteEntradas.fechaInicioBusqueda = dtpInicioBusquedaH.Value;
-            reporteEntradas.fechaFinBusqueda = dtpFinBusquedaH.Value;
-            reporteEntradas.ShowDialog();
+            if (MessageBox.Show("¿Desea generar un reporte?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Login.opcionReporte = 2;
+                FrmReporteEntradas reporteEntradas = new FrmReporteEntradas();
+                reporteEntradas.idSocio = Convert.ToInt32(txtUsuario.Text);
+                reporteEntradas.fechaInicioBusqueda = dtpInicioBusquedaH.Value;
+                reporteEntradas.fechaFinBusqueda = dtpFinBusquedaH.Value;
+                reporteEntradas.ShowDialog();
+            }
         }
 
         private void btnGenerarReporte2_Click(object sender, EventArgs e)
         {
-            Login.opcionReporte = 3;
-            FrmReporteEntradas reporteEntradas = new FrmReporteEntradas();
-            reporteEntradas.idSocio = Convert.ToInt32(txtUsuario.Text);
-            reporteEntradas.fechaInicioBusqueda = dtpInicioBusquedaH.Value;
-            reporteEntradas.fechaFinBusqueda = dtpFinBusquedaH.Value;
-            reporteEntradas.ShowDialog();
+            if (MessageBox.Show("¿Desea generar un reporte?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Login.opcionReporte = 3;
+                FrmReporteEntradas reporteEntradas = new FrmReporteEntradas();
+                reporteEntradas.idSocio = Convert.ToInt32(txtUsuario.Text);
+                reporteEntradas.fechaInicioBusqueda = dtpInicioBusquedaH.Value;
+                reporteEntradas.fechaFinBusqueda = dtpFinBusquedaH.Value;
+                reporteEntradas.ShowDialog();
+            }
         }
     }
 }
