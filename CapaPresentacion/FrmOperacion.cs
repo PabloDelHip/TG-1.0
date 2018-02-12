@@ -14,6 +14,7 @@ using CapaLogicaNegocios;
 using System.IO;
 using System.Threading;
 using System.Media;
+using Flurl.Http;
 
 namespace CapaPresentacion
 {
@@ -30,6 +31,7 @@ namespace CapaPresentacion
         double SubtotalAPagar = 0;
         int idSocio;
         int FolioVenta;
+        int numero_fila;
         public FrmOperacion()
         {
             InitializeComponent();
@@ -655,6 +657,22 @@ namespace CapaPresentacion
             {
                 txtEdad.Text = "";
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.RemoveAt(numero_fila);
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dataGridView2_Click(object sender, EventArgs e)
+        {
+            numero_fila = dataGridView2.CurrentRow.Index;
+            
         }
     }
 
