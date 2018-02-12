@@ -99,6 +99,12 @@
       <DependentUpon>CRMovCajaFecha.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRVentas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRVentas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmBusquedaEntradas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +201,12 @@
     <Compile Include="FrmUsuarios.Designer.cs">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVentas.Designer.cs">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Socio\FrmDeudasSocios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +252,10 @@
     <EmbeddedResource Include="CRMovCajaFecha.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRMovCajaFecha.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRVentas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRVentas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBusquedaEntradas.resx">
       <DependentUpon>FrmBusquedaEntradas.cs</DependentUpon>
@@ -288,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVentas.resx">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Socio\FrmDeudasSocios.resx">
       <DependentUpon>FrmDeudasSocios.cs</DependentUpon>

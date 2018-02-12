@@ -225,5 +225,11 @@ namespace CapaPresentacion
             FrmIngresarRetirar abrir = new FrmIngresarRetirar(2);
             AbrirVentanas(abrir);
         }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmVentas abrir = new FrmVentas();
+            AbrirVentanas(abrir);
+        }
     }
 }
