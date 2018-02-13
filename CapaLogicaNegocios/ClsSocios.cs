@@ -63,7 +63,7 @@ namespace CapaLogicaNegocios
                 lst.Add(new ClsParametros("@TipoSocio", m_TipoSocio));
                 //lst.Add(new ClsParametros("@Finguerprint", m_Fingerprint));
                 //lst.Add(new ClsParametros("@FechaIngreso", m_FechaIngreso));
-                lst.Add(new ClsParametros("@Vencimiento", m_Vencimiento));
+               // lst.Add(new ClsParametros("@Vencimiento", m_Vencimiento));
                 lst.Add(new ClsParametros("@Observacion", m_Observacion));
                 lst.Add(new ClsParametros("@Indicaciones", m_Indicaciones));
                 lst.Add(new ClsParametros("@User_modif", m_User_modif));
@@ -75,7 +75,7 @@ namespace CapaLogicaNegocios
 
                 M.Ejecutar_sp("AltaSocio", lst);
                 //Retornamos el mensaje  de salida del SP
-                IdSocio = lst[16].Valor.ToString(); /////.valor 
+                IdSocio = lst[15].Valor.ToString(); /////.valor 
 
                 
 

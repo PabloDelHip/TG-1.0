@@ -32,7 +32,7 @@
             this.TabGral = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dtgVentas = new System.Windows.Forms.DataGridView();
             this.Concepto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
@@ -46,8 +46,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.DTPFechaVencimDesde = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.cbbMembresiaLockers = new System.Windows.Forms.ComboBox();
+            this.btnCancelarCamara = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.cbbLockers = new System.Windows.Forms.ComboBox();
             this.DTPLockerVence = new System.Windows.Forms.DateTimePicker();
@@ -86,11 +86,11 @@
             this.TstCmdAgrefarUsr = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.TSTxtBuscaSocio = new System.Windows.Forms.ToolStripTextBox();
-            this.TtsGuardaSocio = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.TsLimpiaForm = new System.Windows.Forms.ToolStripButton();
             this.TabUsuario.SuspendLayout();
             this.TabGral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgVentas)).BeginInit();
             this.gbxMembresia.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).BeginInit();
@@ -114,7 +114,7 @@
             // 
             this.TabGral.Controls.Add(this.button1);
             this.TabGral.Controls.Add(this.button4);
-            this.TabGral.Controls.Add(this.dataGridView2);
+            this.TabGral.Controls.Add(this.dtgVentas);
             this.TabGral.Controls.Add(this.button3);
             this.TabGral.Controls.Add(this.gbxMembresia);
             this.TabGral.Controls.Add(this.groupBox1);
@@ -146,21 +146,22 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // dataGridView2
+            // dtgVentas
             // 
-            this.dataGridView2.AllowUserToOrderColumns = true;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtgVentas.AllowUserToOrderColumns = true;
+            this.dtgVentas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Concepto,
             this.Monto});
-            this.dataGridView2.Location = new System.Drawing.Point(6, 456);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(617, 215);
-            this.dataGridView2.TabIndex = 25;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
-            this.dataGridView2.Click += new System.EventHandler(this.dataGridView2_Click);
+            this.dtgVentas.Location = new System.Drawing.Point(6, 456);
+            this.dtgVentas.Name = "dtgVentas";
+            this.dtgVentas.Size = new System.Drawing.Size(617, 215);
+            this.dtgVentas.TabIndex = 25;
+            this.dtgVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dtgVentas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgVentas_CellDoubleClick);
+            this.dtgVentas.Click += new System.EventHandler(this.dataGridView2_Click);
             // 
             // Concepto
             // 
@@ -280,8 +281,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.button5);
+            this.groupBox1.Controls.Add(this.cbbMembresiaLockers);
+            this.groupBox1.Controls.Add(this.btnCancelarCamara);
             this.groupBox1.Controls.Add(this.btnIniciar);
             this.groupBox1.Controls.Add(this.cbbLockers);
             this.groupBox1.Controls.Add(this.DTPLockerVence);
@@ -314,30 +315,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del socio";
             // 
-            // comboBox1
+            // cbbMembresiaLockers
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(181, 201);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(125, 21);
-            this.comboBox1.TabIndex = 49;
+            this.cbbMembresiaLockers.Enabled = false;
+            this.cbbMembresiaLockers.FormattingEnabled = true;
+            this.cbbMembresiaLockers.Location = new System.Drawing.Point(181, 201);
+            this.cbbMembresiaLockers.Name = "cbbMembresiaLockers";
+            this.cbbMembresiaLockers.Size = new System.Drawing.Size(125, 21);
+            this.cbbMembresiaLockers.TabIndex = 49;
             // 
-            // button5
+            // btnCancelarCamara
             // 
-            this.button5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Image = global::CapaPresentacion.Properties.Resources.cancelar1;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(594, 244);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(97, 35);
-            this.button5.TabIndex = 48;
-            this.button5.Text = "Cancelar";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnCancelarCamara.Enabled = false;
+            this.btnCancelarCamara.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarCamara.Image = global::CapaPresentacion.Properties.Resources.cancelar1;
+            this.btnCancelarCamara.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarCamara.Location = new System.Drawing.Point(594, 244);
+            this.btnCancelarCamara.Name = "btnCancelarCamara";
+            this.btnCancelarCamara.Size = new System.Drawing.Size(97, 35);
+            this.btnCancelarCamara.TabIndex = 48;
+            this.btnCancelarCamara.Text = "Cancelar";
+            this.btnCancelarCamara.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelarCamara.UseVisualStyleBackColor = true;
+            this.btnCancelarCamara.Click += new System.EventHandler(this.button5_Click);
             // 
             // btnIniciar
             // 
+            this.btnIniciar.Enabled = false;
             this.btnIniciar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.Image = global::CapaPresentacion.Properties.Resources.iniciar1;
             this.btnIniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -352,6 +356,7 @@
             // 
             // cbbLockers
             // 
+            this.cbbLockers.Enabled = false;
             this.cbbLockers.FormattingEnabled = true;
             this.cbbLockers.Location = new System.Drawing.Point(75, 201);
             this.cbbLockers.Name = "cbbLockers";
@@ -415,6 +420,7 @@
             // 
             // mktFechaNacimiento
             // 
+            this.mktFechaNacimiento.Enabled = false;
             this.mktFechaNacimiento.Location = new System.Drawing.Point(75, 228);
             this.mktFechaNacimiento.Mask = "00/00/0000";
             this.mktFechaNacimiento.Name = "mktFechaNacimiento";
@@ -426,6 +432,7 @@
             // 
             // mktCelular
             // 
+            this.mktCelular.Enabled = false;
             this.mktCelular.Location = new System.Drawing.Point(75, 130);
             this.mktCelular.Mask = "(999)000-0000";
             this.mktCelular.Name = "mktCelular";
@@ -437,6 +444,7 @@
             // 
             // TxtEmail
             // 
+            this.TxtEmail.Enabled = false;
             this.TxtEmail.Location = new System.Drawing.Point(75, 156);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(244, 20);
@@ -454,6 +462,7 @@
             // 
             // TxtDireccion2
             // 
+            this.TxtDireccion2.Enabled = false;
             this.TxtDireccion2.Location = new System.Drawing.Point(75, 104);
             this.TxtDireccion2.Name = "TxtDireccion2";
             this.TxtDireccion2.Size = new System.Drawing.Size(244, 20);
@@ -499,6 +508,7 @@
             // RDmasculino
             // 
             this.RDmasculino.AutoSize = true;
+            this.RDmasculino.Enabled = false;
             this.RDmasculino.Location = new System.Drawing.Point(166, 181);
             this.RDmasculino.Name = "RDmasculino";
             this.RDmasculino.Size = new System.Drawing.Size(73, 17);
@@ -511,6 +521,7 @@
             // RDsexoFem
             // 
             this.RDsexoFem.AutoSize = true;
+            this.RDsexoFem.Enabled = false;
             this.RDsexoFem.Location = new System.Drawing.Point(75, 181);
             this.RDsexoFem.Name = "RDsexoFem";
             this.RDsexoFem.Size = new System.Drawing.Size(71, 17);
@@ -522,6 +533,7 @@
             // 
             // TxtDireccion1
             // 
+            this.TxtDireccion1.Enabled = false;
             this.TxtDireccion1.Location = new System.Drawing.Point(75, 78);
             this.TxtDireccion1.Name = "TxtDireccion1";
             this.TxtDireccion1.Size = new System.Drawing.Size(244, 20);
@@ -539,6 +551,7 @@
             // 
             // TxtNombreSocio
             // 
+            this.TxtNombreSocio.Enabled = false;
             this.TxtNombreSocio.Location = new System.Drawing.Point(75, 48);
             this.TxtNombreSocio.Name = "TxtNombreSocio";
             this.TxtNombreSocio.Size = new System.Drawing.Size(244, 20);
@@ -646,7 +659,7 @@
             this.TstCmdAgrefarUsr,
             this.toolStripLabel1,
             this.TSTxtBuscaSocio,
-            this.TtsGuardaSocio,
+            this.toolStripButton1,
             this.TsLimpiaForm});
             this.TStOpciones.Location = new System.Drawing.Point(0, 0);
             this.TStOpciones.Name = "TStOpciones";
@@ -659,8 +672,8 @@
             this.TstCmdAgrefarUsr.Image = global::CapaPresentacion.Properties.Resources.user_2;
             this.TstCmdAgrefarUsr.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TstCmdAgrefarUsr.Name = "TstCmdAgrefarUsr";
-            this.TstCmdAgrefarUsr.Size = new System.Drawing.Size(167, 28);
-            this.TstCmdAgrefarUsr.Text = "Insertar Socio en pantalla";
+            this.TstCmdAgrefarUsr.Size = new System.Drawing.Size(94, 28);
+            this.TstCmdAgrefarUsr.Text = "Crear socio";
             this.TstCmdAgrefarUsr.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripLabel1
@@ -676,22 +689,22 @@
             this.TSTxtBuscaSocio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TSTxtBuscaSocio_KeyDown);
             this.TSTxtBuscaSocio.Click += new System.EventHandler(this.TSTxtBuscaSocio_Click);
             // 
-            // TtsGuardaSocio
+            // toolStripButton1
             // 
-            this.TtsGuardaSocio.Image = global::CapaPresentacion.Properties.Resources.add;
-            this.TtsGuardaSocio.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TtsGuardaSocio.Name = "TtsGuardaSocio";
-            this.TtsGuardaSocio.Size = new System.Drawing.Size(77, 28);
-            this.TtsGuardaSocio.Text = "Guardar";
-            this.TtsGuardaSocio.Click += new System.EventHandler(this.TtsGuardaSocio_Click);
+            this.toolStripButton1.Image = global::CapaPresentacion.Properties.Resources.connection_1;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(75, 28);
+            this.toolStripButton1.Text = "Limpiar";
+            this.toolStripButton1.ToolTipText = "Limpia el formulario actual";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
             // 
             // TsLimpiaForm
             // 
-            this.TsLimpiaForm.Image = global::CapaPresentacion.Properties.Resources.connection_1;
             this.TsLimpiaForm.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TsLimpiaForm.Name = "TsLimpiaForm";
-            this.TsLimpiaForm.Size = new System.Drawing.Size(75, 28);
-            this.TsLimpiaForm.Text = "Limpiar";
+            this.TsLimpiaForm.Size = new System.Drawing.Size(57, 28);
+            this.TsLimpiaForm.Text = "Cancelar";
             this.TsLimpiaForm.ToolTipText = "Limpia el formulario actual";
             this.TsLimpiaForm.Click += new System.EventHandler(this.TsLimpiaForm_Click);
             // 
@@ -710,7 +723,7 @@
             this.Load += new System.EventHandler(this.FrmOperacion_Load);
             this.TabUsuario.ResumeLayout(false);
             this.TabGral.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgVentas)).EndInit();
             this.gbxMembresia.ResumeLayout(false);
             this.gbxMembresia.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -730,7 +743,7 @@
         private System.Windows.Forms.TabControl TabUsuario;
         private System.Windows.Forms.TabPage TabGral;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dtgVentas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Concepto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.Button button3;
@@ -767,7 +780,6 @@
         private System.Windows.Forms.PictureBox pbFotoUser;
         private System.Windows.Forms.ToolStrip TStOpciones;
         private System.Windows.Forms.ToolStripButton TstCmdAgrefarUsr;
-        private System.Windows.Forms.ToolStripButton TtsGuardaSocio;
         private System.Windows.Forms.ToolStripTextBox TSTxtBuscaSocio;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripButton TsLimpiaForm;
@@ -780,12 +792,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbbMembresia;
         private System.Windows.Forms.TextBox TxtTipoSocio;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnCancelarCamara;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbMembresiaLockers;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
