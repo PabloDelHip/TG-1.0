@@ -36,6 +36,22 @@ namespace CapaPresentacion
             InitializeComponent();
         }
 
+        private void validarControles(bool bandera)
+        {
+            TxtNombreSocio.Enabled = bandera;
+            TxtDireccion1.Enabled = bandera;
+            TxtDireccion2.Enabled = bandera;
+            mktCelular.Enabled = bandera;
+            TxtEmail.Enabled = bandera;
+            RDmasculino.Enabled = bandera;
+            RDsexoFem.Enabled = bandera;
+            cbbLockers.Enabled = bandera;
+            cbbMembresia.Enabled = bandera;
+            mktFechaNacimiento.Enabled = bandera;
+            btnIniciar.Enabled = bandera;
+            btnCancelarCamara.Enabled = bandera;
+        }
+
         private void FrmOperacion_Load(object sender, EventArgs e)
         {
             BuscarDispositivos();
@@ -64,51 +80,54 @@ namespace CapaPresentacion
 
         void validarGBX()
         {
-            bool bandera = true;
-            string texto = mktFechaNacimiento.Text.Replace("_", "");
-            if (TxtNombreSocio.Text.Equals(""))
+            if(TstCmdAgrefarUsr.Text.Equals("Crear socio"))
             {
-                bandera = false;
-            }
+                bool bandera = true;
+                string texto = mktFechaNacimiento.Text.Replace("_", "");
+                if (TxtNombreSocio.Text.Equals(""))
+                {
+                    bandera = false;
+                }
 
-            if (TxtDireccion1.Text.Equals("") && TxtDireccion2.Text.Equals(""))
-            {
-                bandera = false;
-            }
+                if (TxtDireccion1.Text.Equals("") && TxtDireccion2.Text.Equals(""))
+                {
+                    bandera = false;
+                }
 
-            if (mktCelular.Text.Equals(""))
-            {
-                bandera = false;
-            }
+                if (mktCelular.Text.Equals(""))
+                {
+                    bandera = false;
+                }
 
-            if (TxtEmail.Text.Equals(""))
-            {
-                bandera = false;
-            }
+                if (TxtEmail.Text.Equals(""))
+                {
+                    bandera = false;
+                }
 
-            if (RDmasculino.Checked == false && RDsexoFem.Checked == false)
-            {
-                bandera = false;
-            }
+                if (RDmasculino.Checked == false && RDsexoFem.Checked == false)
+                {
+                    bandera = false;
+                }
 
-            if (pbFotoUser.Image == null)
-            {
-                bandera = false;
-            }
+                if (pbFotoUser.Image == null)
+                {
+                    bandera = false;
+                }
 
-            if (texto.Length < 10)
-            {
-                bandera = false;
-            }
+                if (texto.Length < 10)
+                {
+                    bandera = false;
+                }
 
 
-            if (bandera)
-            {
-                gbxMembresia.Enabled = true;
-            }
-            else
-            {
-                gbxMembresia.Enabled = false;
+                if (bandera)
+                {
+                    gbxMembresia.Enabled = true;
+                }
+                else
+                {
+                    gbxMembresia.Enabled = false;
+                }
             }
 
 
@@ -235,51 +254,65 @@ namespace CapaPresentacion
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            if (ChkForm_InsOGuardar())
+            if(TstCmdAgrefarUsr.Text.Equals("Crear socio"))
             {
-                ClsSocios Socio = new ClsSocios();
-                string mens = "";
-
-
-                // pasamos todos los datos a los parametros de la esctructura para ejecutar el SP AltaSocio
-                Socio.m_Nombre = TxtNombreSocio.Text;
-                //Socio.m_IdSocio =
-                Socio.m_FotoId = "fff";
-                Socio.m_Direccion1 = TxtDireccion1.Text;
-                Socio.m_Direccion2 = TxtDireccion2.Text;
-                Socio.m_Email = TxtEmail.Text;
-                Socio.m_Edad = "0";
-                Socio.m_Telefono = mktCelular.Text;
-                Socio.m_Sexo = RDsexoFem.Checked ? "F" : "M";
-                Socio.m_TipoSocio = TxtTipoSocio.Text;
-
-                Socio.m_Fingerprint = "vacio";
-                //Socio.m_FechaIngreso = DtpFechaIngreso.Value;
-                //Socio.m_Vencimiento = DTPFechaVencHasta.Value;
-                Socio.m_Observacion = "Observaciones";
-                Socio.m_Indicaciones = "Indicaciones";
-                Socio.m_User_modif = "Admin";
-                Socio.m_FechaNacimiento = Convert.ToDateTime(mktFechaNacimiento.Text);
-                // Asignando el valor de la imagen
-                // Stream usado como buffer
-                System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                // Se guarda la imagen en el buffer
-                pbFotoUser.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                // Se extraen los bytes del buffer para asignarlos como valor para el parámetro.
-                //ImgFoto =  ms.GetBuffer();
-                //imagen = Convert.ToByte( ms.GetBuffer());
-                Socio.m_Foto = ms.GetBuffer();
-
-                //Parametros de salida
-                TxtIdSocio.Text = Socio.InsSocio();
-                idSocio = Convert.ToInt32(TxtIdSocio.Text);
-                if (!cbbLockers.Text.Equals(""))
-                {
-                    cargar_locker(Convert.ToInt32(TxtIdSocio.Text));
-                }
-                // mens = TxtIdSocio.Text;
-                MessageBox.Show("Socio agregado de forma correcta");
+                TstCmdAgrefarUsr.Text = "Guardar nuevo socio";
+                validarControles(true);
             }
+
+            else if(TstCmdAgrefarUsr.Text.Equals("Guardar nuevo socio"))
+            {
+               
+                if (ChkForm_InsOGuardar())
+                {
+                    ClsSocios Socio = new ClsSocios();
+                    string mens = "";
+                    TstCmdAgrefarUsr.Text = "Crear socio";
+
+                   // pasamos todos los datos a los parametros de la esctructura para ejecutar el SP AltaSocio
+                    Socio.m_Nombre = TxtNombreSocio.Text;
+                    //Socio.m_IdSocio =
+                    Socio.m_FotoId = "fff";
+                    Socio.m_Direccion1 = TxtDireccion1.Text;
+                    Socio.m_Direccion2 = TxtDireccion2.Text;
+                    Socio.m_Email = TxtEmail.Text;
+                    Socio.m_Edad = "0";
+                    Socio.m_Telefono = mktCelular.Text;
+                    Socio.m_Sexo = RDsexoFem.Checked ? "F" : "M";
+                    Socio.m_TipoSocio = TxtTipoSocio.Text;
+
+                    Socio.m_Fingerprint = "vacio";
+                    //Socio.m_FechaIngreso = DtpFechaIngreso.Value;
+                    //Socio.m_Vencimiento = DTPFechaVencHasta.Value;
+                    Socio.m_Observacion = "Observaciones";
+                    Socio.m_Indicaciones = "Indicaciones";
+                    Socio.m_User_modif = "Admin";
+                    Socio.m_FechaNacimiento = Convert.ToDateTime(mktFechaNacimiento.Text);
+                    // Asignando el valor de la imagen
+                    // Stream usado como buffer
+                    System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                    // Se guarda la imagen en el buffer
+                    pbFotoUser.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                    // Se extraen los bytes del buffer para asignarlos como valor para el parámetro.
+                    //ImgFoto =  ms.GetBuffer();
+                    //imagen = Convert.ToByte( ms.GetBuffer());
+                    Socio.m_Foto = ms.GetBuffer();
+
+                    //Parametros de salida
+                    TxtIdSocio.Text = Socio.InsSocio();
+                    idSocio = Convert.ToInt32(TxtIdSocio.Text);
+                    if (!cbbLockers.Text.Equals(""))
+                    {
+                        cargar_locker(Convert.ToInt32(TxtIdSocio.Text));
+                    }
+                    // mens = TxtIdSocio.Text;
+                    MessageBox.Show("Socio agregado de forma correcta");
+                    validarGBX();
+                }
+            }
+            
+
+            
 
 
 
@@ -395,6 +428,8 @@ namespace CapaPresentacion
         private void TsLimpiaForm_Click(object sender, EventArgs e)
         {
             LimpiaFormulario();
+            validarControles(false);
+            TstCmdAgrefarUsr.Text = "Crear socio";
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -526,12 +561,12 @@ namespace CapaPresentacion
                 foreach (DataRow filas in dt.Rows)
                 {
 
-                    int rowEscribir = Convert.ToInt32(dataGridView2.Rows.Count) - 1;
+                    int rowEscribir = Convert.ToInt32(dtgVentas.Rows.Count) - 1;
                     //se agrega una nueva fila donde van a ir los datos
-                    dataGridView2.Rows.Add(1);
+                    dtgVentas.Rows.Add(1);
                     //se agregan los datos
-                    dataGridView2.Rows[rowEscribir].Cells[0].Value = filas["Descripcion"].ToString();
-                    dataGridView2.Rows[rowEscribir].Cells[1].Value = filas["Costo"].ToString();
+                    dtgVentas.Rows[rowEscribir].Cells[0].Value = filas["Descripcion"].ToString();
+                    dtgVentas.Rows[rowEscribir].Cells[1].Value = filas["Costo"].ToString();
                     SubtotalAPagar += Convert.ToDouble(filas["Costo"]);
                     DatosVenta = new datosVenta();
                     DatosVenta.Item = "Membresia " + filas["Descripcion"].ToString();
@@ -547,33 +582,42 @@ namespace CapaPresentacion
 
         private void button4_Click(object sender, EventArgs e)
         {
-            double total_a_pagar_Iva = (SubtotalAPagar * 0.16);
-            double total_a_pagar = SubtotalAPagar + total_a_pagar_Iva;
-            cls_hdr_venta_hist.m_IdSocio = Convert.ToInt32(TxtIdSocio.Text);
-            cls_hdr_venta_hist.m_Subtotal = SubtotalAPagar;
-            cls_hdr_venta_hist.m_IVA = total_a_pagar_Iva;
-            cls_hdr_venta_hist.m_Total = total_a_pagar;
-            cls_hdr_venta_hist.m_User_modif = Login.nombre;
-
-
-            FolioVenta = Convert.ToInt32(cls_hdr_venta_hist.guardarVenta());
-            MessageBox.Show("El folio es: " + FolioVenta.ToString());
-
-            Login.dineroEntrada += total_a_pagar;
-
-            for (int i = 0; i < lista_datos_venta.Count; i++)
+            if(dtgVentas.Rows.Count<=1)
             {
-                cls_mov_ventas_hist.m_FolioVenta = FolioVenta;
-                cls_mov_ventas_hist.m_Item = lista_datos_venta[i].Item;
-                cls_mov_ventas_hist.m_Monto = lista_datos_venta[i].Monto;
-                cls_mov_ventas_hist.m_Tipo = lista_datos_venta[i].Tipo;
-                cls_mov_ventas_hist.m_User_modif = Login.nombre;
-                cls_mov_ventas_hist.m_claveTipoMembresia = lista_datos_venta[i].ClaveMembresia;
-                cls_mov_ventas_hist.m_idSocio = Convert.ToInt32(TxtIdSocio.Text);
-                cls_mov_ventas_hist.guardarMovimientoVenta();
+                MessageBox.Show("No cuenta con membresias agregadas para realizar una venta");
             }
 
-            MessageBox.Show("venta exitosa");
+            else
+            {
+                double total_a_pagar_Iva = (SubtotalAPagar * 0.16);
+                double total_a_pagar = SubtotalAPagar + total_a_pagar_Iva;
+                cls_hdr_venta_hist.m_IdSocio = Convert.ToInt32(TxtIdSocio.Text);
+                cls_hdr_venta_hist.m_Subtotal = SubtotalAPagar;
+                cls_hdr_venta_hist.m_IVA = total_a_pagar_Iva;
+                cls_hdr_venta_hist.m_Total = total_a_pagar;
+                cls_hdr_venta_hist.m_User_modif = Login.nombre;
+
+
+                FolioVenta = Convert.ToInt32(cls_hdr_venta_hist.guardarVenta());
+                MessageBox.Show("El folio es: " + FolioVenta.ToString());
+
+                Login.dineroEntrada += total_a_pagar;
+
+                for (int i = 0; i < lista_datos_venta.Count; i++)
+                {
+                    cls_mov_ventas_hist.m_FolioVenta = FolioVenta;
+                    cls_mov_ventas_hist.m_Item = lista_datos_venta[i].Item;
+                    cls_mov_ventas_hist.m_Monto = lista_datos_venta[i].Monto;
+                    cls_mov_ventas_hist.m_Tipo = lista_datos_venta[i].Tipo;
+                    cls_mov_ventas_hist.m_User_modif = Login.nombre;
+                    cls_mov_ventas_hist.m_claveTipoMembresia = lista_datos_venta[i].ClaveMembresia;
+                    cls_mov_ventas_hist.m_idSocio = Convert.ToInt32(TxtIdSocio.Text);
+                    cls_mov_ventas_hist.guardarMovimientoVenta();
+                }
+
+                MessageBox.Show("venta exitosa");
+                dtgVentas.Rows.Clear();
+            }
 
 
         }
@@ -592,6 +636,8 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(lista_datos_venta[i].Item);
             }
+
+            MessageBox.Show(dtgVentas.Rows.Count.ToString());
         }
 
         private void TtsGuardaSocio_Click(object sender, EventArgs e)
@@ -660,18 +706,33 @@ namespace CapaPresentacion
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            dataGridView2.Rows.RemoveAt(numero_fila);
+            dtgVentas.Rows.RemoveAt(numero_fila);
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+           
         }
 
         private void dataGridView2_Click(object sender, EventArgs e)
         {
-            numero_fila = dataGridView2.CurrentRow.Index;
+            numero_fila = dtgVentas.CurrentRow.Index;
             
+        }
+
+        private void crToolStripTextBox1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            LimpiaFormulario();
+        }
+
+        private void dtgVentas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show(dtgVentas.Rows[e.RowIndex].Cells["Concepto"].Value.ToString());
         }
     }
 

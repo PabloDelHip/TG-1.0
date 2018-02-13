@@ -26,7 +26,7 @@ namespace CapaPresentacion
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-
+            Login.cantidadDescuento = 0;
         }
 
         private void CmdLogin_Click(object sender, EventArgs e)
