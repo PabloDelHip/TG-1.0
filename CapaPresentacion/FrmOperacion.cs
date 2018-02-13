@@ -14,7 +14,6 @@ using CapaLogicaNegocios;
 using System.IO;
 using System.Threading;
 using System.Media;
-using Flurl.Http;
 
 namespace CapaPresentacion
 {
