@@ -80,23 +80,28 @@ namespace CapaPresentacion
         }
         private void btnGuardarAdeudos_Click(object sender, EventArgs e)
         {
-            cls_textoEmail.m_AsuntoDeudas = txtAsuntoAdeudos.Text;
-            cls_textoEmail.m_AsuntoCumpleanos = txtAsuntoCumpleañeros.Text;
-            cls_textoEmail.m_TextoCorreo = txtCuerpoAdeudos.Text;
-            cls_textoEmail.m_TextoCumpleAnos = txtCuerpoCumpleañeros.Text;
-            string respuesta = cls_textoEmail.modificarTextosEmails();
-            MessageBox.Show(respuesta);
-           
+            if (MessageBox.Show("¿Desea guardar y continuar?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                cls_textoEmail.m_AsuntoDeudas = txtAsuntoAdeudos.Text;
+                cls_textoEmail.m_AsuntoCumpleanos = txtAsuntoCumpleañeros.Text;
+                cls_textoEmail.m_TextoCorreo = txtCuerpoAdeudos.Text;
+                cls_textoEmail.m_TextoCumpleAnos = txtCuerpoCumpleañeros.Text;
+                string respuesta = cls_textoEmail.modificarTextosEmails();
+                MessageBox.Show(respuesta);
+            }
         }
 
         private void btnGuardarCumpleañeos_Click(object sender, EventArgs e)
         {
-            cls_textoEmail.m_AsuntoDeudas = txtAsuntoAdeudos.Text;
-            cls_textoEmail.m_AsuntoCumpleanos = txtAsuntoCumpleañeros.Text;
-            cls_textoEmail.m_TextoCorreo = txtCuerpoAdeudos.Text;
-            cls_textoEmail.m_TextoCumpleAnos = txtCuerpoCumpleañeros.Text;
-            string respuesta = cls_textoEmail.modificarTextosEmails();
-            MessageBox.Show(respuesta);
+            if (MessageBox.Show("¿Desea guardar y continuar?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                cls_textoEmail.m_AsuntoDeudas = txtAsuntoAdeudos.Text;
+                cls_textoEmail.m_AsuntoCumpleanos = txtAsuntoCumpleañeros.Text;
+                cls_textoEmail.m_TextoCorreo = txtCuerpoAdeudos.Text;
+                cls_textoEmail.m_TextoCumpleAnos = txtCuerpoCumpleañeros.Text;
+                string respuesta = cls_textoEmail.modificarTextosEmails();
+                MessageBox.Show(respuesta);
+            }
         }
     }
 }

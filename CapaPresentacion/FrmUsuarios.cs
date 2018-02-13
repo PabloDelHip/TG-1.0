@@ -56,6 +56,7 @@ namespace CapaPresentacion
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("¿Desea guardar y continuar?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (!btnAgregar.Text.Equals("Guardar"))
                 {

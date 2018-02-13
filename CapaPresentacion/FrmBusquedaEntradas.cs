@@ -67,12 +67,15 @@ namespace CapaPresentacion
 
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
-            Login.opcionReporte = 1;
-            FrmReporteEntradas reporteEntradas = new FrmReporteEntradas();
-            reporteEntradas.idSocio = Convert.ToInt32(txtSocio.Text);
-            reporteEntradas.fechaInicioBusqueda = dtpInicioBusqueda.Value;
-            reporteEntradas.fechaFinBusqueda = dtpFinBusqueda.Value;
-            reporteEntradas.ShowDialog();
+            if (MessageBox.Show("¿Desea generar un reporte?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                Login.opcionReporte = 1;
+                FrmReporteEntradas reporteEntradas = new FrmReporteEntradas();
+                reporteEntradas.idSocio = Convert.ToInt32(txtSocio.Text);
+                reporteEntradas.fechaInicioBusqueda = dtpInicioBusqueda.Value;
+                reporteEntradas.fechaFinBusqueda = dtpFinBusqueda.Value;
+                reporteEntradas.ShowDialog();
+            }
         }
 
         private void FrmBusquedaEntradas_Load(object sender, EventArgs e)

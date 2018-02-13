@@ -51,6 +51,12 @@ namespace CapaPresentacion
                     reporteHisObCaja.SetParameterValue("@FechaFinBusqueda", fechaFinBusqueda);
                     CRVreporteEntradas.ReportSource = reporteHisObCaja;
                     break;
+                case 4:
+                    CRVentas reporteVentas = new CRVentas();
+                    reporteVentas.SetParameterValue("@FechaInicioBusqueda", fechaInicioBusqueda);
+                    reporteVentas.SetParameterValue("@FechaFinBusqueda", fechaFinBusqueda);
+                    CRVreporteEntradas.ReportSource = reporteVentas;
+                    break;
                 default:
                     break;
             }

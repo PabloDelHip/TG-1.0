@@ -64,6 +64,7 @@
     <Compile Include="ClsSocios.cs" />
     <Compile Include="ClsTextoEmail.cs" />
     <Compile Include="ClsUsuario.cs" />
+    <Compile Include="ClsVentas.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

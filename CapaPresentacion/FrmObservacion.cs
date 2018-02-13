@@ -29,7 +29,7 @@ namespace CapaPresentacion
         //}
         private void button1_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Guardar obervacion y continuar?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("¿Guardar observacion y continuar?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 ArrayList email = new ArrayList();
                 email.Add("pablodelhip@gmail.com");
@@ -38,10 +38,7 @@ namespace CapaPresentacion
                 string respuesta = cls_observaciones_caja.agregarObservacion();
                 cls_generales.EnviarCorreo(email, txtTexto.Text, "Observaciones", "");
                 MessageBox.Show(respuesta);
-                
-                
             }
-
             if(ObCaja==1)
             {
                 this.Hide();
