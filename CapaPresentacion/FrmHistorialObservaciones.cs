@@ -30,33 +30,64 @@ namespace CapaPresentacion
         }
         private void validarCampos(object sender, EventArgs e)
         {
-            if (txtUsuario.Text != null)
-            {
-                btnBuscarH.Enabled = true;
-            }
-            else
-            {
-                MessageBox.Show("No pueden estar los campos vacios para realizar la busqueda");
-            }
+
         }
 
         private void btnBuscarH_Click(object sender, EventArgs e)
         {
-            try
+            if (cbTipo.SelectedIndex == 0)
             {
-                cls_HisObvservaciones.m_IdUsuario= Convert.ToInt32(txtUsuario.Text);
-                cls_HisObvservaciones.m_FechaInicioBusquedaH = dtpInicioBusquedaH.Value;
-                cls_HisObvservaciones.m_FechaFinBusquedaH = dtpFinBusquedaH.Value;
-                DataTable dt = cls_HisObvservaciones.buscarHisObGenerales();
-                dgvObGenerales.DataSource = dt;
-                DataTable dt2 = cls_HisObvservaciones.buscarHisObCaja();
-                dgvObCaja.DataSource = dt2;
-                btnGenerarReporteH.Enabled = true;
-                btnGenerarReporte2.Enabled = true;
+                try
+                {
+                    cls_HisObvservaciones.m_IdUsuario = Convert.ToInt32(txtUsuario.Text);
+                    DataTable dt = cls_HisObvservaciones.buscarHisObGeneralesID();
+                    dgvObGenerales.DataSource = dt;
+                    DataTable dt2 = cls_HisObvservaciones.buscarHisObCajaID();
+                    dgvObCaja.DataSource = dt2;
+                    btnGenerarReporteH.Enabled = true;
+                    btnGenerarReporte2.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
-            catch (Exception ex)
+            else if (cbTipo.SelectedIndex == 1)
             {
-                throw ex;
+                try
+                {
+                    cls_HisObvservaciones.m_FechaInicioBusquedaH = dtpInicioBusquedaH.Value;
+                    cls_HisObvservaciones.m_FechaFinBusquedaH = dtpFinBusquedaH.Value;
+                    DataTable dt = cls_HisObvservaciones.buscarHisObGeneralesFecha();
+                    dgvObGenerales.DataSource = dt;
+                    DataTable dt2 = cls_HisObvservaciones.buscarHisObCajaFecha();
+                    dgvObCaja.DataSource = dt2;
+                    btnGenerarReporteH.Enabled = true;
+                    btnGenerarReporte2.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            else if (cbTipo.SelectedIndex == 2)
+            {
+                try
+                {
+                    cls_HisObvservaciones.m_IdUsuario = Convert.ToInt32(txtUsuario.Text);
+                    cls_HisObvservaciones.m_FechaInicioBusquedaH = dtpInicioBusquedaH.Value;
+                    cls_HisObvservaciones.m_FechaFinBusquedaH = dtpFinBusquedaH.Value;
+                    DataTable dt = cls_HisObvservaciones.buscarHisObGenerales();
+                    dgvObGenerales.DataSource = dt;
+                    DataTable dt2 = cls_HisObvservaciones.buscarHisObCaja();
+                    dgvObCaja.DataSource = dt2;
+                    btnGenerarReporteH.Enabled = true;
+                    btnGenerarReporte2.Enabled = true;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
 
@@ -84,6 +115,10 @@ namespace CapaPresentacion
                 reporteEntradas.fechaFinBusqueda = dtpFinBusquedaH.Value;
                 reporteEntradas.ShowDialog();
             }
+        }
+        private void btnBuscarEnabled(object sender, EventArgs e)
+        {
+            btnBuscarH.Enabled = true;
         }
     }
 }

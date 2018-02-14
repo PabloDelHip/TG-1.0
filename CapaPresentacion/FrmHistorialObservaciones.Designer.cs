@@ -30,18 +30,20 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscarH = new System.Windows.Forms.Button();
-            this.btnGenerarReporteH = new System.Windows.Forms.Button();
             this.dtpFinBusquedaH = new System.Windows.Forms.DateTimePicker();
             this.dtpInicioBusquedaH = new System.Windows.Forms.DateTimePicker();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnGenerarReporteH = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvObGenerales = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvObCaja = new System.Windows.Forms.DataGridView();
             this.btnGenerarReporte2 = new System.Windows.Forms.Button();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObGenerales)).BeginInit();
@@ -51,6 +53,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.cbTipo);
             this.groupBox1.Controls.Add(this.btnBuscarH);
             this.groupBox1.Controls.Add(this.dtpFinBusquedaH);
             this.groupBox1.Controls.Add(this.dtpInicioBusquedaH);
@@ -68,9 +72,10 @@
             // 
             // btnBuscarH
             // 
+            this.btnBuscarH.Enabled = false;
             this.btnBuscarH.Image = global::CapaPresentacion.Properties.Resources.search;
             this.btnBuscarH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarH.Location = new System.Drawing.Point(602, 181);
+            this.btnBuscarH.Location = new System.Drawing.Point(934, 176);
             this.btnBuscarH.Name = "btnBuscarH";
             this.btnBuscarH.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnBuscarH.Size = new System.Drawing.Size(213, 50);
@@ -79,35 +84,23 @@
             this.btnBuscarH.UseVisualStyleBackColor = true;
             this.btnBuscarH.Click += new System.EventHandler(this.btnBuscarH_Click);
             // 
-            // btnGenerarReporteH
-            // 
-            this.btnGenerarReporteH.Enabled = false;
-            this.btnGenerarReporteH.Image = global::CapaPresentacion.Properties.Resources.add1;
-            this.btnGenerarReporteH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarReporteH.Location = new System.Drawing.Point(898, 501);
-            this.btnGenerarReporteH.Name = "btnGenerarReporteH";
-            this.btnGenerarReporteH.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnGenerarReporteH.Size = new System.Drawing.Size(278, 50);
-            this.btnGenerarReporteH.TabIndex = 6;
-            this.btnGenerarReporteH.Text = "Generar Reporte";
-            this.btnGenerarReporteH.UseVisualStyleBackColor = true;
-            this.btnGenerarReporteH.Click += new System.EventHandler(this.btnGenerarReporteH_Click);
-            // 
             // dtpFinBusquedaH
             // 
             this.dtpFinBusquedaH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFinBusquedaH.Location = new System.Drawing.Point(832, 143);
+            this.dtpFinBusquedaH.Location = new System.Drawing.Point(248, 200);
             this.dtpFinBusquedaH.Name = "dtpFinBusquedaH";
-            this.dtpFinBusquedaH.Size = new System.Drawing.Size(315, 26);
+            this.dtpFinBusquedaH.Size = new System.Drawing.Size(350, 26);
             this.dtpFinBusquedaH.TabIndex = 5;
+            this.dtpFinBusquedaH.ValueChanged += new System.EventHandler(this.btnBuscarEnabled);
             // 
             // dtpInicioBusquedaH
             // 
             this.dtpInicioBusquedaH.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpInicioBusquedaH.Location = new System.Drawing.Point(248, 143);
             this.dtpInicioBusquedaH.Name = "dtpInicioBusquedaH";
-            this.dtpInicioBusquedaH.Size = new System.Drawing.Size(315, 26);
+            this.dtpInicioBusquedaH.Size = new System.Drawing.Size(350, 26);
             this.dtpInicioBusquedaH.TabIndex = 4;
+            this.dtpInicioBusquedaH.ValueChanged += new System.EventHandler(this.btnBuscarEnabled);
             // 
             // txtUsuario
             // 
@@ -115,11 +108,13 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(452, 26);
             this.txtUsuario.TabIndex = 3;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.btnBuscarEnabled);
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoloNumeros_KeyPress);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(598, 143);
+            this.label3.Location = new System.Drawing.Point(18, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(217, 20);
             this.label3.TabIndex = 2;
@@ -142,6 +137,20 @@
             this.label1.Size = new System.Drawing.Size(105, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID Usuario :";
+            // 
+            // btnGenerarReporteH
+            // 
+            this.btnGenerarReporteH.Enabled = false;
+            this.btnGenerarReporteH.Image = global::CapaPresentacion.Properties.Resources.add1;
+            this.btnGenerarReporteH.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerarReporteH.Location = new System.Drawing.Point(898, 501);
+            this.btnGenerarReporteH.Name = "btnGenerarReporteH";
+            this.btnGenerarReporteH.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnGenerarReporteH.Size = new System.Drawing.Size(278, 50);
+            this.btnGenerarReporteH.TabIndex = 6;
+            this.btnGenerarReporteH.Text = "Generar Reporte";
+            this.btnGenerarReporteH.UseVisualStyleBackColor = true;
+            this.btnGenerarReporteH.Click += new System.EventHandler(this.btnGenerarReporteH_Click);
             // 
             // groupBox2
             // 
@@ -197,6 +206,28 @@
             this.btnGenerarReporte2.UseVisualStyleBackColor = true;
             this.btnGenerarReporte2.Click += new System.EventHandler(this.btnGenerarReporte2_Click);
             // 
+            // cbTipo
+            // 
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Items.AddRange(new object[] {
+            "Por ID Usuario",
+            "Por Fecha",
+            "Por ID y Fecha"});
+            this.cbTipo.Location = new System.Drawing.Point(876, 83);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(271, 28);
+            this.cbTipo.TabIndex = 8;
+            this.cbTipo.Text = "Seleccione un tipo";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(688, 86);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(162, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Tipo de busqueda :";
+            // 
             // FrmHistorialObservaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -236,5 +267,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvObCaja;
         private System.Windows.Forms.Button btnGenerarReporte2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbTipo;
     }
 }
