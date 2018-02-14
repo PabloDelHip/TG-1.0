@@ -125,6 +125,12 @@
     <Compile Include="FrmBusquedaEntradas.Designer.cs">
       <DependentUpon>FrmBusquedaEntradas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCatMemebresias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCatMemebresias.Designer.cs">
+      <DependentUpon>FrmCatMemebresias.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCorteEntrada.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -289,6 +295,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBusquedaEntradas.resx">
       <DependentUpon>FrmBusquedaEntradas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCatMemebresias.resx">
+      <DependentUpon>FrmCatMemebresias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCorteEntrada.resx">
       <DependentUpon>FrmCorteEntrada.cs</DependentUpon>
