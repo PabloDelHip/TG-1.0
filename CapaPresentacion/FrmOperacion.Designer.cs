@@ -160,6 +160,7 @@
             this.dtgVentas.Size = new System.Drawing.Size(617, 215);
             this.dtgVentas.TabIndex = 25;
             this.dtgVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dtgVentas.CellContextMenuStripNeeded += new System.Windows.Forms.DataGridViewCellContextMenuStripNeededEventHandler(this.dtgVentas_CellContextMenuStripNeeded);
             this.dtgVentas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgVentas_CellDoubleClick);
             this.dtgVentas.Click += new System.EventHandler(this.dataGridView2_Click);
             // 

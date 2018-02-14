@@ -85,5 +85,10 @@ namespace CapaPresentacion
                 reporteEntradas.ShowDialog();
             }
         }
+
+        private void FrmHistorialObservaciones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

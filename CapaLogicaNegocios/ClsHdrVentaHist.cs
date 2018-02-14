@@ -17,6 +17,7 @@ namespace CapaLogicaNegocios
         public double m_IVA { get; set; }
         public double m_Total{ get; set; }
         public string m_User_modif { get; set; }
+        public int m_tipoPago { get; set; } 
 
         /**************Estructura*************/
 
@@ -37,12 +38,13 @@ namespace CapaLogicaNegocios
                 lst.Add(new ClsParametros("@IVA", m_IVA));
                 lst.Add(new ClsParametros("@Total", m_Total));
                 lst.Add(new ClsParametros("@User_modif", m_User_modif));
+                lst.Add(new ClsParametros("@tipoPago", m_tipoPago));
 
                 /*Mensaje de salida*/
                 lst.Add(new ClsParametros("@FolioVenta", SqlDbType.VarChar, 40));
                 M.Ejecutar_sp("guardarVenta", lst);
                 //Retornamos el mensaje  de salida del SP
-                mensaje = lst[5].Valor.ToString();/////.valor 
+                mensaje = lst[6].Valor.ToString();/////.valor 
 
             }
             catch (Exception ex)

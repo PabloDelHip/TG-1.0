@@ -99,11 +99,25 @@
       <DependentUpon>CRMovCajaFecha.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRTicketVenta.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRTicketVenta.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CRVentas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRVentas.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Datos.cs">
+      <DependentUpon>Datos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Datos.xsd</DependentUpon>
     </Compile>
     <Compile Include="FrmBusquedaEntradas.cs">
       <SubType>Form</SubType>
@@ -177,6 +191,12 @@
     <Compile Include="FrmOperacion.Designer.cs">
       <DependentUpon>FrmOperacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPagoVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagoVenta.Designer.cs">
+      <DependentUpon>FrmPagoVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmReporteEntradas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +253,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="verReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="verReporte.Designer.cs">
+      <DependentUpon>verReporte.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CREntradas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CREntradas.cs</LastGenOutput>
@@ -252,6 +278,10 @@
     <EmbeddedResource Include="CRMovCajaFecha.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRMovCajaFecha.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRTicketVenta.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRTicketVenta.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CRVentas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -293,6 +323,9 @@
     <EmbeddedResource Include="FrmOperacion.resx">
       <DependentUpon>FrmOperacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagoVenta.resx">
+      <DependentUpon>FrmPagoVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmReporteEntradas.resx">
       <DependentUpon>FrmReporteEntradas.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,6 +364,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="verReporte.resx">
+      <DependentUpon>verReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Datos.xsc">
+      <DependentUpon>Datos.xsd</DependentUpon>
+    </None>
+    <None Include="Datos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Datos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datos.xss">
+      <DependentUpon>Datos.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

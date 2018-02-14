@@ -32,6 +32,7 @@ namespace CapaPresentacion
 
         private void btnModificarAdeudos_Click(object sender, EventArgs e)
         {
+            
             txtAsuntoAdeudos.Enabled = true;
             txtCuerpoAdeudos.Enabled = true;
             btnGuardarAdeudos.Enabled = true;
@@ -43,41 +44,7 @@ namespace CapaPresentacion
             txtCuerpoCumpleañeros.Enabled = true;
             btnGuardarCumpleañeos.Enabled = true;
         }
-        private void crearTicket()
-        {
-            // codigo para probar la creacion del ticket solamente
-            ClsCrearTicket t = new ClsCrearTicket();
-
-            //apertura de caja
-            //t.abreCajon();
-
-            //datos de la cabecera
-            t.textoCentrado("Gimnasio");
-            t.textoIzquierda("EXPEDIDO EN: Cancun, Q Roo");
-            t.textoIzquierda("DIRECION: Av Kabah");
-            t.textoIzquierda("TELEFONO: 12345679");
-            t.textoIzquierda("R.F.C: #########");
-            t.textoIzquierda("E-MAIL: micorreo@midireccion.com");
-            t.textoIzquierda(" ");
-            t.textoExtremos("Caja # 1", "Ticket # ");
-
-            //sub cabecera
-            t.textoIzquierda("");
-            t.textoIzquierda("LE ATENDIO: Vendedor");
-            t.textoIzquierda("CLIENTE: Publico en gral");
-            t.textoIzquierda("");
-            t.textoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
-            t.lineasAsterisco();
-
-            //cuerpo ...
-
-            //texto final del ticket
-            t.textoIzquierda("");
-            t.textoCentrado("¡GRACIAS POR SU COMPRA!");
-            t.textoIzquierda("");
-            //t.cortarTicket();
-            t.imprimirTicket("Microsoft XPS Document Writer");
-        }
+        
         private void btnGuardarAdeudos_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Desea guardar y continuar?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)

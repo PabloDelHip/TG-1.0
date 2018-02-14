@@ -53,9 +53,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(9, 8);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(775, 166);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -67,7 +67,7 @@
             this.btnBuscarxID.Image = global::CapaPresentacion.Properties.Resources.search;
             this.btnBuscarxID.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarxID.Location = new System.Drawing.Point(579, 93);
-            this.btnBuscarxID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscarxID.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarxID.Name = "btnBuscarxID";
             this.btnBuscarxID.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBuscarxID.Size = new System.Drawing.Size(177, 32);
@@ -82,7 +82,7 @@
             this.btnBuscarxFecha.Image = global::CapaPresentacion.Properties.Resources.search;
             this.btnBuscarxFecha.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarxFecha.Location = new System.Drawing.Point(579, 31);
-            this.btnBuscarxFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBuscarxFecha.Margin = new System.Windows.Forms.Padding(2);
             this.btnBuscarxFecha.Name = "btnBuscarxFecha";
             this.btnBuscarxFecha.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBuscarxFecha.Size = new System.Drawing.Size(177, 32);
@@ -94,7 +94,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(158, 93);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(377, 20);
             this.txtUsuario.TabIndex = 3;
@@ -105,7 +105,7 @@
             // 
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFecha.Location = new System.Drawing.Point(158, 31);
-            this.dtpFecha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpFecha.Margin = new System.Windows.Forms.Padding(2);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(377, 20);
             this.dtpFecha.TabIndex = 2;
@@ -136,9 +136,9 @@
             this.groupBox2.Controls.Add(this.dgvMovimientos);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(9, 179);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(775, 319);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -149,7 +149,7 @@
             this.dgvMovimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMovimientos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvMovimientos.Location = new System.Drawing.Point(2, 15);
-            this.dgvMovimientos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvMovimientos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMovimientos.Name = "dgvMovimientos";
             this.dgvMovimientos.RowTemplate.Height = 28;
             this.dgvMovimientos.Size = new System.Drawing.Size(771, 302);
@@ -162,7 +162,7 @@
             this.btnGenerarReporte.Image = global::CapaPresentacion.Properties.Resources.printer;
             this.btnGenerarReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGenerarReporte.Location = new System.Drawing.Point(587, 513);
-            this.btnGenerarReporte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGenerarReporte.Margin = new System.Windows.Forms.Padding(2);
             this.btnGenerarReporte.Name = "btnGenerarReporte";
             this.btnGenerarReporte.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnGenerarReporte.Size = new System.Drawing.Size(195, 32);
@@ -179,10 +179,11 @@
             this.Controls.Add(this.btnGenerarReporte);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmCortesCaja";
             this.Text = "Movimiento de Cortes de Caja";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmCortesCaja_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

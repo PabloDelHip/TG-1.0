@@ -67,6 +67,8 @@ namespace CapaLogicaNegocios
 
         }
 
+        
+
         public string EnviarCorreo(ArrayList correos, string textoCorreo,string asunto,string respuestaEmail)
         {
             string respuesta = "";
