@@ -15,6 +15,7 @@ namespace CapaPresentacion
     {
         ClsHistorialObservaciones cls_HisObvservaciones = new ClsHistorialObservaciones();
         FrmReporteEntradas reporteObservaciones = new FrmReporteEntradas();
+        public int tipo;
         public FrmHistorialObservaciones()
         {
             InitializeComponent();
@@ -27,10 +28,6 @@ namespace CapaPresentacion
                 e.Handled = true;
                 return;
             }
-        }
-        private void validarCampos(object sender, EventArgs e)
-        {
-
         }
 
         private void btnBuscarH_Click(object sender, EventArgs e)
@@ -46,6 +43,7 @@ namespace CapaPresentacion
                     dgvObCaja.DataSource = dt2;
                     btnGenerarReporteH.Enabled = true;
                     btnGenerarReporte2.Enabled = true;
+                    tipo = 0;
                 }
                 catch (Exception ex)
                 {
@@ -64,6 +62,7 @@ namespace CapaPresentacion
                     dgvObCaja.DataSource = dt2;
                     btnGenerarReporteH.Enabled = true;
                     btnGenerarReporte2.Enabled = true;
+                    tipo = 1;
                 }
                 catch (Exception ex)
                 {
@@ -83,6 +82,7 @@ namespace CapaPresentacion
                     dgvObCaja.DataSource = dt2;
                     btnGenerarReporteH.Enabled = true;
                     btnGenerarReporte2.Enabled = true;
+                    tipo = 2;
                 }
                 catch (Exception ex)
                 {
@@ -95,12 +95,32 @@ namespace CapaPresentacion
         {
             if (MessageBox.Show("¿Desea generar un reporte?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Login.opcionReporte = 2;
-                FrmReporteEntradas reporteEntradas = new FrmReporteEntradas();
-                reporteEntradas.idSocio = Convert.ToInt32(txtUsuario.Text);
-                reporteEntradas.fechaInicioBusqueda = dtpInicioBusquedaH.Value;
-                reporteEntradas.fechaFinBusqueda = dtpFinBusquedaH.Value;
-                reporteEntradas.ShowDialog();
+                switch (tipo)
+                { // observaciones generales
+                    case 0:
+                        Login.opcionReporte = 5; //busqueda por id 
+                        FrmReporteEntradas reporteEntradas = new FrmReporteEntradas();
+                        reporteEntradas.idSocio = Convert.ToInt32(txtUsuario.Text);
+                        reporteEntradas.ShowDialog();
+                        break;
+                    case 1:
+                        Login.opcionReporte = 7; // busqueda por fecha
+                        FrmReporteEntradas reporteEntradas2 = new FrmReporteEntradas();
+                        reporteEntradas2.fechaInicioBusqueda = dtpInicioBusquedaH.Value;
+                        reporteEntradas2.fechaFinBusqueda = dtpFinBusquedaH.Value;
+                        reporteEntradas2.ShowDialog();
+                        break;
+                    case 2:
+                        Login.opcionReporte = 2; //busqueda por id y fecha
+                        FrmReporteEntradas reporteEntradas3 = new FrmReporteEntradas();
+                        reporteEntradas3.idSocio = Convert.ToInt32(txtUsuario.Text);
+                        reporteEntradas3.fechaInicioBusqueda = dtpInicioBusquedaH.Value;
+                        reporteEntradas3.fechaFinBusqueda = dtpFinBusquedaH.Value;
+                        reporteEntradas3.ShowDialog();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 
@@ -108,12 +128,32 @@ namespace CapaPresentacion
         {
             if (MessageBox.Show("¿Desea generar un reporte?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Login.opcionReporte = 3;
-                FrmReporteEntradas reporteEntradas = new FrmReporteEntradas();
-                reporteEntradas.idSocio = Convert.ToInt32(txtUsuario.Text);
-                reporteEntradas.fechaInicioBusqueda = dtpInicioBusquedaH.Value;
-                reporteEntradas.fechaFinBusqueda = dtpFinBusquedaH.Value;
-                reporteEntradas.ShowDialog();
+                switch (tipo)
+                { // observaciones caja
+                    case 0:
+                        Login.opcionReporte = 6; //busqueda por id 
+                        FrmReporteEntradas reporteEntradas = new FrmReporteEntradas();
+                        reporteEntradas.idSocio = Convert.ToInt32(txtUsuario.Text);
+                        reporteEntradas.ShowDialog();
+                        break;
+                    case 1:
+                        Login.opcionReporte = 8; // busqueda por fecha
+                        FrmReporteEntradas reporteEntradas2 = new FrmReporteEntradas();
+                        reporteEntradas2.fechaInicioBusqueda = dtpInicioBusquedaH.Value;
+                        reporteEntradas2.fechaFinBusqueda = dtpFinBusquedaH.Value;
+                        reporteEntradas2.ShowDialog();
+                        break;
+                    case 2:
+                        Login.opcionReporte = 3; //busqueda por id y fecha
+                        FrmReporteEntradas reporteEntradas3 = new FrmReporteEntradas();
+                        reporteEntradas3.idSocio = Convert.ToInt32(txtUsuario.Text);
+                        reporteEntradas3.fechaInicioBusqueda = dtpInicioBusquedaH.Value;
+                        reporteEntradas3.fechaFinBusqueda = dtpFinBusquedaH.Value;
+                        reporteEntradas3.ShowDialog();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         private void btnBuscarEnabled(object sender, EventArgs e)

@@ -81,10 +81,34 @@
       <DependentUpon>CRHisObCaja.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRHisObCajaFecha.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRHisObCajaFecha.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRHisObCajaID.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRHisObCajaID.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CRHisObGenerales.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRHisObGenerales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRHisObGeneralesFecha.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRHisObGeneralesFecha.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRHisObGeneralesID.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRHisObGeneralesID.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CRMovCaja.cs">
@@ -241,9 +265,25 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRHisObCaja.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRHisObCajaFecha.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRHisObCajaFecha.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRHisObCajaID.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRHisObCajaID.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRHisObGenerales.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRHisObGenerales.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRHisObGeneralesFecha.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRHisObGeneralesFecha.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRHisObGeneralesID.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRHisObGeneralesID.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CRMovCaja.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
