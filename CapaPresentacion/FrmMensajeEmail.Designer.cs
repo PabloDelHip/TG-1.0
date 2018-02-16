@@ -59,6 +59,7 @@
             this.Name = "FrmMensajeEmail";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MensajeEmail";
+            this.Load += new System.EventHandler(this.FrmMensajeEmail_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

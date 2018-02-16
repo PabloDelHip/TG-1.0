@@ -99,5 +99,10 @@ namespace CapaPresentacion
                 frmReporteCaja.ShowDialog();
             }
         }
+
+        private void FrmCortesCaja_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

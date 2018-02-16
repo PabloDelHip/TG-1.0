@@ -231,5 +231,11 @@ namespace CapaPresentacion
             FrmVentas abrir = new FrmVentas();
             AbrirVentanas(abrir);
         }
+
+        private void membresiasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmCatMemebresias frm_cat_membresias = new FrmCatMemebresias();
+            frm_cat_membresias.Show();
+        }
     }
 }

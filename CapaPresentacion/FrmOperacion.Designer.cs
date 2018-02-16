@@ -37,22 +37,22 @@
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.gbxMembresia = new System.Windows.Forms.GroupBox();
+            this.cbbMembresiaLockers = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.cbbLockers = new System.Windows.Forms.ComboBox();
+            this.DTPLockerVence = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.TxtTipoSocio = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.cbbMembresia = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.DTPFechaVencimDesde = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbbMembresiaLockers = new System.Windows.Forms.ComboBox();
             this.btnCancelarCamara = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
-            this.cbbLockers = new System.Windows.Forms.ComboBox();
-            this.DTPLockerVence = new System.Windows.Forms.DateTimePicker();
             this.cboDispositivos = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.pbFotoUser = new System.Windows.Forms.PictureBox();
@@ -75,13 +75,6 @@
             this.LblSocio = new System.Windows.Forms.Label();
             this.TabHistorial = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.IdUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Desde = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo_Membresia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaCorte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Locker = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TabFoto = new System.Windows.Forms.TabPage();
             this.TStOpciones = new System.Windows.Forms.ToolStrip();
             this.TstCmdAgrefarUsr = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
@@ -103,7 +96,6 @@
             // 
             this.TabUsuario.Controls.Add(this.TabGral);
             this.TabUsuario.Controls.Add(this.TabHistorial);
-            this.TabUsuario.Controls.Add(this.TabFoto);
             this.TabUsuario.Location = new System.Drawing.Point(0, 34);
             this.TabUsuario.Name = "TabUsuario";
             this.TabUsuario.SelectedIndex = 0;
@@ -138,7 +130,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(550, 427);
+            this.button4.Location = new System.Drawing.Point(550, 454);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 26;
@@ -155,11 +147,12 @@
             this.dtgVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Concepto,
             this.Monto});
-            this.dtgVentas.Location = new System.Drawing.Point(6, 456);
+            this.dtgVentas.Location = new System.Drawing.Point(6, 492);
             this.dtgVentas.Name = "dtgVentas";
-            this.dtgVentas.Size = new System.Drawing.Size(617, 215);
+            this.dtgVentas.Size = new System.Drawing.Size(617, 179);
             this.dtgVentas.TabIndex = 25;
             this.dtgVentas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
+            this.dtgVentas.CellContextMenuStripNeeded += new System.Windows.Forms.DataGridViewCellContextMenuStripNeededEventHandler(this.dtgVentas_CellContextMenuStripNeeded);
             this.dtgVentas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgVentas_CellDoubleClick);
             this.dtgVentas.Click += new System.EventHandler(this.dataGridView2_Click);
             // 
@@ -176,7 +169,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(469, 427);
+            this.button3.Location = new System.Drawing.Point(469, 454);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 24;
@@ -186,11 +179,15 @@
             // 
             // gbxMembresia
             // 
+            this.gbxMembresia.Controls.Add(this.cbbMembresiaLockers);
             this.gbxMembresia.Controls.Add(this.label11);
             this.gbxMembresia.Controls.Add(this.label7);
             this.gbxMembresia.Controls.Add(this.label12);
+            this.gbxMembresia.Controls.Add(this.cbbLockers);
+            this.gbxMembresia.Controls.Add(this.DTPLockerVence);
             this.gbxMembresia.Controls.Add(this.dateTimePicker1);
             this.gbxMembresia.Controls.Add(this.TxtTipoSocio);
+            this.gbxMembresia.Controls.Add(this.label8);
             this.gbxMembresia.Controls.Add(this.cbbMembresia);
             this.gbxMembresia.Controls.Add(this.label10);
             this.gbxMembresia.Controls.Add(this.DTPFechaVencimDesde);
@@ -198,16 +195,26 @@
             this.gbxMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxMembresia.Location = new System.Drawing.Point(6, 307);
             this.gbxMembresia.Name = "gbxMembresia";
-            this.gbxMembresia.Size = new System.Drawing.Size(617, 114);
+            this.gbxMembresia.Size = new System.Drawing.Size(617, 141);
             this.gbxMembresia.TabIndex = 20;
             this.gbxMembresia.TabStop = false;
             this.gbxMembresia.Text = "Membresia";
+            // 
+            // cbbMembresiaLockers
+            // 
+            this.cbbMembresiaLockers.FormattingEnabled = true;
+            this.cbbMembresiaLockers.Location = new System.Drawing.Point(211, 96);
+            this.cbbMembresiaLockers.Name = "cbbMembresiaLockers";
+            this.cbbMembresiaLockers.Size = new System.Drawing.Size(125, 21);
+            this.cbbMembresiaLockers.TabIndex = 49;
+            this.cbbMembresiaLockers.SelectedIndexChanged += new System.EventHandler(this.cbbMembresiaLockers_SelectedIndexChanged);
+            this.cbbMembresiaLockers.SelectionChangeCommitted += new System.EventHandler(this.cbbMembresiaLockers_SelectionChangeCommitted);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(243, 64);
+            this.label11.Location = new System.Drawing.Point(243, 63);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 13);
             this.label11.TabIndex = 47;
@@ -227,32 +234,59 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(6, 27);
+            this.label12.Location = new System.Drawing.Point(6, 26);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(82, 13);
             this.label12.TabIndex = 45;
             this.label12.Text = "Tipo Membresia";
             // 
+            // cbbLockers
+            // 
+            this.cbbLockers.FormattingEnabled = true;
+            this.cbbLockers.Location = new System.Drawing.Point(94, 96);
+            this.cbbLockers.Name = "cbbLockers";
+            this.cbbLockers.Size = new System.Drawing.Size(100, 21);
+            this.cbbLockers.TabIndex = 47;
+            this.cbbLockers.SelectedIndexChanged += new System.EventHandler(this.cbbLockers_SelectedIndexChanged);
+            // 
+            // DTPLockerVence
+            // 
+            this.DTPLockerVence.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTPLockerVence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTPLockerVence.Location = new System.Drawing.Point(342, 97);
+            this.DTPLockerVence.Name = "DTPLockerVence";
+            this.DTPLockerVence.Size = new System.Drawing.Size(79, 20);
+            this.DTPLockerVence.TabIndex = 41;
+            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(314, 61);
+            this.dateTimePicker1.Location = new System.Drawing.Point(314, 60);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(123, 20);
             this.dateTimePicker1.TabIndex = 44;
             // 
             // TxtTipoSocio
             // 
-            this.TxtTipoSocio.Location = new System.Drawing.Point(94, 61);
+            this.TxtTipoSocio.Location = new System.Drawing.Point(94, 60);
             this.TxtTipoSocio.Name = "TxtTipoSocio";
             this.TxtTipoSocio.Size = new System.Drawing.Size(123, 20);
             this.TxtTipoSocio.TabIndex = 43;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(36, 101);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 13);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "Lockers";
+            // 
             // cbbMembresia
             // 
             this.cbbMembresia.FormattingEnabled = true;
-            this.cbbMembresia.Location = new System.Drawing.Point(94, 22);
+            this.cbbMembresia.Location = new System.Drawing.Point(94, 21);
             this.cbbMembresia.Name = "cbbMembresia";
             this.cbbMembresia.Size = new System.Drawing.Size(133, 21);
             this.cbbMembresia.TabIndex = 42;
@@ -263,7 +297,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(243, 27);
+            this.label10.Location = new System.Drawing.Point(243, 26);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 13);
             this.label10.TabIndex = 36;
@@ -274,20 +308,16 @@
             // 
             this.DTPFechaVencimDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTPFechaVencimDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPFechaVencimDesde.Location = new System.Drawing.Point(314, 23);
+            this.DTPFechaVencimDesde.Location = new System.Drawing.Point(314, 22);
             this.DTPFechaVencimDesde.Name = "DTPFechaVencimDesde";
             this.DTPFechaVencimDesde.Size = new System.Drawing.Size(123, 20);
             this.DTPFechaVencimDesde.TabIndex = 34;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbbMembresiaLockers);
             this.groupBox1.Controls.Add(this.btnCancelarCamara);
             this.groupBox1.Controls.Add(this.btnIniciar);
-            this.groupBox1.Controls.Add(this.cbbLockers);
-            this.groupBox1.Controls.Add(this.DTPLockerVence);
             this.groupBox1.Controls.Add(this.cboDispositivos);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtEdad);
             this.groupBox1.Controls.Add(this.pbFotoUser);
@@ -314,15 +344,6 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del socio";
-            // 
-            // cbbMembresiaLockers
-            // 
-            this.cbbMembresiaLockers.Enabled = false;
-            this.cbbMembresiaLockers.FormattingEnabled = true;
-            this.cbbMembresiaLockers.Location = new System.Drawing.Point(181, 201);
-            this.cbbMembresiaLockers.Name = "cbbMembresiaLockers";
-            this.cbbMembresiaLockers.Size = new System.Drawing.Size(125, 21);
-            this.cbbMembresiaLockers.TabIndex = 49;
             // 
             // btnCancelarCamara
             // 
@@ -354,26 +375,6 @@
             this.btnIniciar.UseVisualStyleBackColor = true;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
-            // cbbLockers
-            // 
-            this.cbbLockers.Enabled = false;
-            this.cbbLockers.FormattingEnabled = true;
-            this.cbbLockers.Location = new System.Drawing.Point(75, 201);
-            this.cbbLockers.Name = "cbbLockers";
-            this.cbbLockers.Size = new System.Drawing.Size(100, 21);
-            this.cbbLockers.TabIndex = 47;
-            this.cbbLockers.SelectedIndexChanged += new System.EventHandler(this.cbbLockers_SelectedIndexChanged);
-            // 
-            // DTPLockerVence
-            // 
-            this.DTPLockerVence.Enabled = false;
-            this.DTPLockerVence.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DTPLockerVence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPLockerVence.Location = new System.Drawing.Point(312, 201);
-            this.DTPLockerVence.Name = "DTPLockerVence";
-            this.DTPLockerVence.Size = new System.Drawing.Size(79, 20);
-            this.DTPLockerVence.TabIndex = 41;
-            // 
             // cboDispositivos
             // 
             this.cboDispositivos.FormattingEnabled = true;
@@ -381,15 +382,6 @@
             this.cboDispositivos.Name = "cboDispositivos";
             this.cboDispositivos.Size = new System.Drawing.Size(200, 21);
             this.cboDispositivos.TabIndex = 3;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 206);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 13);
-            this.label8.TabIndex = 46;
-            this.label8.Text = "Lockers";
             // 
             // label6
             // 
@@ -600,57 +592,13 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdUsuario,
-            this.Desde,
-            this.Hasta,
-            this.Tipo_Membresia,
-            this.FechaCorte,
-            this.Locker});
-            this.dataGridView1.Location = new System.Drawing.Point(21, 16);
+            this.dataGridView1.Location = new System.Drawing.Point(6, 16);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(432, 332);
+            this.dataGridView1.Size = new System.Drawing.Size(744, 332);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // IdUsuario
-            // 
-            this.IdUsuario.HeaderText = "IdSocio";
-            this.IdUsuario.Name = "IdUsuario";
-            // 
-            // Desde
-            // 
-            this.Desde.HeaderText = "Desde";
-            this.Desde.Name = "Desde";
-            // 
-            // Hasta
-            // 
-            this.Hasta.HeaderText = "Hasta";
-            this.Hasta.Name = "Hasta";
-            // 
-            // Tipo_Membresia
-            // 
-            this.Tipo_Membresia.HeaderText = "Tipo de membresia";
-            this.Tipo_Membresia.Name = "Tipo_Membresia";
-            // 
-            // FechaCorte
-            // 
-            this.FechaCorte.HeaderText = "Fecha de Corte";
-            this.FechaCorte.Name = "FechaCorte";
-            // 
-            // Locker
-            // 
-            this.Locker.HeaderText = "Locker";
-            this.Locker.Name = "Locker";
-            // 
-            // TabFoto
-            // 
-            this.TabFoto.Location = new System.Drawing.Point(4, 22);
-            this.TabFoto.Name = "TabFoto";
-            this.TabFoto.Size = new System.Drawing.Size(756, 677);
-            this.TabFoto.TabIndex = 2;
-            this.TabFoto.Text = "Foto";
-            this.TabFoto.UseVisualStyleBackColor = true;
             // 
             // TStOpciones
             // 
@@ -768,13 +716,6 @@
         private System.Windows.Forms.Label LblSocio;
         private System.Windows.Forms.TabPage TabHistorial;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdUsuario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Desde;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hasta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_Membresia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaCorte;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Locker;
-        private System.Windows.Forms.TabPage TabFoto;
         private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.ComboBox cboDispositivos;
         private System.Windows.Forms.PictureBox pbFotoUser;

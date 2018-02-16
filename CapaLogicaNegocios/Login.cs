@@ -20,10 +20,13 @@ namespace CapaLogicaNegocios
         public static int idUsuario { get; set; }
         public static string nombre { get; set; }
         public static double dineroEntrada { get; set; }
+        public static double dineroTarjeta { get; set; }
         public static bool cajaAbierta { get; set; }
         public static int opcionReporte { get; set; }
         public static int tipoObservacion { get; set; }
         public static double cantidadDescuento { get; set; }
+        public static bool Pago { get; set; }
+        public static int tipoPago { get; set; }
 
         //public string m_Existe { get; set; }
 

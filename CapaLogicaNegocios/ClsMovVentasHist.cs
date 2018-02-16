@@ -16,6 +16,9 @@ namespace CapaLogicaNegocios
         public string m_User_modif { get; set; }
         public int m_claveTipoMembresia { get; set; }
         public int m_acivo { get; set; }
+        public int m_diasViajero { get; set; }
+        public int m_numDiasViajero { get; set; }
+        public int m_numeroSumaFechaVencimiento { get; set; }
         public int m_idSocio { get; set; }
         ClsManejador M = new ClsManejador();
 
@@ -33,6 +36,10 @@ namespace CapaLogicaNegocios
                 lst.Add(new ClsParametros("@User_modif", m_User_modif));
                 lst.Add(new ClsParametros("@claveTipoMembresia", m_claveTipoMembresia));
                 lst.Add(new ClsParametros("@idSocio", m_idSocio));
+                lst.Add(new ClsParametros("@diasViajero", m_diasViajero));
+                lst.Add(new ClsParametros("@numDiasViajero", m_numDiasViajero));
+                lst.Add(new ClsParametros("@numeroSumaFechaVencimiento", m_numeroSumaFechaVencimiento));
+
 
                 M.Ejecutar_sp("guardar_movimiento_venta", lst);
                 //Retornamos el mensaje  de salida del SP
