@@ -28,10 +28,12 @@ namespace CapaPresentacion
         ClsHdrVentaHist cls_hdr_venta_hist = new ClsHdrVentaHist();
         ClsMovVentasHist cls_mov_ventas_hist = new ClsMovVentasHist();
         List<datosVenta> lista_datos_venta = new List<datosVenta>();
+        DataTable dt;
         double SubtotalAPagar = 0;
         int idSocio;
         int FolioVenta;
         int numero_fila;
+        int periodoLocker = 0;
         public FrmOperacion()
         {
             InitializeComponent();
@@ -394,10 +396,7 @@ namespace CapaPresentacion
                     //Parametros de salida
                     TxtIdSocio.Text = Socio.InsSocio();
                     idSocio = Convert.ToInt32(TxtIdSocio.Text);
-                    if (!cbbLockers.Text.Equals(""))
-                    {
-                        cargar_locker(Convert.ToInt32(TxtIdSocio.Text));
-                    }
+                    
                     // mens = TxtIdSocio.Text;
                     MessageBox.Show("Socio agregado de forma correcta");
                     validarGBX();
@@ -418,7 +417,7 @@ namespace CapaPresentacion
             cls_lockers.m_Sexo = 'M';
             cls_lockers.m_Status = 'S';
             cls_lockers.m_idSocio = idSocio;
-            cls_lockers.numeroDias = 0;
+            cls_lockers.numeroDias = periodoLocker;
             cls_lockers.Tipo = 1;
             cls_lockers.modificar_locker();
         }
@@ -431,7 +430,7 @@ namespace CapaPresentacion
         private void TSTxtBuscaSocio_KeyDown(object sender, KeyEventArgs e)
         {
             ClsSocios Socio = new ClsSocios();
-            DataTable dt = new DataTable();
+            dt = new DataTable();
 
             if ((int)e.KeyCode == (int)Keys.Enter)
             {
@@ -442,7 +441,7 @@ namespace CapaPresentacion
                 dt = Socio.RegresaSocio();
                 if (dt.Rows.Count != 0)
                 {
-
+                    
                     foreach (DataRow filas in dt.Rows)
                     {
 
@@ -499,6 +498,9 @@ namespace CapaPresentacion
                         //DTPFechaNac.Text = filas["fechaNacimiento"].ToString();
                         mktFechaNacimiento.Text = filas["fechaNacimiento"].ToString();
                     }
+                    cls_socios.m_IdSocio = Convert.ToInt32(TxtIdSocio.Text);
+                    dt = cls_socios.movimientosSocios();
+                    dataGridView1.DataSource = dt;
                 }
                 else MessageBox.Show("  Socio no encontrado ");
             }
@@ -622,6 +624,16 @@ namespace CapaPresentacion
             cbbMembresia.Text = "";
         }
 
+        private void llenarcomboTipoMembresiaLocker()
+        {
+            DataTable dt = cls_lockers.seleccinarMembresiaTipoLockers();
+            cbbMembresiaLockers.DataSource = dt;
+            cbbMembresiaLockers.ValueMember = "Periodo";
+            //se coloca el valor del combo
+            cbbMembresiaLockers.DisplayMember = "Descripcion";
+            dataGridView1.DataSource = dt;
+        }
+
         private void cbbLockers_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!cbbLockers.Text.Equals(""))
@@ -664,8 +676,11 @@ namespace CapaPresentacion
                     DatosVenta = new datosVenta();
                     DatosVenta.Item = "Membresia " + filas["Descripcion"].ToString();
                     DatosVenta.Monto = Convert.ToInt32(filas["Costo"]);
-                    DatosVenta.Tipo = 'M';
+                    DatosVenta.Tipo = Convert.ToChar(filas["Tipo"].ToString());
                     DatosVenta.ClaveMembresia = Convert.ToInt32(filas["idMembresia"]);
+                    DatosVenta.DiasViajero = Convert.ToInt32(filas["Viajero"].ToString());
+                    DatosVenta.NumDiasViajero = Convert.ToInt32(filas["ConteoViajero"].ToString());
+                    DatosVenta.NumeroSumaFechaVencimiento = Convert.ToInt32(filas["Periodo"].ToString());
                     lista_datos_venta.Add(DatosVenta);
                 }
 
@@ -713,19 +728,29 @@ namespace CapaPresentacion
                         cls_mov_ventas_hist.m_User_modif = Login.nombre;
                         cls_mov_ventas_hist.m_claveTipoMembresia = lista_datos_venta[i].ClaveMembresia;
                         cls_mov_ventas_hist.m_idSocio = Convert.ToInt32(TxtIdSocio.Text);
+                        cls_mov_ventas_hist.m_diasViajero = lista_datos_venta[i].DiasViajero;
+                        cls_mov_ventas_hist.m_numDiasViajero = lista_datos_venta[i].NumDiasViajero;
+                        cls_mov_ventas_hist.m_numeroSumaFechaVencimiento = lista_datos_venta[i].NumeroSumaFechaVencimiento;
                         cls_mov_ventas_hist.guardarMovimientoVenta();
 
                     }
 
                     
-                    Login.dineroEntrada += total_a_pagar;
-                    MessageBox.Show("venta exitosa");
-                    dtgVentas.Rows.Clear();                  
+                    Login.dineroEntrada += total_a_pagar;                  
+                                      
                     SubtotalAPagar = 0;
                     Login.Pago = false;
-                    LimpiaFormulario();
+                    
                     crearTicket();
+                    
+                    if (!cbbLockers.Text.Equals(""))
+                    {
+                        cargar_locker(Convert.ToInt32(TxtIdSocio.Text));
+                    }
+                    LimpiaFormulario();
                     lista_datos_venta.Clear();
+                    dtgVentas.Rows.Clear();
+                    MessageBox.Show("venta exitosa");
                     //Imprimir_Solicitud();
                 }
                 
@@ -747,12 +772,14 @@ namespace CapaPresentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < lista_datos_venta.Count; i++)
-            {
-                MessageBox.Show(lista_datos_venta[i].Item);
-            }
+            llenarcomboTipoMembresiaLocker();
+            //MessageBox.Show(Convert.ToInt32(TxtIdSocio.Text).ToString());
+            //for (int i = 0; i < lista_datos_venta.Count; i++)
+            //{
+            //    MessageBox.Show(lista_datos_venta[i].Item);
+            //}
 
-            MessageBox.Show(dtgVentas.Rows.Count.ToString());
+            //MessageBox.Show(dtgVentas.Rows.Count.ToString());
         }
 
         private void TtsGuardaSocio_Click(object sender, EventArgs e)
@@ -861,6 +888,17 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void cbbMembresiaLockers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbbMembresiaLockers_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            MessageBox.Show(cbbMembresiaLockers.SelectedValue.ToString());
+            periodoLocker =  Convert.ToInt32(cbbMembresiaLockers.SelectedValue.ToString());
+        }
     }
 
     class datosVenta
@@ -869,9 +907,15 @@ namespace CapaPresentacion
         char tipo;
         double monto;
         int claveMembresia;
+        int diasViajero;
+        int numDiasViajero;
+        int numeroSumaFechaVencimiento;
         public string Item { get => item; set => item = value; }
         public char Tipo { get => tipo; set => tipo = value; }
         public double Monto { get => monto; set => monto = value; }
         public int ClaveMembresia { get => claveMembresia; set => claveMembresia = value; }
+        public int DiasViajero { get => diasViajero; set => diasViajero = value; }
+        public int NumDiasViajero { get => numDiasViajero; set => numDiasViajero = value; }
+        public int NumeroSumaFechaVencimiento { get => numeroSumaFechaVencimiento; set => numeroSumaFechaVencimiento = value; }
     }
 }

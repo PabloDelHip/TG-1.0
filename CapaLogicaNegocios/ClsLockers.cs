@@ -24,6 +24,7 @@ namespace CapaLogicaNegocios
         public DateTime m_fechaVencimiento { get; set; }
         public int Tipo { get; set; }
         public int numeroDias { get; set; }
+        public int periodoLocker { get; set; }
 
         ClsManejador M = new ClsManejador();
 
@@ -32,6 +33,12 @@ namespace CapaLogicaNegocios
             List<ClsParametros> lst = new List<ClsParametros>();
             lst.Add(new ClsParametros("@Tipo", Tipo));
             return M.Listado("seleccionar_lockers", lst);
+        }
+
+        public DataTable seleccinarMembresiaTipoLockers()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            return M.Listado("seleccionar_membresia_tipo_lockers", lst);
         }
 
         public void modificar_locker()

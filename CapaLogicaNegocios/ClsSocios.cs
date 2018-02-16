@@ -107,14 +107,23 @@ namespace CapaLogicaNegocios
         }
 
         // metodo para regresar el alimno
-        public DataTable RegresaSocio()
-            
+        public DataTable RegresaSocio()  
         {
             List<ClsParametros> lst = new List<ClsParametros>();
 
             lst.Add(new ClsParametros("@IdSocio", m_IdSocio));
             return  M.Listado("RegresaSocio", lst);
             
+        }
+
+        // metodo para regresar los movimientos del socio
+        public DataTable movimientosSocios()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            lst.Add(new ClsParametros("@IdSocio", m_IdSocio));
+            return M.Listado("movimientos_socio", lst);
+
         }
 
         public void conectarAlServidor(int idSocio)
