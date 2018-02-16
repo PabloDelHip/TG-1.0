@@ -111,48 +111,10 @@ namespace CapaPresentacion
             BuscarDispositivos();
             llenarComboMembresias();
             cboDispositivos.Visible = false;
+            llenarcomboTipoMembresiaLocker();
 
         }
-        public void crearTicket()
-        {
-            
-            // codigo para probar la creacion del ticket solamente
-            ClsCrearTicket t = new ClsCrearTicket();
 
-            //apertura de caja
-            //t.abreCajon();
-
-            //datos de la cabecera
-            t.textoCentrado("Total Gym");
-            t.textoIzquierda("Cancun, Q Roo");
-            t.textoIzquierda("DIRECION: Av Kabah");
-            t.textoIzquierda("TELEFONO: 12345679");
-            t.textoIzquierda("E-MAIL: micorreo@midireccion.com");
-            
-            //sub cabecera
-            t.textoIzquierda("");
-            t.textoIzquierda("LE ATENDIO: "+Login.nombre);
-            t.textoIzquierda("CLIENTE: " +TxtNombreSocio.Text);
-            t.textoIzquierda("");
-            t.textoExtremos("FECHA: " + DateTime.Now.ToShortDateString(), "HORA: " + DateTime.Now.ToShortTimeString());
-            t.textoIzquierda("");
-            for (int i = 0; i < lista_datos_venta.Count; i++)
-            {
-                t.textoIzquierda(lista_datos_venta[i].Item +"un poco mas "+ lista_datos_venta[i].Monto);
-                //cls_mov_ventas_hist.m_FolioVenta = FolioVenta;
-    
-            }
-            
-
-           //cuerpo ...
-
-           //texto final del ticket
-           t.textoIzquierda("");
-            t.textoCentrado("¡GRACIAS POR SU COMPRA!");
-            t.textoIzquierda("");
-            //t.cortarTicket();
-            t.imprimirTicket("Impresora TK");
-        }
         private void txtSoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -352,6 +314,8 @@ namespace CapaPresentacion
             if(TstCmdAgrefarUsr.Text.Equals("Crear socio"))
             {
                 TstCmdAgrefarUsr.Text = "Guardar nuevo socio";
+                LimpiaFormulario();
+                gbxMembresia.Enabled = false;
                 validarControles(true);
             }
 
@@ -501,6 +465,13 @@ namespace CapaPresentacion
                     cls_socios.m_IdSocio = Convert.ToInt32(TxtIdSocio.Text);
                     dt = cls_socios.movimientosSocios();
                     dataGridView1.DataSource = dt;
+                    cls_lockers.m_idSocio = Convert.ToInt32(TSTxtBuscaSocio.Text);
+                    MessageBox.Show(cls_lockers.m_idSocio.ToString());
+                    DataTable dtLocker =  cls_lockers.buscarLockerSocio();
+                    foreach (DataRow filas in dtLocker.Rows)
+                    {
+                        DTPLockerVence.Value = Convert.ToDateTime(filas["fechaVencimiento"].ToString());
+                    }
                 }
                 else MessageBox.Show("  Socio no encontrado ");
             }
@@ -523,6 +494,7 @@ namespace CapaPresentacion
         private void TsLimpiaForm_Click(object sender, EventArgs e)
         {
             LimpiaFormulario();
+            validarGBX();
             validarControles(false);
             TstCmdAgrefarUsr.Text = "Crear socio";
         }
@@ -626,12 +598,14 @@ namespace CapaPresentacion
 
         private void llenarcomboTipoMembresiaLocker()
         {
+            cbbMembresiaLockers.Items.Add(" ");
             DataTable dt = cls_lockers.seleccinarMembresiaTipoLockers();
             cbbMembresiaLockers.DataSource = dt;
-            cbbMembresiaLockers.ValueMember = "Periodo";
+            cbbMembresiaLockers.ValueMember = "idMembresia";
             //se coloca el valor del combo
             cbbMembresiaLockers.DisplayMember = "Descripcion";
             dataGridView1.DataSource = dt;
+            
         }
 
         private void cbbLockers_SelectedIndexChanged(object sender, EventArgs e)
@@ -655,35 +629,44 @@ namespace CapaPresentacion
         {
         }
 
+        private void seleccionarMembresia(ComboBox combo)
+        {
+            cls_membresias.m_idMembresia = Convert.ToInt32(combo.SelectedValue.ToString());
+            cls_membresias.Tipo = 2;
+            DataTable dt = cls_membresias.seleccionarMembresias();
+            datosVenta DatosVenta;
+            foreach (DataRow filas in dt.Rows)
+            {
+
+                int rowEscribir = Convert.ToInt32(dtgVentas.Rows.Count) - 1;
+                //se agrega una nueva fila donde van a ir los datos
+                dtgVentas.Rows.Add(1);
+                //se agregan los datos
+                dtgVentas.Rows[rowEscribir].Cells[0].Value = filas["Descripcion"].ToString();
+                dtgVentas.Rows[rowEscribir].Cells[1].Value = filas["Costo"].ToString();
+
+                DatosVenta = new datosVenta();
+                DatosVenta.Item = "Membresia " + filas["Descripcion"].ToString();
+                DatosVenta.Monto = Convert.ToInt32(filas["Costo"]);
+                DatosVenta.Tipo = Convert.ToChar(filas["Tipo"].ToString());
+                DatosVenta.ClaveMembresia = Convert.ToInt32(filas["idMembresia"]);
+                DatosVenta.DiasViajero = Convert.ToInt32(filas["Viajero"].ToString());
+                DatosVenta.NumDiasViajero = Convert.ToInt32(filas["ConteoViajero"].ToString());
+                DatosVenta.NumeroSumaFechaVencimiento = Convert.ToInt32(filas["Periodo"].ToString());
+                if(filas["Tipo"].ToString().Equals("L"))
+                {
+                    periodoLocker = Convert.ToInt32(filas["Periodo"].ToString());
+                }
+                lista_datos_venta.Add(DatosVenta);
+            }
+        }
+
         private void cbbMembresia_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (!cbbMembresia.Equals(""))
             {
-                cls_membresias.m_idMembresia = Convert.ToInt32(cbbMembresia.SelectedValue.ToString());
-                cls_membresias.Tipo = 2;
-                DataTable dt = cls_membresias.seleccionarMembresias();
-                datosVenta DatosVenta;
-                foreach (DataRow filas in dt.Rows)
-                {
 
-                    int rowEscribir = Convert.ToInt32(dtgVentas.Rows.Count) - 1;
-                    //se agrega una nueva fila donde van a ir los datos
-                    dtgVentas.Rows.Add(1);
-                    //se agregan los datos
-                    dtgVentas.Rows[rowEscribir].Cells[0].Value = filas["Descripcion"].ToString();
-                    dtgVentas.Rows[rowEscribir].Cells[1].Value = filas["Costo"].ToString();
-                    
-                    DatosVenta = new datosVenta();
-                    DatosVenta.Item = "Membresia " + filas["Descripcion"].ToString();
-                    DatosVenta.Monto = Convert.ToInt32(filas["Costo"]);
-                    DatosVenta.Tipo = Convert.ToChar(filas["Tipo"].ToString());
-                    DatosVenta.ClaveMembresia = Convert.ToInt32(filas["idMembresia"]);
-                    DatosVenta.DiasViajero = Convert.ToInt32(filas["Viajero"].ToString());
-                    DatosVenta.NumDiasViajero = Convert.ToInt32(filas["ConteoViajero"].ToString());
-                    DatosVenta.NumeroSumaFechaVencimiento = Convert.ToInt32(filas["Periodo"].ToString());
-                    lista_datos_venta.Add(DatosVenta);
-                }
-
+                seleccionarMembresia(cbbMembresia);
 
             }
         }
@@ -716,7 +699,8 @@ namespace CapaPresentacion
 
                     FolioVenta = Convert.ToInt32(cls_hdr_venta_hist.guardarVenta());
                     MessageBox.Show("El folio es: " + FolioVenta.ToString());
-
+                    Datos DS = new Datos();
+                    verReporte VER;
 
                     for (int i = 0; i < lista_datos_venta.Count; i++)
                     {
@@ -732,6 +716,7 @@ namespace CapaPresentacion
                         cls_mov_ventas_hist.m_numDiasViajero = lista_datos_venta[i].NumDiasViajero;
                         cls_mov_ventas_hist.m_numeroSumaFechaVencimiento = lista_datos_venta[i].NumeroSumaFechaVencimiento;
                         cls_mov_ventas_hist.guardarMovimientoVenta();
+                        DS.Tabla.Rows.Add(Login.nombre, TxtIdSocio.Text, TxtNombreSocio.Text, lista_datos_venta[i].Item, "$"+lista_datos_venta[i].Monto, cls_generales.enletras(SubtotalAPagar.ToString()), FolioVenta.ToString(),"$"+SubtotalAPagar);
 
                     }
 
@@ -740,13 +725,17 @@ namespace CapaPresentacion
                                       
                     SubtotalAPagar = 0;
                     Login.Pago = false;
-                    
-                    crearTicket();
+                   
                     
                     if (!cbbLockers.Text.Equals(""))
                     {
                         cargar_locker(Convert.ToInt32(TxtIdSocio.Text));
                     }
+
+
+                    // Inicializar el visor de reportes y mandarle la tabla con los datos
+                    VER = new verReporte(DS.Tabla);
+                   
                     LimpiaFormulario();
                     lista_datos_venta.Clear();
                     dtgVentas.Rows.Clear();
@@ -772,7 +761,7 @@ namespace CapaPresentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            llenarcomboTipoMembresiaLocker();
+            
             //MessageBox.Show(Convert.ToInt32(TxtIdSocio.Text).ToString());
             //for (int i = 0; i < lista_datos_venta.Count; i++)
             //{
@@ -837,7 +826,6 @@ namespace CapaPresentacion
                 int dia = Convert.ToInt32(substrings[0]);
                 DateTime nacimiento = new DateTime(año, mes, dia); //Fecha de nacimiento
                 int edad = DateTime.Today.AddTicks(-nacimiento.Ticks).Year - 1;
-
                 txtEdad.Text = edad.ToString();
             }
             else
@@ -848,7 +836,14 @@ namespace CapaPresentacion
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            dtgVentas.Rows.RemoveAt(numero_fila);
+            try
+            {
+                dtgVentas.Rows.RemoveAt(numero_fila);
+            }
+            catch
+            {
+                MessageBox.Show("Favor de seleccinar una fila");
+            }
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -896,8 +891,17 @@ namespace CapaPresentacion
 
         private void cbbMembresiaLockers_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            MessageBox.Show(cbbMembresiaLockers.SelectedValue.ToString());
-            periodoLocker =  Convert.ToInt32(cbbMembresiaLockers.SelectedValue.ToString());
+            seleccionarMembresia(cbbMembresiaLockers);
+            DTPLockerVence.Value = DateTime.Today;
+            DTPLockerVence.Value = dateTimePicker1.Value.AddDays(periodoLocker);
+            
+            // MessageBox.Show(cbbMembresiaLockers.SelectedValue.ToString());
+            // periodoLocker =  Convert.ToInt32(cbbMembresiaLockers.SelectedValue.ToString());
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            
         }
     }
 

@@ -41,6 +41,13 @@ namespace CapaLogicaNegocios
             return M.Listado("seleccionar_membresia_tipo_lockers", lst);
         }
 
+        public DataTable buscarLockerSocio()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@idSocio", m_idSocio));
+            return M.Listado("buscar_locker_socio", lst);
+        }
+
         public void modificar_locker()
         {
             List<ClsParametros> lst = new List<ClsParametros>();
@@ -80,5 +87,7 @@ namespace CapaLogicaNegocios
 
             return respuesta;
         }
+
+        
     }
 }

@@ -79,15 +79,10 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Datos DS = new Datos();
-            verReporte VER;
-            DS.Tabla.Rows.Add("Pablo Delfin", "5200", "Socio nombre","Concepto largo para hacer la prueba que si se imprime abajo","100","Este es el total","30");
-            DS.Tabla.Rows.Add("Pablo Delfin", "5200", "Socio nombre","concepto 2","100","Este es el total","30");
-            DS.Tabla.Rows.Add("Pablo Delfin", "5200", "Socio nombre","concepto 3","100", "Este es el total","30");
-
-            // Inicializar el visor de reportes y mandarle la tabla con los datos
-            VER = new verReporte(DS.Tabla);
+          
             //VER.ShowDialog();
         }
+
+        
     }
 }

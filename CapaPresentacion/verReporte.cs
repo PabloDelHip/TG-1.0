@@ -23,7 +23,7 @@ namespace CapaPresentacion
 
             //Asignar reporte creado al visor de reportes
             RP.PrintToPrinter(1, false, 0, 0);
-           // this.crystalReportViewer1.ReportSource = RP;
+            //this.crystalReportViewer1.ReportSource = RP;
             
         }
 

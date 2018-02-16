@@ -12,7 +12,7 @@
   <xs:element name="Datos" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Datos" msprop:Generator_UserDSName="Datos">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Tabla" msprop:Generator_TableClassName="TablaDataTable" msprop:Generator_TableVarName="tableTabla" msprop:Generator_RowChangedName="TablaRowChanged" msprop:Generator_TablePropName="Tabla" msprop:Generator_RowDeletingName="TablaRowDeleting" msprop:Generator_RowChangingName="TablaRowChanging" msprop:Generator_RowEvHandlerName="TablaRowChangeEventHandler" msprop:Generator_RowDeletedName="TablaRowDeleted" msprop:Generator_RowClassName="TablaRow" msprop:Generator_UserTableName="Tabla" msprop:Generator_RowEvArgName="TablaRowChangeEvent">
+        <xs:element name="Tabla" msprop:Generator_TableClassName="TablaDataTable" msprop:Generator_TableVarName="tableTabla" msprop:Generator_TablePropName="Tabla" msprop:Generator_RowDeletingName="TablaRowDeleting" msprop:Generator_RowChangingName="TablaRowChanging" msprop:Generator_RowEvHandlerName="TablaRowChangeEventHandler" msprop:Generator_RowDeletedName="TablaRowDeleted" msprop:Generator_UserTableName="Tabla" msprop:Generator_RowChangedName="TablaRowChanged" msprop:Generator_RowEvArgName="TablaRowChangeEvent" msprop:Generator_RowClassName="TablaRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Usuario" msprop:Generator_ColumnVarNameInTable="columnUsuario" msprop:Generator_ColumnPropNameInRow="Usuario" msprop:Generator_ColumnPropNameInTable="UsuarioColumn" msprop:Generator_UserColumnName="Usuario" type="xs:string" minOccurs="0" />
@@ -22,6 +22,7 @@
               <xs:element name="Monto" msprop:Generator_ColumnVarNameInTable="columnMonto" msprop:Generator_ColumnPropNameInRow="Monto" msprop:Generator_ColumnPropNameInTable="MontoColumn" msprop:Generator_UserColumnName="Monto" type="xs:string" minOccurs="0" />
               <xs:element name="TotalTexto" msprop:Generator_ColumnVarNameInTable="columnTotalTexto" msprop:Generator_ColumnPropNameInRow="TotalTexto" msprop:Generator_ColumnPropNameInTable="TotalTextoColumn" msprop:Generator_UserColumnName="TotalTexto" type="xs:string" minOccurs="0" />
               <xs:element name="NumeroTicket" msprop:Generator_ColumnVarNameInTable="columnNumeroTicket" msprop:Generator_ColumnPropNameInRow="NumeroTicket" msprop:Generator_ColumnPropNameInTable="NumeroTicketColumn" msprop:Generator_UserColumnName="NumeroTicket" type="xs:string" minOccurs="0" />
+              <xs:element name="NumetoTexto" msprop:Generator_ColumnVarNameInTable="columnNumetoTexto" msprop:Generator_ColumnPropNameInRow="NumetoTexto" msprop:Generator_ColumnPropNameInTable="NumetoTextoColumn" msprop:Generator_UserColumnName="NumetoTexto" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
