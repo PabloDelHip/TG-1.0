@@ -53,9 +53,11 @@ namespace CapaPresentacion
                     Login.dineroEntrada = Login.dineroEntrada - cantidad;
                     tipoMov = 1;
                 }
-                cls_ingresarRetirar.m_cantidad = Login.dineroEntrada;
+                cls_ingresarRetirar.m_fecha = DateTime.Now;
+                cls_ingresarRetirar.m_cantidad = cantidad;
                 cls_ingresarRetirar.m_observacion = observacion;
                 cls_ingresarRetirar.m_tipoMovCaja = tipoMov;
+                cls_ingresarRetirar.m_usuario = Login.idUsuario;
                 mensaje = cls_ingresarRetirar.guardarMovimientoCaja();
                 MessageBox.Show(mensaje);
                 this.Close();

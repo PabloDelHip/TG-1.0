@@ -123,6 +123,18 @@
       <DependentUpon>CRMovCajaFecha.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRMovimientoCajaFecha.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMovimientoCajaFecha.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRMovimientoCajaUsuario.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRMovimientoCajaUsuario.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CRTicketVenta.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -202,6 +214,12 @@
     </Compile>
     <Compile Include="FrmMensajeEmail.Designer.cs">
       <DependentUpon>FrmMensajeEmail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMovimientosEScaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMovimientosEScaja.Designer.cs">
+      <DependentUpon>FrmMovimientosEScaja.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmObservacion.cs">
       <SubType>Form</SubType>
@@ -325,6 +343,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRMovCajaFecha.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRMovimientoCajaFecha.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRMovimientoCajaFecha.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRMovimientoCajaUsuario.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRMovimientoCajaUsuario.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRTicketVenta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRTicketVenta.cs</LastGenOutput>
@@ -362,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMensajeEmail.resx">
       <DependentUpon>FrmMensajeEmail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMovimientosEScaja.resx">
+      <DependentUpon>FrmMovimientosEScaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmObservacion.resx">
       <DependentUpon>FrmObservacion.cs</DependentUpon>
