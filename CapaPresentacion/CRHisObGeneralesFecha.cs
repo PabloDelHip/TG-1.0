@@ -16,14 +16,14 @@ namespace CapaPresentacion {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CRMovCaja : ReportClass {
+    public class CRHisObGeneralesFecha : ReportClass {
         
-        public CRMovCaja() {
+        public CRHisObGeneralesFecha() {
         }
         
         public override string ResourceName {
             get {
-                return "CRMovCaja.rpt";
+                return "CRHisObGeneralesFecha.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CapaPresentacion {
         
         public override string FullResourceName {
             get {
-                return "CapaPresentacion.CRMovCaja.rpt";
+                return "CapaPresentacion.CRHisObGeneralesFecha.rpt";
             }
             set {
                 // Do nothing
@@ -106,17 +106,25 @@ namespace CapaPresentacion {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_idUsuario {
+        public CrystalDecisions.Shared.IParameterField Parameter_FechaInicioBusqueda {
             get {
                 return this.DataDefinition.ParameterFields[0];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_FechaFinBusqueda {
+            get {
+                return this.DataDefinition.ParameterFields[1];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCRMovCaja : Component, ICachedReport {
+    public class CachedCRHisObGeneralesFecha : Component, ICachedReport {
         
-        public CachedCRMovCaja() {
+        public CachedCRHisObGeneralesFecha() {
         }
         
         [Browsable(false)]
@@ -153,7 +161,7 @@ namespace CapaPresentacion {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CRMovCaja rpt = new CRMovCaja();
+            CRHisObGeneralesFecha rpt = new CRHisObGeneralesFecha();
             rpt.Site = this.Site;
             return rpt;
         }

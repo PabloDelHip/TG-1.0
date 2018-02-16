@@ -16,14 +16,14 @@ namespace CapaPresentacion {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CRMovCaja : ReportClass {
+    public class CRHisObCajaID : ReportClass {
         
-        public CRMovCaja() {
+        public CRHisObCajaID() {
         }
         
         public override string ResourceName {
             get {
-                return "CRMovCaja.rpt";
+                return "CRHisObCajaID.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CapaPresentacion {
         
         public override string FullResourceName {
             get {
-                return "CapaPresentacion.CRMovCaja.rpt";
+                return "CapaPresentacion.CRHisObCajaID.rpt";
             }
             set {
                 // Do nothing
@@ -106,7 +106,7 @@ namespace CapaPresentacion {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_idUsuario {
+        public CrystalDecisions.Shared.IParameterField Parameter_IdSocio {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -114,9 +114,9 @@ namespace CapaPresentacion {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCRMovCaja : Component, ICachedReport {
+    public class CachedCRHisObCajaID : Component, ICachedReport {
         
-        public CachedCRMovCaja() {
+        public CachedCRHisObCajaID() {
         }
         
         [Browsable(false)]
@@ -153,7 +153,7 @@ namespace CapaPresentacion {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CRMovCaja rpt = new CRMovCaja();
+            CRHisObCajaID rpt = new CRHisObCajaID();
             rpt.Site = this.Site;
             return rpt;
         }

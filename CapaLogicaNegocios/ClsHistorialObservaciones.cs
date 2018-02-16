@@ -33,5 +33,31 @@ namespace CapaLogicaNegocios
             lst.Add(new ClsParametros("@FechaFinBusqueda", m_FechaFinBusquedaH));
             return M.Listado("buscar_hisObCaja", lst);
         }
+        public DataTable buscarHisObGeneralesID()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@IdSocio", m_IdUsuario));
+            return M.Listado("buscar_hisObGeneralesID", lst);
+        }
+        public DataTable buscarHisObCajaID()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@IdSocio", m_IdUsuario));
+            return M.Listado("buscar_hisObCajaID", lst);
+        }
+        public DataTable buscarHisObGeneralesFecha()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@FechaInicioBusqueda", m_FechaInicioBusquedaH));
+            lst.Add(new ClsParametros("@FechaFinBusqueda", m_FechaFinBusquedaH));
+            return M.Listado("buscar_hisObGeneralesFecha", lst);
+        }
+        public DataTable buscarHisObCajaFecha()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@FechaInicioBusqueda", m_FechaInicioBusquedaH));
+            lst.Add(new ClsParametros("@FechaFinBusqueda", m_FechaFinBusquedaH));
+            return M.Listado("buscar_hisObCajaFecha", lst);
+        }
     }
 }
