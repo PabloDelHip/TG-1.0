@@ -46,6 +46,7 @@
             this.cajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.retirarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtFechaVencimiento = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.ptbImagenSocio = new System.Windows.Forms.PictureBox();
             this.pPrincipal = new System.Windows.Forms.Panel();
-            this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbImagenSocio)).BeginInit();
@@ -198,16 +198,23 @@
             // ingresarToolStripMenuItem
             // 
             this.ingresarToolStripMenuItem.Name = "ingresarToolStripMenuItem";
-            this.ingresarToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.ingresarToolStripMenuItem.Size = new System.Drawing.Size(160, 30);
             this.ingresarToolStripMenuItem.Text = "Ingresar";
             this.ingresarToolStripMenuItem.Click += new System.EventHandler(this.ingresarToolStripMenuItem_Click);
             // 
             // retirarToolStripMenuItem
             // 
             this.retirarToolStripMenuItem.Name = "retirarToolStripMenuItem";
-            this.retirarToolStripMenuItem.Size = new System.Drawing.Size(210, 30);
+            this.retirarToolStripMenuItem.Size = new System.Drawing.Size(160, 30);
             this.retirarToolStripMenuItem.Text = "Retirar";
             this.retirarToolStripMenuItem.Click += new System.EventHandler(this.retirarToolStripMenuItem_Click);
+            // 
+            // ventasToolStripMenuItem
+            // 
+            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(76, 29);
+            this.ventasToolStripMenuItem.Text = "Ventas";
+            this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -291,13 +298,6 @@
             this.pPrincipal.Size = new System.Drawing.Size(1216, 688);
             this.pPrincipal.TabIndex = 10;
             // 
-            // ventasToolStripMenuItem
-            // 
-            this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(76, 29);
-            this.ventasToolStripMenuItem.Text = "Ventas";
-            this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -306,10 +306,11 @@
             this.Controls.Add(this.pPrincipal);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmMain";
-            this.Text = "FrmSocios";
+            this.Text = "Sistema de control TotalGym";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmSocios_Load);
             this.menuStrip1.ResumeLayout(false);
