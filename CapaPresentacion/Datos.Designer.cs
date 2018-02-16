@@ -293,6 +293,8 @@ namespace CapaPresentacion {
             
             private global::System.Data.DataColumn columnNumeroTicket;
             
+            private global::System.Data.DataColumn columnNumetoTexto;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TablaDataTable() {
@@ -384,6 +386,14 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn NumetoTextoColumn {
+                get {
+                    return this.columnNumetoTexto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,7 +429,7 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TablaRow AddTablaRow(string Usuario, string NumeroSocio, string NombreSocio, string Concepto, string Monto, string TotalTexto, string NumeroTicket) {
+            public TablaRow AddTablaRow(string Usuario, string NumeroSocio, string NombreSocio, string Concepto, string Monto, string TotalTexto, string NumeroTicket, string NumetoTexto) {
                 TablaRow rowTablaRow = ((TablaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Usuario,
@@ -428,7 +438,8 @@ namespace CapaPresentacion {
                         Concepto,
                         Monto,
                         TotalTexto,
-                        NumeroTicket};
+                        NumeroTicket,
+                        NumetoTexto};
                 rowTablaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTablaRow);
                 return rowTablaRow;
@@ -458,6 +469,7 @@ namespace CapaPresentacion {
                 this.columnMonto = base.Columns["Monto"];
                 this.columnTotalTexto = base.Columns["TotalTexto"];
                 this.columnNumeroTicket = base.Columns["NumeroTicket"];
+                this.columnNumetoTexto = base.Columns["NumetoTexto"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -477,6 +489,8 @@ namespace CapaPresentacion {
                 base.Columns.Add(this.columnTotalTexto);
                 this.columnNumeroTicket = new global::System.Data.DataColumn("NumeroTicket", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNumeroTicket);
+                this.columnNumetoTexto = new global::System.Data.DataColumn("NumetoTexto", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumetoTexto);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -731,6 +745,22 @@ namespace CapaPresentacion {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string NumetoTexto {
+                get {
+                    try {
+                        return ((string)(this[this.tableTabla.NumetoTextoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NumetoTexto\' de la tabla \'Tabla\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTabla.NumetoTextoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsUsuarioNull() {
                 return this.IsNull(this.tableTabla.UsuarioColumn);
             }
@@ -811,6 +841,18 @@ namespace CapaPresentacion {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetNumeroTicketNull() {
                 this[this.tableTabla.NumeroTicketColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsNumetoTextoNull() {
+                return this.IsNull(this.tableTabla.NumetoTextoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetNumetoTextoNull() {
+                this[this.tableTabla.NumetoTextoColumn] = global::System.Convert.DBNull;
             }
         }
         

@@ -47,8 +47,6 @@
             this.TxtTipoSocio = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cbbMembresia = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.DTPFechaVencimDesde = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnCancelarCamara = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
@@ -143,6 +141,8 @@
             this.dtgVentas.AllowUserToOrderColumns = true;
             this.dtgVentas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.dtgVentas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgVentas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dtgVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgVentas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Concepto,
@@ -189,8 +189,6 @@
             this.gbxMembresia.Controls.Add(this.TxtTipoSocio);
             this.gbxMembresia.Controls.Add(this.label8);
             this.gbxMembresia.Controls.Add(this.cbbMembresia);
-            this.gbxMembresia.Controls.Add(this.label10);
-            this.gbxMembresia.Controls.Add(this.DTPFechaVencimDesde);
             this.gbxMembresia.Enabled = false;
             this.gbxMembresia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxMembresia.Location = new System.Drawing.Point(6, 307);
@@ -251,6 +249,7 @@
             // 
             // DTPLockerVence
             // 
+            this.DTPLockerVence.Enabled = false;
             this.DTPLockerVence.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTPLockerVence.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DTPLockerVence.Location = new System.Drawing.Point(342, 97);
@@ -260,6 +259,7 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.Location = new System.Drawing.Point(314, 60);
@@ -292,26 +292,6 @@
             this.cbbMembresia.TabIndex = 42;
             this.cbbMembresia.SelectedIndexChanged += new System.EventHandler(this.cbbMembresia_SelectedIndexChanged);
             this.cbbMembresia.SelectionChangeCommitted += new System.EventHandler(this.cbbMembresia_SelectionChangeCommitted);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(243, 26);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 13);
-            this.label10.TabIndex = 36;
-            this.label10.Text = "Vencimiento";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // DTPFechaVencimDesde
-            // 
-            this.DTPFechaVencimDesde.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DTPFechaVencimDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPFechaVencimDesde.Location = new System.Drawing.Point(314, 22);
-            this.DTPFechaVencimDesde.Name = "DTPFechaVencimDesde";
-            this.DTPFechaVencimDesde.Size = new System.Drawing.Size(123, 20);
-            this.DTPFechaVencimDesde.TabIndex = 34;
             // 
             // groupBox1
             // 
@@ -696,8 +676,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox gbxMembresia;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker DTPFechaVencimDesde;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label label13;
