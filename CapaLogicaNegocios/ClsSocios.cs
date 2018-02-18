@@ -116,6 +116,16 @@ namespace CapaLogicaNegocios
             
         }
 
+        // metodo para regresar el alimno
+        public DataTable buscarSocioPorNombre()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            lst.Add(new ClsParametros("@nombre", m_Nombre));
+            return M.Listado("buscar_socio_por_nombre", lst);
+
+        }
+
         // metodo para regresar los movimientos del socio
         public DataTable movimientosSocios()
         {

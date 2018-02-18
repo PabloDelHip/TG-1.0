@@ -27,6 +27,7 @@ namespace CapaLogicaNegocios
         public static double cantidadDescuento { get; set; }
         public static bool Pago { get; set; }
         public static int tipoPago { get; set; }
+        public static int idSocio { get; set; }
 
         //public string m_Existe { get; set; }
 

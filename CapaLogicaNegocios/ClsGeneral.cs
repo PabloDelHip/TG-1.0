@@ -189,7 +189,7 @@ namespace CapaLogicaNegocios
                 //Cuerpo del Mensaje
                 mmsg.Body = textoCorreo;
                 mmsg.BodyEncoding = System.Text.Encoding.UTF8;
-                mmsg.IsBodyHtml = false; //Si no queremos que se envíe como HTML
+                mmsg.IsBodyHtml = true; //Si no queremos que se envíe como HTML
 
                 //Correo electronico desde la que enviamos el mensaje
                 mmsg.From = new System.Net.Mail.MailAddress("pablo@inttesi.com.mx");

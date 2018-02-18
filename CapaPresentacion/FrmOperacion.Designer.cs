@@ -48,12 +48,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.cbbMembresia = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnCancelarCamara = new System.Windows.Forms.Button();
-            this.btnIniciar = new System.Windows.Forms.Button();
             this.cboDispositivos = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtEdad = new System.Windows.Forms.TextBox();
-            this.pbFotoUser = new System.Windows.Forms.PictureBox();
             this.mktFechaNacimiento = new System.Windows.Forms.MaskedTextBox();
             this.mktCelular = new System.Windows.Forms.MaskedTextBox();
             this.TxtEmail = new System.Windows.Forms.TextBox();
@@ -74,20 +71,25 @@
             this.TabHistorial = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TStOpciones = new System.Windows.Forms.ToolStrip();
-            this.TstCmdAgrefarUsr = new System.Windows.Forms.ToolStripButton();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.TSTxtBuscaSocio = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.TsLimpiaForm = new System.Windows.Forms.ToolStripButton();
+            this.TstCmdAgrefarUsr = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelarCamara = new System.Windows.Forms.Button();
+            this.btnIniciar = new System.Windows.Forms.Button();
+            this.pbFotoUser = new System.Windows.Forms.PictureBox();
+            this.txtBuscarPorNombre = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.TabUsuario.SuspendLayout();
             this.TabGral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgVentas)).BeginInit();
             this.gbxMembresia.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).BeginInit();
             this.TabHistorial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.TStOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).BeginInit();
             this.SuspendLayout();
             // 
             // TabUsuario
@@ -325,36 +327,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del socio";
             // 
-            // btnCancelarCamara
-            // 
-            this.btnCancelarCamara.Enabled = false;
-            this.btnCancelarCamara.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarCamara.Image = global::CapaPresentacion.Properties.Resources.cancelar1;
-            this.btnCancelarCamara.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelarCamara.Location = new System.Drawing.Point(594, 244);
-            this.btnCancelarCamara.Name = "btnCancelarCamara";
-            this.btnCancelarCamara.Size = new System.Drawing.Size(97, 35);
-            this.btnCancelarCamara.TabIndex = 48;
-            this.btnCancelarCamara.Text = "Cancelar";
-            this.btnCancelarCamara.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelarCamara.UseVisualStyleBackColor = true;
-            this.btnCancelarCamara.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // btnIniciar
-            // 
-            this.btnIniciar.Enabled = false;
-            this.btnIniciar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIniciar.Image = global::CapaPresentacion.Properties.Resources.iniciar1;
-            this.btnIniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIniciar.Location = new System.Drawing.Point(480, 244);
-            this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(81, 35);
-            this.btnIniciar.TabIndex = 5;
-            this.btnIniciar.Text = "Iniciar";
-            this.btnIniciar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnIniciar.UseVisualStyleBackColor = true;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
-            // 
             // cboDispositivos
             // 
             this.cboDispositivos.FormattingEnabled = true;
@@ -380,16 +352,6 @@
             this.txtEdad.Size = new System.Drawing.Size(100, 20);
             this.txtEdad.TabIndex = 44;
             // 
-            // pbFotoUser
-            // 
-            this.pbFotoUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFotoUser.Location = new System.Drawing.Point(397, 11);
-            this.pbFotoUser.Name = "pbFotoUser";
-            this.pbFotoUser.Size = new System.Drawing.Size(341, 224);
-            this.pbFotoUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFotoUser.TabIndex = 4;
-            this.pbFotoUser.TabStop = false;
-            // 
             // mktFechaNacimiento
             // 
             this.mktFechaNacimiento.Enabled = false;
@@ -400,6 +362,7 @@
             this.mktFechaNacimiento.TabIndex = 43;
             this.mktFechaNacimiento.ValidatingType = typeof(System.DateTime);
             this.mktFechaNacimiento.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mktFechaNacimiento_MaskInputRejected);
+            this.mktFechaNacimiento.Click += new System.EventHandler(this.mktFechaNacimiento_Click);
             this.mktFechaNacimiento.TextChanged += new System.EventHandler(this.mktFechaNacimiento_TextChanged);
             // 
             // mktCelular
@@ -587,6 +550,8 @@
             this.TstCmdAgrefarUsr,
             this.toolStripLabel1,
             this.TSTxtBuscaSocio,
+            this.toolStripLabel2,
+            this.txtBuscarPorNombre,
             this.toolStripButton1,
             this.TsLimpiaForm});
             this.TStOpciones.Location = new System.Drawing.Point(0, 0);
@@ -594,6 +559,28 @@
             this.TStOpciones.Size = new System.Drawing.Size(779, 31);
             this.TStOpciones.TabIndex = 3;
             this.TStOpciones.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(84, 28);
+            this.toolStripLabel1.Text = "Buscar por id>";
+            // 
+            // TSTxtBuscaSocio
+            // 
+            this.TSTxtBuscaSocio.Name = "TSTxtBuscaSocio";
+            this.TSTxtBuscaSocio.Size = new System.Drawing.Size(100, 31);
+            this.TSTxtBuscaSocio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TSTxtBuscaSocio_KeyDown);
+            this.TSTxtBuscaSocio.Click += new System.EventHandler(this.TSTxtBuscaSocio_Click);
+            // 
+            // TsLimpiaForm
+            // 
+            this.TsLimpiaForm.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TsLimpiaForm.Name = "TsLimpiaForm";
+            this.TsLimpiaForm.Size = new System.Drawing.Size(57, 28);
+            this.TsLimpiaForm.Text = "Cancelar";
+            this.TsLimpiaForm.ToolTipText = "Limpia el formulario actual";
+            this.TsLimpiaForm.Click += new System.EventHandler(this.TsLimpiaForm_Click);
             // 
             // TstCmdAgrefarUsr
             // 
@@ -603,19 +590,6 @@
             this.TstCmdAgrefarUsr.Size = new System.Drawing.Size(94, 28);
             this.TstCmdAgrefarUsr.Text = "Crear socio";
             this.TstCmdAgrefarUsr.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(50, 28);
-            this.toolStripLabel1.Text = "Buscar>";
-            // 
-            // TSTxtBuscaSocio
-            // 
-            this.TSTxtBuscaSocio.Name = "TSTxtBuscaSocio";
-            this.TSTxtBuscaSocio.Size = new System.Drawing.Size(100, 31);
-            this.TSTxtBuscaSocio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TSTxtBuscaSocio_KeyDown);
-            this.TSTxtBuscaSocio.Click += new System.EventHandler(this.TSTxtBuscaSocio_Click);
             // 
             // toolStripButton1
             // 
@@ -627,14 +601,57 @@
             this.toolStripButton1.ToolTipText = "Limpia el formulario actual";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click_1);
             // 
-            // TsLimpiaForm
+            // btnCancelarCamara
             // 
-            this.TsLimpiaForm.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TsLimpiaForm.Name = "TsLimpiaForm";
-            this.TsLimpiaForm.Size = new System.Drawing.Size(57, 28);
-            this.TsLimpiaForm.Text = "Cancelar";
-            this.TsLimpiaForm.ToolTipText = "Limpia el formulario actual";
-            this.TsLimpiaForm.Click += new System.EventHandler(this.TsLimpiaForm_Click);
+            this.btnCancelarCamara.Enabled = false;
+            this.btnCancelarCamara.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarCamara.Image = global::CapaPresentacion.Properties.Resources.cancelar1;
+            this.btnCancelarCamara.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarCamara.Location = new System.Drawing.Point(594, 244);
+            this.btnCancelarCamara.Name = "btnCancelarCamara";
+            this.btnCancelarCamara.Size = new System.Drawing.Size(97, 35);
+            this.btnCancelarCamara.TabIndex = 48;
+            this.btnCancelarCamara.Text = "Cancelar";
+            this.btnCancelarCamara.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelarCamara.UseVisualStyleBackColor = true;
+            this.btnCancelarCamara.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // btnIniciar
+            // 
+            this.btnIniciar.Enabled = false;
+            this.btnIniciar.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciar.Image = global::CapaPresentacion.Properties.Resources.iniciar1;
+            this.btnIniciar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIniciar.Location = new System.Drawing.Point(480, 244);
+            this.btnIniciar.Name = "btnIniciar";
+            this.btnIniciar.Size = new System.Drawing.Size(81, 35);
+            this.btnIniciar.TabIndex = 5;
+            this.btnIniciar.Text = "Iniciar";
+            this.btnIniciar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
+            // 
+            // pbFotoUser
+            // 
+            this.pbFotoUser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbFotoUser.Location = new System.Drawing.Point(397, 11);
+            this.pbFotoUser.Name = "pbFotoUser";
+            this.pbFotoUser.Size = new System.Drawing.Size(341, 224);
+            this.pbFotoUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFotoUser.TabIndex = 4;
+            this.pbFotoUser.TabStop = false;
+            // 
+            // txtBuscarPorNombre
+            // 
+            this.txtBuscarPorNombre.Name = "txtBuscarPorNombre";
+            this.txtBuscarPorNombre.Size = new System.Drawing.Size(100, 31);
+            this.txtBuscarPorNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscarPorNombre_KeyDown);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(119, 28);
+            this.toolStripLabel2.Text = "Buscar por nombre >";
             // 
             // FrmOperacion
             // 
@@ -656,11 +673,11 @@
             this.gbxMembresia.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).EndInit();
             this.TabHistorial.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.TStOpciones.ResumeLayout(false);
             this.TStOpciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFotoUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -719,5 +736,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripTextBox txtBuscarPorNombre;
     }
 }
