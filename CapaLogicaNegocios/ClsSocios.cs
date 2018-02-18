@@ -136,6 +136,15 @@ namespace CapaLogicaNegocios
 
         }
 
+        public DataTable buscarSocioDiasViajero()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            lst.Add(new ClsParametros("@IdSocio", m_IdSocio));
+            return M.Listado("buscar_socio_dias_viajero", lst);
+
+        }
+
         public void conectarAlServidor(int idSocio)
         {
             Socket miPrimerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);

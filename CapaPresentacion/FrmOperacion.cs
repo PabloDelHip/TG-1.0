@@ -29,6 +29,7 @@ namespace CapaPresentacion
         SoundPlayer sonido = new SoundPlayer();
         ClsHdrVentaHist cls_hdr_venta_hist = new ClsHdrVentaHist();
         ClsMovVentasHist cls_mov_ventas_hist = new ClsMovVentasHist();
+        ClsProductos cls_productos = new ClsProductos();
         List<datosVenta> lista_datos_venta = new List<datosVenta>();
         DataTable dt;
         double SubtotalAPagar = 0;
@@ -112,6 +113,7 @@ namespace CapaPresentacion
         {
             BuscarDispositivos();
             llenarComboMembresias();
+            llenarComboProductos();
             cboDispositivos.Visible = false;
             llenarcomboTipoMembresiaLocker();
 
@@ -347,7 +349,7 @@ namespace CapaPresentacion
                     Socio.m_Edad = "0";
                     Socio.m_Telefono = mktCelular.Text;
                     Socio.m_Sexo = RDsexoFem.Checked ? "F" : "M";
-                    Socio.m_TipoSocio = TxtTipoSocio.Text;
+                    Socio.m_TipoSocio = txtDiasViajero.Text;
 
                     Socio.m_Fingerprint = "vacio";
                     //Socio.m_FechaIngreso = DtpFechaIngreso.Value;
@@ -471,12 +473,21 @@ namespace CapaPresentacion
                 dt = cls_socios.movimientosSocios();
                 dataGridView1.DataSource = dt;
                 cls_lockers.m_idSocio = Convert.ToInt32(TSTxtBuscaSocio.Text);
-               // MessageBox.Show(cls_lockers.m_idSocio.ToString());
+                // MessageBox.Show(cls_lockers.m_idSocio.ToString());
                 DataTable dtLocker = cls_lockers.buscarLockerSocio();
                 foreach (DataRow filas in dtLocker.Rows)
                 {
                     DTPLockerVence.Value = Convert.ToDateTime(filas["fechaVencimiento"].ToString());
                 }
+
+                dt = cls_socios.buscarSocioDiasViajero();
+                
+                if (dt.Rows.Count>0)
+                {
+                    txtDiasViajero.Text = dt.Rows[0]["numDiasViajero"].ToString();
+                    dtpVencimientoViajero.Value = Convert.ToDateTime(dt.Rows[0]["fechaVencimiento"].ToString());
+                }
+                
             }
             else MessageBox.Show("  Socio no encontrado ");
         }
@@ -612,6 +623,19 @@ namespace CapaPresentacion
             //se coloca el valor del combo
             cbbMembresia.DisplayMember = "Descripcion";
             cbbMembresia.Text = "";
+        }
+
+        private void llenarComboProductos()
+        {
+
+            DataTable dt = cls_productos.SeleccionarProductos();
+            //se llena el datasoucer con lo que regreso el SP
+            cbbProductos.DataSource = dt;
+            //se coloca el indice o option en web
+            cbbProductos.ValueMember = "idProducto";
+            //se coloca el valor del combo
+            cbbProductos.DisplayMember = "descripcion";
+            cbbProductos.Text = "";
         }
 
         private void llenarcomboTipoMembresiaLocker()
@@ -760,7 +784,7 @@ namespace CapaPresentacion
 
 
                     // Inicializar el visor de reportes y mandarle la tabla con los datos
-                    VER = new verReporte(DS.Tabla);
+                   // VER = new verReporte(DS.Tabla);
                     ArrayList email = new ArrayList();
                     email.Add(TxtEmail.Text);
                     cls_generales.EnviarCorreo(email, textoCorreo, "venta Total Gym", "");
@@ -923,7 +947,7 @@ namespace CapaPresentacion
         {
             seleccionarMembresia(cbbMembresiaLockers);
             DTPLockerVence.Value = DateTime.Today;
-            DTPLockerVence.Value = dateTimePicker1.Value.AddDays(periodoLocker);
+            DTPLockerVence.Value = dtpVencimientoViajero.Value.AddDays(periodoLocker);
             
             // MessageBox.Show(cbbMembresiaLockers.SelectedValue.ToString());
             // periodoLocker =  Convert.ToInt32(cbbMembresiaLockers.SelectedValue.ToString());

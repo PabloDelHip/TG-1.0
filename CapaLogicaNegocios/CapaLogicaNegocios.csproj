@@ -60,6 +60,7 @@
     <Compile Include="ClsMovVentasHist.cs" />
     <Compile Include="ClsObservaciones.cs" />
     <Compile Include="ClsObservacionesCaja.cs" />
+    <Compile Include="ClsProductos.cs" />
     <Compile Include="ClsRegistroEntradas.cs" />
     <Compile Include="ClsSocios.cs" />
     <Compile Include="ClsTextoEmail.cs" />
