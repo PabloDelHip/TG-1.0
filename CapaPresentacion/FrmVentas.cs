@@ -36,7 +36,7 @@ namespace CapaPresentacion
         }
 
         private void btnGenerarReporte_Click(object sender, EventArgs e)
-        {
+        { //generar reporte
             if (MessageBox.Show("¿Desea generar un reporte?", "Continuar", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 Login.opcionReporte = 4;
