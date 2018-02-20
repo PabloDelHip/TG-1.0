@@ -154,6 +154,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmVentas";
             this.Text = "Ventas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVentas)).EndInit();
             this.groupBox1.ResumeLayout(false);
