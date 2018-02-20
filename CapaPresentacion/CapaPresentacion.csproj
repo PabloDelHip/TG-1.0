@@ -155,6 +155,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Datos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FrmBuscarSocioNombre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarSocioNombre.Designer.cs">
+      <DependentUpon>FrmBuscarSocioNombre.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBusquedaEntradas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +364,9 @@
     <EmbeddedResource Include="CRVentas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRVentas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarSocioNombre.resx">
+      <DependentUpon>FrmBuscarSocioNombre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBusquedaEntradas.resx">
       <DependentUpon>FrmBusquedaEntradas.cs</DependentUpon>
