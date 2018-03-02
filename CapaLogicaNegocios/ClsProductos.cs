@@ -20,5 +20,12 @@ namespace CapaLogicaNegocios
         {
             return M.Listado("seleccionar_productos", null);
         }
+
+        public DataTable buscarProducto()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@idProducto", m_idProducto));
+            return M.Listado("buscarProducto", lst);
+        }
     }
 }

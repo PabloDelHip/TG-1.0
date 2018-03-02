@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,21 +13,20 @@ namespace CapaLogicaNegocios
 {
     public class ClsGeneral
     {
+       public static Socket miPrimerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         public string Servidor()
         {
             string idSocio="";
-                Socket miPrimerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                
+            miPrimerSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            // paso 2 - creamos el socket
 
-                // paso 2 - creamos el socket
-
-                IPEndPoint miDireccion = new IPEndPoint(IPAddress.Any, 1234);
+            IPEndPoint miDireccion = new IPEndPoint(IPAddress.Any, 1234);
                 byte[] ByRec;
             //paso 3 -IPAddress.Any significa que va a escuchar al cliente en toda la red
 
             try
-
             {
-
 
 
                 // paso 4
@@ -57,12 +58,10 @@ namespace CapaLogicaNegocios
             }
 
             catch (Exception error)
-
             {
                 throw error;
-                    //Console.WriteLine("Error: {0}", error.ToString());
-
-                }
+                //Console.WriteLine("Error: {0}", error.ToString());
+            }
             return idSocio;
 
         }
@@ -159,6 +158,66 @@ namespace CapaLogicaNegocios
             }
             return Num2Text;
 
+        }
+
+        public string enviarSMS(string numCelular, string textoSMS)
+        {
+            string respuesta = "";
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("http://www.altiria.net");
+            //Establecemos el TimeOut para obtener la respuesta del servidor
+            client.Timeout = TimeSpan.FromSeconds(60);
+            //Se compone el mensaje a enviar
+            // XX, YY y ZZ se corresponden con los valores de identificaci´on del usuario en el sistema.
+            var postData = new List<KeyValuePair<string, string>>();
+            postData.Add(new KeyValuePair<string, string>("cmd", "sendsms"));
+            postData.Add(new KeyValuePair<string, string>("domainId", "test"));
+            postData.Add(new KeyValuePair<string, string>("login", "pablodelhip"));
+            postData.Add(new KeyValuePair<string, string>("passwd", "qxq8rmtx"));
+            postData.Add(new KeyValuePair<string, string>("dest", "52"+numCelular));
+
+            postData.Add(new KeyValuePair<string, string>("msg",textoSMS));
+            //Remitente autorizado por Altiria al dar de alta el servicio.
+            //Omitir el parametro si no se cuenta con ninguno.
+            //postData.Add(new KeyValuePair<string, string>("senderId", "remitente"));
+            HttpContent content = new FormUrlEncodedContent(postData);
+            String err = "";
+            String resp = "";
+            try
+            {
+                //Como ejemplo la petici´on se env´ıa a www.altiria.net/sustituirPOSTsms
+                //Se debe reemplazar la cadena ’/sustituirPOSTsms’ por la parte correspondiente
+                //de la URL suministrada por Altiria al dar de alta el servicio
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, "/api/http");
+                request.Content = content;
+                content.Headers.ContentType.CharSet = "UTF-8";
+                request.Content.Headers.ContentType =
+                new MediaTypeHeaderValue("application/x-www-form-urlencoded");
+                HttpResponseMessage response = client.SendAsync(request).Result;
+                var responseString = response.Content.ReadAsStringAsync();
+                resp = responseString.Result;
+            }
+            catch (Exception e)
+            {
+                err = e.Message;
+
+            }
+            finally
+            {
+                if (err != "")
+                {
+                    Console.WriteLine(err);
+                    respuesta = err;
+                }
+
+                else
+                {
+                    Console.WriteLine(resp);
+                    respuesta = resp;
+                }
+            }
+
+            return respuesta;
         }
 
 

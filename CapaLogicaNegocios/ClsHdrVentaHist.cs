@@ -17,7 +17,8 @@ namespace CapaLogicaNegocios
         public double m_IVA { get; set; }
         public double m_Total{ get; set; }
         public string m_User_modif { get; set; }
-        public int m_tipoPago { get; set; } 
+        public int m_tipoPago { get; set; }
+        public int m_FolioVenta { get; set; }
 
         /**************Estructura*************/
 
@@ -54,5 +55,32 @@ namespace CapaLogicaNegocios
 
             return mensaje;
         }
+
+
+        public string cancelarTicket()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            try
+            {
+                lst.Add(new ClsParametros("@FolioVenta", m_FolioVenta));
+
+                /*Mensaje de salida*/
+                lst.Add(new ClsParametros("@respuesta", SqlDbType.VarChar, 40));
+                M.Ejecutar_sp("cancelar_ticket", lst);
+                //Retornamos el mensaje  de salida del SP
+                mensaje = lst[1].Valor.ToString();/////.valor 
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return mensaje;
+        }
+
+
     }
 }

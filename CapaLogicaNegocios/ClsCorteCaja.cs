@@ -16,9 +16,13 @@ namespace CapaLogicaNegocios
         public int m_entrada { get; set; }
         public int m_salida { get; set; }
         public int m_idUsuario { get; set; }
+        public string m_user_modif { get; set; }
         public double m_cantidad { get; set; }
         public double m_cantidadCorte { get; set; }
         public int m_cajaCerrada { get; set; }
+        public double m_totalCaja { get; set; }
+        public double m_totalTarjeta { get; set; }
+        public double m_totalCorte { get; set; }
 
         ClsManejador M = new ClsManejador();
 
@@ -31,14 +35,17 @@ namespace CapaLogicaNegocios
             {
                 // armamos la clase para el cuerpo del procedimiento
                 // Parametros de entrada
+                lst.Add(new ClsParametros("@Supervisor", m_Supervisor));
                 lst.Add(new ClsParametros("@idUsuario", m_idUsuario));
-                lst.Add(new ClsParametros("@cantidad", m_cantidad));
+                lst.Add(new ClsParametros("@totalCaja", m_totalCaja));
+                lst.Add(new ClsParametros("@totalTarjeta", m_totalTarjeta));
+                lst.Add(new ClsParametros("@totalCorte", m_totalCorte));
 
                 /*Mensaje de salida*/
                 lst.Add(new ClsParametros("@respuesta", SqlDbType.VarChar, 40));
                 M.Ejecutar_sp("movimiento_corte_caja_entrada", lst);
                 //Retornamos el mensaje  de salida del SP
-                respuesta = lst[2].Valor.ToString();/////.valor 
+                respuesta = lst[5].Valor.ToString();/////.valor 
 
             }
             catch (Exception ex)
@@ -69,6 +76,35 @@ namespace CapaLogicaNegocios
             }
 
             return "";
+        }
+
+        public DataTable sumaTotalCorte()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@user_modif", m_user_modif));
+            lst.Add(new ClsParametros("@idUsuario", m_idUsuario));
+            return M.Listado("sumaTotalCorte", lst);
+        }
+
+        public DataTable seleccionarMovimientosCajaCorte()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@idUsuario", m_idUsuario));
+            return M.Listado("seleccionar_movimientos_caja_corte", lst);
+        }
+
+        public DataTable seleccionarMovimientosVentaEfectivo()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@User_modif", m_user_modif));
+            return M.Listado("seleccionar_movimientos_venta_efectivo", lst);
+        }
+
+        public DataTable seleccionarMovimientosVentaTarjeta()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@User_modif", m_user_modif));
+            return M.Listado("seleccionar_movimientos_venta_tarjeta", lst);
         }
     }
 }

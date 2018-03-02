@@ -28,11 +28,10 @@ namespace CapaLogicaNegocios
                 lst.Add(new ClsParametros("@cantidad", m_cantidad));
                 lst.Add(new ClsParametros("@detalle", m_observacion));
                 lst.Add(new ClsParametros("@tipoMovimiento", m_tipoMovCaja));
-                lst.Add(new ClsParametros("@fecha", m_fecha));
                 lst.Add(new ClsParametros("@idUsuario", m_usuario));
                 lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
                 M.Ejecutar_sp("movimientos_caja", lst);
-                mensaje = lst[5].Valor.ToString();
+                mensaje = lst[4].Valor.ToString();
                 return mensaje;
             }
             catch (Exception ex)

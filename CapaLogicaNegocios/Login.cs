@@ -18,7 +18,9 @@ namespace CapaLogicaNegocios
         public string M_Login { get; set; }
         public string M_Pass { get; set; }
         public static int idUsuario { get; set; }
+        public static int idSuperUsuario { get; set; }
         public static string nombre { get; set; }
+        public static string Supernombre { get; set; }
         public static double dineroEntrada { get; set; }
         public static double dineroTarjeta { get; set; }
         public static bool cajaAbierta { get; set; }
@@ -28,6 +30,8 @@ namespace CapaLogicaNegocios
         public static bool Pago { get; set; }
         public static int tipoPago { get; set; }
         public static int idSocio { get; set; }
+        public static bool cerrarSesion { get; set; }
+        public static bool superUsuario { get; set; }
 
         //public string m_Existe { get; set; }
 
@@ -72,6 +76,14 @@ namespace CapaLogicaNegocios
             lst.Add(new ClsParametros("@Password", M_Pass));
             return M.Listado("VerificarUsuario", lst);
 
+        }
+
+        public DataTable buscarSuperUsuario()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@Login", M_Login));
+            lst.Add(new ClsParametros("@Password", M_Pass));
+            return M.Listado("buscar_super_usuario", lst);
         }
 
 

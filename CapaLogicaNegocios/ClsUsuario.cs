@@ -92,5 +92,7 @@ namespace CapaLogicaNegocios
             lst.Add(new ClsParametros("@TipoBusqueda", m_TipoBusqueda));
             return M.Listado("buscar_usuario", lst);
         }
+
+       
     }
 }

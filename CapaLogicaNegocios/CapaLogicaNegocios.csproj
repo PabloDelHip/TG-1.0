@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClsClvMembresias.cs" />
     <Compile Include="ClsCorteCaja.cs" />
     <Compile Include="ClsCrearTicket.cs" />
     <Compile Include="ClsGeneral.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="ClsIngresarRetirar.cs" />
     <Compile Include="ClsInstructores.cs" />
     <Compile Include="ClsLockers.cs" />
+    <Compile Include="ClsLogin.cs" />
     <Compile Include="ClsMembresias.cs" />
     <Compile Include="ClsMovCortesCaja.cs" />
     <Compile Include="ClsMovimientoCaja.cs" />
@@ -66,6 +68,7 @@
     <Compile Include="ClsTextoEmail.cs" />
     <Compile Include="ClsUsuario.cs" />
     <Compile Include="ClsVentas.cs" />
+    <Compile Include="Datatable.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
